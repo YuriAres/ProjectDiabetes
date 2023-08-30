@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_diabetes/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class LoginPage extends StatefulWidget {
@@ -22,39 +23,7 @@ class _LoginPageState extends State<LoginPage> {
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.01,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "DIA",
-                      style: GoogleFonts.ubuntu(
-                        fontSize: (MediaQuery.of(context).size.height * 0.08),
-                      ),
-                    ),
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.01,
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "rio",
-                          style: GoogleFonts.ubuntu(
-                            fontSize:
-                                (MediaQuery.of(context).size.height * 0.03),
-                          ),
-                        ),
-                        Text(
-                          "betes",
-                          style: GoogleFonts.ubuntu(
-                            fontSize:
-                                (MediaQuery.of(context).size.height * 0.03),
-                          ),
-                        )
-                      ],
-                    )
-                  ],
-                ),
+                CustomWidgets().header(context),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.01,
                 ),
@@ -78,14 +47,13 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 Expanded(
                     child: Container(
-                  padding: EdgeInsets.all(20),
+                  padding: const EdgeInsets.all(20),
                   decoration: const BoxDecoration(
                     borderRadius:
                         BorderRadius.vertical(top: Radius.elliptical(25, 28)),
                     color: Color(0xFF8851F6),
                   ),
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       Align(
                         alignment: Alignment.center,
@@ -99,68 +67,58 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       ),
                       SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.06,
+                        height: MediaQuery.of(context).size.height * 0.05,
                       ),
-                      TextField(
-                        style: GoogleFonts.ubuntu(
-                            color: Colors.white,
-                            fontSize:
-                                MediaQuery.of(context).size.height * 0.02),
-                        decoration: InputDecoration(
-                          contentPadding: EdgeInsets.all(
-                              MediaQuery.of(context).size.height * 0.02),
-                          label: const Text("Email"),
-                          labelStyle: GoogleFonts.ubuntu(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                              fontSize:
-                                  MediaQuery.of(context).size.height * 0.02),
-                          hintText: "Insira seu email",
-                          hintStyle: GoogleFonts.ubuntu(
-                              color: Colors.white,
-                              fontSize:
-                                  MediaQuery.of(context).size.height * 0.02),
-                          filled: true,
-                          fillColor: const Color(0xff9A68FD),
-                          border: const OutlineInputBorder(
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(10),
-                              ),
-                              borderSide: BorderSide(
-                                  width: 0, style: BorderStyle.none)),
-                        ),
-                      ),
+                      CustomWidgets().customTextfield(
+                          context, "Email", "Insira seu email"),
                       SizedBox(
                         height: MediaQuery.of(context).size.height * 0.03,
                       ),
-                      TextField(
-                        style: GoogleFonts.ubuntu(
-                            color: Colors.white,
-                            fontSize:
-                                MediaQuery.of(context).size.height * 0.02),
-                        decoration: InputDecoration(
-                          contentPadding: EdgeInsets.all(
-                              MediaQuery.of(context).size.height * 0.02),
-                          label: const Text("Email"),
-                          labelStyle: GoogleFonts.ubuntu(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                              fontSize:
-                                  MediaQuery.of(context).size.height * 0.02),
-                          hintText: "Insira seu email",
-                          hintStyle: GoogleFonts.ubuntu(
-                              color: Colors.white,
-                              fontSize:
-                                  MediaQuery.of(context).size.height * 0.02),
-                          filled: true,
-                          fillColor: const Color(0xff9A68FD),
-                          border: const OutlineInputBorder(
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(10),
-                              ),
-                              borderSide: BorderSide(
-                                  width: 0, style: BorderStyle.none)),
+                      CustomWidgets().customTextfield(
+                          context, "Senha", "Insira sua senha"),
+                      Align(
+                        alignment: Alignment.centerRight,
+                        child: TextButton(
+                          child: Text(
+                            "Esqueceu sua senha?",
+                            style: GoogleFonts.ubuntu(
+                                color: Colors.white,
+                                fontSize:
+                                    MediaQuery.of(context).size.height * 0.02),
+                          ),
+                          onPressed: () {},
                         ),
+                      ),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.015,
+                      ),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.06,
+                        width: MediaQuery.of(context).size.width * 0.6,
+                        child: ElevatedButton(
+                          onPressed: () {},
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: const Color(0xff6318F2),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10))),
+                          child: Text(
+                            "Log in",
+                            style: GoogleFonts.ubuntu(
+                                fontSize:
+                                    MediaQuery.of(context).size.height * 0.03,
+                                fontWeight: FontWeight.w600),
+                          ),
+                        ),
+                      ),
+                      TextButton(
+                        child: Text(
+                          "Não possui conta? Crie aqui!",
+                          style: GoogleFonts.ubuntu(
+                              color: Colors.white,
+                              fontSize:
+                                  MediaQuery.of(context).size.height * 0.02),
+                        ),
+                        onPressed: () {},
                       )
                     ],
                   ),
