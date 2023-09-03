@@ -64,4 +64,55 @@ class CustomWidgets {
       ],
     );
   }
+
+  Widget customDropDownButton(
+      String hint,
+      BuildContext context,
+      String? selectedValue,
+      List<String> moedas,
+      Function(String? selection) func) {
+    return SizedBox(
+      width: MediaQuery.of(context).size.width * 0.32,
+      child: DropdownButtonFormField(
+          hint: Text(
+            hint,
+            style: GoogleFonts.ubuntu(
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+                fontSize: MediaQuery.of(context).size.height * 0.02),
+          ),
+          isExpanded: true,
+          dropdownColor: const Color(0xff9A68FD),
+          decoration: InputDecoration(
+              filled: true,
+              fillColor: const Color(0xff9A68FD),
+              contentPadding:
+                  EdgeInsets.all(MediaQuery.of(context).size.height * 0.0185),
+              enabledBorder: OutlineInputBorder(
+                  borderSide:
+                      const BorderSide(width: 0, style: BorderStyle.none),
+                  borderRadius: BorderRadius.circular(10)),
+              focusedBorder: OutlineInputBorder(
+                  borderSide:
+                      const BorderSide(width: 0, style: BorderStyle.none),
+                  borderRadius: BorderRadius.circular(10))),
+          icon: const Icon(
+            Icons.expand_more,
+            size: 30,
+            color: Colors.white,
+          ),
+          value: selectedValue,
+          items: moedas
+              .map((opcoes) => DropdownMenuItem(
+                  value: opcoes,
+                  child: Center(
+                      child: Text(opcoes,
+                          style: GoogleFonts.ubuntu(
+                              color: Colors.white,
+                              fontSize:
+                                  MediaQuery.of(context).size.height * 0.02)))))
+              .toList(),
+          onChanged: func),
+    );
+  }
 }

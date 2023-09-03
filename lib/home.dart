@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_diabetes/register.dart';
 import 'package:flutter_diabetes/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -112,13 +113,18 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       TextButton(
                         child: Text(
-                          "Não possui conta? Crie aqui!",
+                          "Não possui conta? Clique aqui!",
                           style: GoogleFonts.ubuntu(
                               color: Colors.white,
                               fontSize:
                                   MediaQuery.of(context).size.height * 0.02),
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) {
+                            return const RegisterPage();
+                          }));
+                        },
                       )
                     ],
                   ),
