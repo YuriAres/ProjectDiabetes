@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_diabetes/firebase_api.dart';
+import 'package:flutter_diabetes/login.dart';
 import 'package:flutter_diabetes/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -19,6 +21,68 @@ class _RegisterPageState extends State<RegisterPage> {
   String? selectedsex;
   String? selecteddiabetes;
 
+  TextEditingController nomeController = TextEditingController();
+  TextEditingController idadeController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController senhaController = TextEditingController();
+
+  cadastrar() {
+    if (nomeController.text.isEmpty ||
+        idadeController.text.isEmpty ||
+        emailController.text.isEmpty ||
+        senhaController.text.isEmpty ||
+        selectedsex == null ||
+        selecteddiabetes == null) {
+      showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+                title: const Text("Alerta!"),
+                content: const Text(
+                    "Por favor preencha todos os campos antes de prosseguir!"),
+                actions: [
+                  TextButton(
+                      onPressed: () => Navigator.pop(context),
+                      child: const Text("Ok"))
+                ],
+              ));
+    } else if (senhaController.text.length < 6) {
+      showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+                title: const Text("Alerta!"),
+                content: const Text("A senha deve possuir mais que 6 digitos!"),
+                actions: [
+                  TextButton(
+                      onPressed: () => Navigator.pop(context),
+                      child: const Text("Ok"))
+                ],
+              ));
+    } else {
+      FirebaseAPI().createUser(
+          email: emailController.text,
+          nome: nomeController.text,
+          idade: int.parse(idadeController.text),
+          sexo: selectedsex!,
+          senha: senhaController.text,
+          tipo: selecteddiabetes!);
+
+      showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+                title: const Text("Sucesso!"),
+                content: const Text("Usuário criado com sucesso!"),
+                actions: [
+                  TextButton(
+                      onPressed: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const LoginPage())),
+                      child: const Text("Ok"))
+                ],
+              ));
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +93,7 @@ class _RegisterPageState extends State<RegisterPage> {
           child: SafeArea(
               child: Column(
             children: [
-              CustomWidgets().header(context),
+              CustomWidgets().header(context, Colors.black),
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.02,
               ),
@@ -56,11 +120,11 @@ class _RegisterPageState extends State<RegisterPage> {
                       ),
                     ),
                     SizedBox(height: MediaQuery.of(context).size.height * 0.04),
-                    CustomWidgets()
-                        .customTextfield(context, "Nome", "Insira seu nome"),
+                    CustomWidgets().customTextfield(
+                        context, "Nome", "Insira seu nome", nomeController),
                     SizedBox(height: MediaQuery.of(context).size.height * 0.03),
-                    CustomWidgets()
-                        .customTextfield(context, "Idade", "Insira sua idade"),
+                    CustomWidgets().customTextfield(
+                        context, "Idade", "Insira sua idade", idadeController),
                     SizedBox(height: MediaQuery.of(context).size.height * 0.03),
                     SizedBox(
                       width: MediaQuery.of(context).size.width,
@@ -73,11 +137,11 @@ class _RegisterPageState extends State<RegisterPage> {
                               {selectedsex = selection, print(selectedsex)}),
                     ),
                     SizedBox(height: MediaQuery.of(context).size.height * 0.03),
-                    CustomWidgets()
-                        .customTextfield(context, "Email", "Insira seu email"),
+                    CustomWidgets().customTextfield(
+                        context, "Email", "Insira seu email", emailController),
                     SizedBox(height: MediaQuery.of(context).size.height * 0.03),
-                    CustomWidgets()
-                        .customTextfield(context, "Senha", "Insira sua senha"),
+                    CustomWidgets().customTextfield(
+                        context, "Senha", "Insira sua senha", senhaController),
                     SizedBox(height: MediaQuery.of(context).size.height * 0.03),
                     SizedBox(
                       width: MediaQuery.of(context).size.width,
@@ -96,7 +160,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       height: MediaQuery.of(context).size.height * 0.06,
                       width: MediaQuery.of(context).size.width * 0.6,
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: cadastrar,
                         style: ElevatedButton.styleFrom(
                             backgroundColor: const Color(0xff6318F2),
                             shape: RoundedRectangleBorder(

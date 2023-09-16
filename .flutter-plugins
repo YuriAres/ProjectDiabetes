@@ -1,4 +1,10 @@
 # This is a generated file; do not edit or check into version control.
+cloud_firestore=C:\\Users\\AN5\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dev\\cloud_firestore-4.9.1\\
+cloud_firestore_web=C:\\Users\\AN5\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dev\\cloud_firestore_web-3.7.0\\
+firebase_auth=C:\\Users\\AN5\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dev\\firebase_auth-4.9.0\\
+firebase_auth_web=C:\\Users\\AN5\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dev\\firebase_auth_web-5.8.0\\
+firebase_core=C:\\Users\\AN5\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dev\\firebase_core-2.15.1\\
+firebase_core_web=C:\\Users\\AN5\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dev\\firebase_core_web-2.7.0\\
 path_provider=C:\\Users\\AN5\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dev\\path_provider-2.1.0\\
 path_provider_android=C:\\Users\\AN5\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dev\\path_provider_android-2.1.0\\
 path_provider_foundation=C:\\Users\\AN5\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dev\\path_provider_foundation-2.3.0\\

@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CustomWidgets {
-  Widget customTextfield(
-      BuildContext context, String labeltext, String hinttext) {
+  Widget customTextfield(BuildContext context, String labeltext,
+      String hinttext, TextEditingController controller) {
     return TextField(
+      controller: controller,
       style: GoogleFonts.ubuntu(
           color: Colors.white,
           fontSize: MediaQuery.of(context).size.height * 0.02),
@@ -31,15 +32,15 @@ class CustomWidgets {
     );
   }
 
-  Widget header(BuildContext context) {
+  Widget header(BuildContext context, Color fontcolor) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
           "DIA",
           style: GoogleFonts.ubuntu(
-            fontSize: (MediaQuery.of(context).size.height * 0.08),
-          ),
+              fontSize: (MediaQuery.of(context).size.height * 0.08),
+              color: fontcolor),
         ),
         SizedBox(
           width: MediaQuery.of(context).size.width * 0.01,
@@ -50,14 +51,14 @@ class CustomWidgets {
             Text(
               "rio",
               style: GoogleFonts.ubuntu(
-                fontSize: (MediaQuery.of(context).size.height * 0.03),
-              ),
+                  fontSize: (MediaQuery.of(context).size.height * 0.03),
+                  color: fontcolor),
             ),
             Text(
               "betes",
               style: GoogleFonts.ubuntu(
-                fontSize: (MediaQuery.of(context).size.height * 0.03),
-              ),
+                  fontSize: (MediaQuery.of(context).size.height * 0.03),
+                  color: fontcolor),
             )
           ],
         )

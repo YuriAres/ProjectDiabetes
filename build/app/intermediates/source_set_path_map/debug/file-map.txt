@@ -1,13 +1,21 @@
-com.example.flutter_diabetes.app-jetified-window-1.0.0-beta04-0 C:\Users\AN5\.gradle\caches\transforms-3\25cee5f028ac2a6b79fd6278ff5b59e2\transformed\jetified-window-1.0.0-beta04\res
-com.example.flutter_diabetes.app-jetified-annotation-experimental-1.1.0-1 C:\Users\AN5\.gradle\caches\transforms-3\6c0c163cc77ae6c91f9f7dfcd179c29c\transformed\jetified-annotation-experimental-1.1.0\res
-com.example.flutter_diabetes.app-core-1.6.0-2 C:\Users\AN5\.gradle\caches\transforms-3\7e9df2ac2213a6bd3cef0f2f27870d79\transformed\core-1.6.0\res
-com.example.flutter_diabetes.app-jetified-window-java-1.0.0-beta04-3 C:\Users\AN5\.gradle\caches\transforms-3\ae81e06d24c799147c26814497a2a305\transformed\jetified-window-java-1.0.0-beta04\res
-com.example.flutter_diabetes.app-debug-4 C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\debug\res
-com.example.flutter_diabetes.app-main-5 C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\res
-com.example.flutter_diabetes.app-pngs-6 C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\app\generated\res\pngs\debug
-com.example.flutter_diabetes.app-resValues-7 C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\app\generated\res\resValues\debug
-com.example.flutter_diabetes.app-rs-8 C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\app\generated\res\rs\debug
-com.example.flutter_diabetes.app-mergeDebugResources-9 C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\app\intermediates\incremental\debug\mergeDebugResources\merged.dir
-com.example.flutter_diabetes.app-mergeDebugResources-10 C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\app\intermediates\incremental\debug\mergeDebugResources\stripped.dir
-com.example.flutter_diabetes.app-merged_res-11 C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\app\intermediates\merged_res\debug
-com.example.flutter_diabetes.app-packaged_res-12 C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\path_provider_android\intermediates\packaged_res\debug
+com.example.flutter_diabetes.app-jetified-window-1.0.0-beta04-0 C:\Users\AN5\.gradle\caches\transforms-3\003a22a5515e1f77f89701a46efbc2ec\transformed\jetified-window-1.0.0-beta04\res
+com.example.flutter_diabetes.app-jetified-window-java-1.0.0-beta04-1 C:\Users\AN5\.gradle\caches\transforms-3\3c0e35d493ccd3f2bb8b07f96b013b9c\transformed\jetified-window-java-1.0.0-beta04\res
+com.example.flutter_diabetes.app-browser-1.4.0-2 C:\Users\AN5\.gradle\caches\transforms-3\3df77d3f0e42ee5d73cdfadb8bcdc01c\transformed\browser-1.4.0\res
+com.example.flutter_diabetes.app-jetified-play-services-basement-18.1.0-3 C:\Users\AN5\.gradle\caches\transforms-3\5eaba1f028ac62aaabee71faac8d9308\transformed\jetified-play-services-basement-18.1.0\res
+com.example.flutter_diabetes.app-jetified-annotation-experimental-1.1.0-4 C:\Users\AN5\.gradle\caches\transforms-3\717758e51a3aff0b90b2556f8994e808\transformed\jetified-annotation-experimental-1.1.0\res
+com.example.flutter_diabetes.app-jetified-firebase-common-20.3.3-5 C:\Users\AN5\.gradle\caches\transforms-3\97ba536cb97715cf3a6afeff735547bd\transformed\jetified-firebase-common-20.3.3\res
+com.example.flutter_diabetes.app-core-1.6.0-6 C:\Users\AN5\.gradle\caches\transforms-3\cf72013d765e0f69e97cd3b9cbb09800\transformed\core-1.6.0\res
+com.example.flutter_diabetes.app-jetified-play-services-base-18.0.1-7 C:\Users\AN5\.gradle\caches\transforms-3\f253648b0be692c533908993735bbd2e\transformed\jetified-play-services-base-18.0.1\res
+com.example.flutter_diabetes.app-debug-8 C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\debug\res
+com.example.flutter_diabetes.app-main-9 C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\res
+com.example.flutter_diabetes.app-google-services-10 C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\app\generated\res\google-services\debug
+com.example.flutter_diabetes.app-pngs-11 C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\app\generated\res\pngs\debug
+com.example.flutter_diabetes.app-resValues-12 C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\app\generated\res\resValues\debug
+com.example.flutter_diabetes.app-rs-13 C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\app\generated\res\rs\debug
+com.example.flutter_diabetes.app-mergeDebugResources-14 C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\app\intermediates\incremental\debug\mergeDebugResources\merged.dir
+com.example.flutter_diabetes.app-mergeDebugResources-15 C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\app\intermediates\incremental\debug\mergeDebugResources\stripped.dir
+com.example.flutter_diabetes.app-merged_res-16 C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\app\intermediates\merged_res\debug
+com.example.flutter_diabetes.app-packaged_res-17 C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\cloud_firestore\intermediates\packaged_res\debug
+com.example.flutter_diabetes.app-packaged_res-18 C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\firebase_auth\intermediates\packaged_res\debug
+com.example.flutter_diabetes.app-packaged_res-19 C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\firebase_core\intermediates\packaged_res\debug
+com.example.flutter_diabetes.app-packaged_res-20 C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\path_provider_android\intermediates\packaged_res\debug
