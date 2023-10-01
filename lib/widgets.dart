@@ -3,23 +3,26 @@ import 'package:google_fonts/google_fonts.dart';
 
 class CustomWidgets {
   Widget customTextfield(BuildContext context, String labeltext,
-      String hinttext, TextEditingController controller) {
+      String hinttext, TextEditingController controller,
+      [Color selectedcolor = Colors.white, int maxlines = 1]) {
     return TextField(
+      maxLines: maxlines,
       controller: controller,
       style: GoogleFonts.ubuntu(
-          color: Colors.white,
+          color: selectedcolor,
           fontSize: MediaQuery.of(context).size.height * 0.02),
       decoration: InputDecoration(
+        alignLabelWithHint: true,
         contentPadding:
             EdgeInsets.all(MediaQuery.of(context).size.height * 0.02),
         label: Text(labeltext),
         labelStyle: GoogleFonts.ubuntu(
             fontWeight: FontWeight.bold,
-            color: Colors.white,
+            color: selectedcolor,
             fontSize: MediaQuery.of(context).size.height * 0.02),
         hintText: hinttext,
         hintStyle: GoogleFonts.ubuntu(
-            color: Colors.white,
+            color: selectedcolor,
             fontSize: MediaQuery.of(context).size.height * 0.02),
         filled: true,
         fillColor: const Color(0xff9A68FD),
@@ -115,5 +118,102 @@ class CustomWidgets {
               .toList(),
           onChanged: func),
     );
+  }
+
+  Widget customElevatedButton(
+      BuildContext context, Function() action, String label) {
+    return SizedBox(
+      height: MediaQuery.of(context).size.height * 0.06,
+      width: MediaQuery.of(context).size.width * 0.6,
+      child: ElevatedButton(
+        onPressed: action,
+        style: ElevatedButton.styleFrom(
+            backgroundColor: const Color(0xff6318F2),
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10))),
+        child: Text(
+          label,
+          style: GoogleFonts.ubuntu(
+              fontSize: MediaQuery.of(context).size.height * 0.03,
+              fontWeight: FontWeight.w600),
+        ),
+      ),
+    );
+  }
+
+  String data() {
+    String weekday;
+    String month;
+
+    switch (DateTime.now().weekday) {
+      case 1:
+        weekday = "Segunda";
+        break;
+      case 2:
+        weekday = "Terça";
+        break;
+      case 3:
+        weekday = "Quarta";
+        break;
+      case 4:
+        weekday = "Quinta";
+        break;
+      case 5:
+        weekday = "Sexta";
+        break;
+      case 6:
+        weekday = "Sábado";
+        break;
+      case 7:
+        weekday = "Domingo";
+        break;
+      default:
+        weekday = "";
+        break;
+    }
+
+    switch (DateTime.now().month) {
+      case 1:
+        month = "Janeiro";
+        break;
+      case 2:
+        month = "Fevereiro";
+        break;
+      case 3:
+        month = "Março";
+        break;
+      case 4:
+        month = "Abril";
+        break;
+      case 5:
+        month = "Maio";
+        break;
+      case 6:
+        month = "Junho";
+        break;
+      case 7:
+        month = "Julho";
+        break;
+      case 8:
+        month = "Agosto";
+        break;
+      case 9:
+        month = "Setembro";
+        break;
+      case 10:
+        month = "Outubro";
+        break;
+      case 11:
+        month = "Novembro";
+        break;
+      case 12:
+        month = "Dezembro";
+        break;
+      default:
+        month = "";
+        break;
+    }
+
+    return "$weekday, ${DateTime.now().day} de $month de ${DateTime.now().year}";
   }
 }

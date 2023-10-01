@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_diabetes/addpage.dart';
+import 'package:flutter_diabetes/helppage.dart';
+import 'package:flutter_diabetes/model/usuario.dart';
+import 'package:flutter_diabetes/notepage.dart';
 import 'package:flutter_diabetes/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Homepage extends StatefulWidget {
-  const Homepage({super.key});
-
+  Usuario? usuario;
+  Homepage({super.key, this.usuario});
   @override
   State<Homepage> createState() => _HomepageState();
 }
@@ -14,9 +18,13 @@ class _HomepageState extends State<Homepage> {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context) {
+            return const AddPage();
+          }));
+        },
         backgroundColor: Color(0xff6318F2),
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
       bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
@@ -37,11 +45,11 @@ class _HomepageState extends State<Homepage> {
                 icon: Icon(Icons.notifications, color: Colors.white),
                 label: "Notificações"),
             BottomNavigationBarItem(
-              icon: Icon(Icons.person, color: Colors.white),
-              label: "Perfil",
+              icon: Icon(Icons.bar_chart, color: Colors.white),
+              label: "Estatisticas",
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.bar_chart, color: Colors.white),
+              icon: Icon(Icons.person, color: Colors.white),
               label: "Perfil",
             )
           ]),
@@ -69,12 +77,31 @@ class _HomepageState extends State<Homepage> {
                               color: Colors.white,
                               size: MediaQuery.of(context).size.height * 0.035,
                             ),
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
                           ),
                         ),
                         Align(
                           alignment: Alignment.center,
                           child: CustomWidgets().header(context, Colors.white),
+                        ),
+                        Positioned(
+                          top: 15,
+                          right: -10,
+                          child: IconButton(
+                            icon: Icon(
+                              Icons.help_outline,
+                              color: Colors.white,
+                              size: MediaQuery.of(context).size.height * 0.035,
+                            ),
+                            onPressed: () {
+                              Navigator.push(context,
+                                  MaterialPageRoute(builder: (context) {
+                                return const Helppage();
+                              }));
+                            },
+                          ),
                         )
                       ],
                     ),
@@ -84,7 +111,7 @@ class _HomepageState extends State<Homepage> {
                     Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
-                        "1 de setembro de 2023",
+                        CustomWidgets().data(),
                         style: GoogleFonts.ubuntu(
                           color: Colors.white,
                           fontSize: MediaQuery.of(context).size.height * 0.019,
@@ -97,7 +124,7 @@ class _HomepageState extends State<Homepage> {
                     Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
-                        "Bem vindo, Yuri! Confira suas ultimas anotações.",
+                        "Bem vindo, ${widget.usuario!.nome}! Confira suas ultimas anotações.",
                         style: GoogleFonts.ubuntu(
                           color: Colors.white,
                           fontSize: MediaQuery.of(context).size.height * 0.025,
@@ -112,14 +139,68 @@ class _HomepageState extends State<Homepage> {
               ),
               Expanded(
                 child: Container(
+                  padding: EdgeInsets.symmetric(
+                      horizontal: MediaQuery.sizeOf(context).width * 0.05,
+                      vertical: MediaQuery.sizeOf(context).height * 0.03),
                   decoration: const BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(22),
                           topRight: Radius.circular(22))),
                   child: ListView(
-                      // Seu conteúdo rolável aqui
-                      ),
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) {
+                            return const Notepage();
+                          }));
+                        },
+                        child: Container(
+                          padding: EdgeInsets.all(
+                              MediaQuery.sizeOf(context).height * 0.012),
+                          height: MediaQuery.sizeOf(context).height * 0.13,
+                          decoration: BoxDecoration(
+                              color: const Color(0xff9A68FD),
+                              borderRadius: BorderRadius.all(Radius.circular(
+                                  MediaQuery.sizeOf(context).height * 0.01))),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "01/09/23 as 08:30 PM",
+                                style: GoogleFonts.ubuntu(color: Colors.white),
+                              ),
+                              SizedBox(
+                                height:
+                                    MediaQuery.sizeOf(context).height * 0.012,
+                              ),
+                              Text(
+                                "Indice Glicêmico: 132 MG",
+                                style: GoogleFonts.ubuntu(
+                                    color: Colors.white,
+                                    fontSize:
+                                        MediaQuery.sizeOf(context).height *
+                                            0.022),
+                              ),
+                              SizedBox(
+                                height:
+                                    MediaQuery.sizeOf(context).height * 0.008,
+                              ),
+                              Text(
+                                "Anotações: Clique e confira suas anota..",
+                                style: GoogleFonts.ubuntu(
+                                    color: Colors.white,
+                                    fontSize:
+                                        MediaQuery.sizeOf(context).height *
+                                            0.022),
+                              ),
+                            ],
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               )
             ],

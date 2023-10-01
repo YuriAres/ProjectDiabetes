@@ -47,7 +47,11 @@ class _LoginPageState extends State<LoginPage> {
         print(user.uid);
         usuario = Usuario.fromMap(docUser.data()!);
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => const Homepage()));
+            context,
+            MaterialPageRoute(
+                builder: (context) => Homepage(
+                      usuario: usuario,
+                    )));
       }
     }
   }
