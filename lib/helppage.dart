@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_diabetes/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/link.dart';
 
 class Helppage extends StatelessWidget {
   const Helppage({super.key});
@@ -141,8 +142,34 @@ class Helppage extends StatelessWidget {
                         ),
                         SizedBox(
                             height: MediaQuery.sizeOf(context).height * 0.05),
-                        CustomWidgets().customElevatedButton(
-                            context, () => null, "Saber mais")
+                        Link(
+                            target: LinkTarget.blank,
+                            uri: Uri.parse(
+                                "https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/d/diabetes"),
+                            builder: (context, followLink) => SizedBox(
+                                  height:
+                                      MediaQuery.of(context).size.height * 0.06,
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.6,
+                                  child: ElevatedButton(
+                                    onPressed: followLink,
+                                    style: ElevatedButton.styleFrom(
+                                        backgroundColor:
+                                            const Color(0xff6318F2),
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(10))),
+                                    child: Text(
+                                      "Saber mais",
+                                      style: GoogleFonts.ubuntu(
+                                          fontSize: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
+                                              0.03,
+                                          fontWeight: FontWeight.w600),
+                                    ),
+                                  ),
+                                ))
                       ],
                     ),
                   ),

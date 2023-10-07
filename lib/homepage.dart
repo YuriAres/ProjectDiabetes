@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_diabetes/addpage.dart';
+import 'package:flutter_diabetes/alarmpage.dart';
 import 'package:flutter_diabetes/helppage.dart';
 import 'package:flutter_diabetes/model/usuario.dart';
 import 'package:flutter_diabetes/notepage.dart';
+import 'package:flutter_diabetes/perfilpage.dart';
 import 'package:flutter_diabetes/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+// ignore: must_be_immutable
 class Homepage extends StatefulWidget {
-  Usuario? usuario;
-  Homepage({super.key, this.usuario});
+  Usuario usuario;
+  Homepage({super.key, required this.usuario});
   @override
   State<Homepage> createState() => _HomepageState();
 }
@@ -23,7 +26,7 @@ class _HomepageState extends State<Homepage> {
             return const AddPage();
           }));
         },
-        backgroundColor: Color(0xff6318F2),
+        backgroundColor: const Color(0xff6318F2),
         child: const Icon(Icons.add),
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -34,6 +37,19 @@ class _HomepageState extends State<Homepage> {
           iconSize: 25,
           selectedItemColor: Colors.white,
           unselectedItemColor: Colors.grey[400],
+          currentIndex: 0,
+          onTap: (value) {
+            if (value == 1) {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return Alarmpage(usuario: widget.usuario);
+              }));
+            }
+            if (value == 3) {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return Perfilpage(usuario: widget.usuario);
+              }));
+            }
+          },
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
                 icon: Icon(
