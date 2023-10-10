@@ -69,7 +69,7 @@ class Helppage extends StatelessWidget {
                         Container(
                           padding: EdgeInsets.all(
                               MediaQuery.sizeOf(context).height * 0.012),
-                          height: MediaQuery.sizeOf(context).height * 0.24,
+                          height: MediaQuery.sizeOf(context).height * 0.26,
                           width: MediaQuery.sizeOf(context).width * 0.9,
                           decoration: BoxDecoration(
                               color: const Color(0xff9A68FD),
@@ -90,7 +90,7 @@ class Helppage extends StatelessWidget {
                                   height: MediaQuery.sizeOf(context).height *
                                       0.0115),
                               Text(
-                                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec turpis metus. Class aptent taciti sociosqu ad litora torquent per conubia nostra.",
+                                "O propósito deste aplicativo é proporcionar aos portadores de diabetes uma maneira simplificada e centralizada de acompanhar, registrar e analisar estatísticas relacionadas à sua condição, possibilitando um controle mais eficaz da doença.",
                                 style: GoogleFonts.ubuntu(
                                     fontSize:
                                         MediaQuery.sizeOf(context).height *
@@ -107,7 +107,7 @@ class Helppage extends StatelessWidget {
                         Container(
                           padding: EdgeInsets.all(
                               MediaQuery.sizeOf(context).height * 0.012),
-                          height: MediaQuery.sizeOf(context).height * 0.24,
+                          height: MediaQuery.sizeOf(context).height * 0.31,
                           width: MediaQuery.sizeOf(context).width * 0.9,
                           decoration: BoxDecoration(
                               color: const Color(0xff9A68FD),
@@ -128,7 +128,7 @@ class Helppage extends StatelessWidget {
                                   height: MediaQuery.sizeOf(context).height *
                                       0.0115),
                               Text(
-                                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec turpis metus. Class aptent taciti sociosqu ad litora torquent per conubia nostra,",
+                                "A diabetes é uma condição crônica em que o corpo não consegue regular adequadamente os níveis de açúcar no sangue, resultando em níveis elevados de glicose no sangue. Isso pode ocorrer devido à falta de produção de insulina pelo corpo ou à resistência à ação da insulina, levando a problemas de saúde a longo prazo.",
                                 style: GoogleFonts.ubuntu(
                                     fontSize:
                                         MediaQuery.sizeOf(context).height *
@@ -141,7 +141,7 @@ class Helppage extends StatelessWidget {
                           ),
                         ),
                         SizedBox(
-                            height: MediaQuery.sizeOf(context).height * 0.05),
+                            height: MediaQuery.sizeOf(context).height * 0.03),
                         Link(
                             target: LinkTarget.blank,
                             uri: Uri.parse(

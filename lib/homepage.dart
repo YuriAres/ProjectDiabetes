@@ -1,7 +1,10 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_diabetes/addpage.dart';
 import 'package:flutter_diabetes/alarmpage.dart';
 import 'package:flutter_diabetes/helppage.dart';
+import 'package:flutter_diabetes/model/anotacoes.dart';
 import 'package:flutter_diabetes/model/usuario.dart';
 import 'package:flutter_diabetes/notepage.dart';
 import 'package:flutter_diabetes/perfilpage.dart';
@@ -17,13 +20,33 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
+  List<Anotacao> anotacoes = [];
+
+  Future getAtividades() async {
+    var data = await FirebaseFirestore.instance
+        .collection('usuarios')
+        .doc(FirebaseAuth.instance.currentUser!.uid)
+        .collection('anotacoes')
+        .get();
+    setState(() {
+      anotacoes =
+          List.from(data.docs.map((doc) => Anotacao.fromMap(doc.data())));
+    });
+  }
+
+  @override
+  void didChangeDependencies() {
+    getAtividades();
+    super.didChangeDependencies();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.push(context, MaterialPageRoute(builder: (context) {
-            return const AddPage();
+            return AddPage(usuario: widget.usuario);
           }));
         },
         backgroundColor: const Color(0xff6318F2),
@@ -140,7 +163,7 @@ class _HomepageState extends State<Homepage> {
                     Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
-                        "Bem vindo, ${widget.usuario!.nome}! Confira suas ultimas anotações.",
+                        "Bem vindo, ${widget.usuario.nome}! Confira suas ultimas anotações.",
                         style: GoogleFonts.ubuntu(
                           color: Colors.white,
                           fontSize: MediaQuery.of(context).size.height * 0.025,
@@ -163,59 +186,12 @@ class _HomepageState extends State<Homepage> {
                       borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(22),
                           topRight: Radius.circular(22))),
-                  child: ListView(
-                    children: [
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) {
-                            return const Notepage();
-                          }));
-                        },
-                        child: Container(
-                          padding: EdgeInsets.all(
-                              MediaQuery.sizeOf(context).height * 0.012),
-                          height: MediaQuery.sizeOf(context).height * 0.13,
-                          decoration: BoxDecoration(
-                              color: const Color(0xff9A68FD),
-                              borderRadius: BorderRadius.all(Radius.circular(
-                                  MediaQuery.sizeOf(context).height * 0.01))),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "01/09/23 as 08:30 PM",
-                                style: GoogleFonts.ubuntu(color: Colors.white),
-                              ),
-                              SizedBox(
-                                height:
-                                    MediaQuery.sizeOf(context).height * 0.012,
-                              ),
-                              Text(
-                                "Indice Glicêmico: 132 MG",
-                                style: GoogleFonts.ubuntu(
-                                    color: Colors.white,
-                                    fontSize:
-                                        MediaQuery.sizeOf(context).height *
-                                            0.022),
-                              ),
-                              SizedBox(
-                                height:
-                                    MediaQuery.sizeOf(context).height * 0.008,
-                              ),
-                              Text(
-                                "Anotações: Clique e confira suas anota..",
-                                style: GoogleFonts.ubuntu(
-                                    color: Colors.white,
-                                    fontSize:
-                                        MediaQuery.sizeOf(context).height *
-                                            0.022),
-                              ),
-                            ],
-                          ),
-                        ),
-                      )
-                    ],
+                  child: ListView.builder(
+                    itemCount: anotacoes.length,
+                    itemBuilder: (context, index) {
+                      return CustomWidgets().containerAnotacao(context,
+                          anotacoes[index].indice, anotacoes[index].anotacao);
+                    },
                   ),
                 ),
               )

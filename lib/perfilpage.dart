@@ -154,7 +154,7 @@ class Perfilpage extends StatelessWidget {
                         ),
                         SizedBox(
                             height: MediaQuery.sizeOf(context).height * 0.025),
-                        Text(usuario!.nome,
+                        Text(usuario.nome,
                             style: GoogleFonts.ubuntu(
                                 fontSize:
                                     MediaQuery.sizeOf(context).height * 0.035)),
@@ -187,7 +187,7 @@ class Perfilpage extends StatelessWidget {
                               Align(
                                 alignment: Alignment.centerLeft,
                                 child: Text(
-                                  "Email: ${usuario!.email}",
+                                  "Email: ${usuario.email}",
                                   style: GoogleFonts.ubuntu(
                                       fontSize:
                                           MediaQuery.sizeOf(context).height *
@@ -203,7 +203,7 @@ class Perfilpage extends StatelessWidget {
                               Align(
                                 alignment: Alignment.centerLeft,
                                 child: Text(
-                                  "Idade: ${usuario!.idade} anos",
+                                  "Idade: ${usuario.idade} anos",
                                   style: GoogleFonts.ubuntu(
                                       fontSize:
                                           MediaQuery.sizeOf(context).height *
@@ -219,7 +219,7 @@ class Perfilpage extends StatelessWidget {
                               Align(
                                 alignment: Alignment.centerLeft,
                                 child: Text(
-                                  "Sexo: ${usuario!.sexo}",
+                                  "Sexo: ${usuario.sexo}",
                                   style: GoogleFonts.ubuntu(
                                       fontSize:
                                           MediaQuery.sizeOf(context).height *
@@ -235,7 +235,7 @@ class Perfilpage extends StatelessWidget {
                               Align(
                                   alignment: Alignment.centerLeft,
                                   child: Text(
-                                    "Tipo: ${usuario!.tipo}",
+                                    "Tipo: ${usuario.tipo}",
                                     style: GoogleFonts.ubuntu(
                                         fontSize:
                                             MediaQuery.sizeOf(context).height *

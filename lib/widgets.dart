@@ -1,4 +1,6 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_diabetes/notepage.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CustomWidgets {
@@ -215,5 +217,61 @@ class CustomWidgets {
     }
 
     return "$weekday, ${DateTime.now().day} de $month de ${DateTime.now().year}";
+  }
+
+  Widget containerAnotacao(BuildContext context, num indice, String anotacao) {
+    String smallAnotacao;
+
+    print("Teste ${anotacao.length}");
+    if (anotacao.length > 28) {
+      smallAnotacao = anotacao.substring(0, 28);
+      smallAnotacao += "..";
+    } else {
+      smallAnotacao = anotacao;
+    }
+
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return Notepage(indice: indice, anotacao: anotacao);
+        }));
+      },
+      child: Container(
+        padding: EdgeInsets.all(MediaQuery.sizeOf(context).height * 0.012),
+        margin: const EdgeInsets.symmetric(vertical: 5),
+        height: MediaQuery.sizeOf(context).height * 0.13,
+        decoration: BoxDecoration(
+            color: const Color(0xff9A68FD),
+            borderRadius: BorderRadius.all(
+                Radius.circular(MediaQuery.sizeOf(context).height * 0.01))),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              "01/09/23 as 08:30 PM",
+              style: GoogleFonts.ubuntu(color: Colors.white),
+            ),
+            SizedBox(
+              height: MediaQuery.sizeOf(context).height * 0.012,
+            ),
+            Text(
+              "Indice Glicêmico: $indice MG",
+              style: GoogleFonts.ubuntu(
+                  color: Colors.white,
+                  fontSize: MediaQuery.sizeOf(context).height * 0.022),
+            ),
+            SizedBox(
+              height: MediaQuery.sizeOf(context).height * 0.008,
+            ),
+            Text(
+              "Anotações: $smallAnotacao",
+              style: GoogleFonts.ubuntu(
+                  color: Colors.white,
+                  fontSize: MediaQuery.sizeOf(context).height * 0.022),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }

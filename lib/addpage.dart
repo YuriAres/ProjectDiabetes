@@ -1,4 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_diabetes/firebase_api.dart';
+import 'package:flutter_diabetes/model/usuario.dart';
 import 'package:flutter_diabetes/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -6,7 +9,8 @@ TextEditingController indiceIMC = TextEditingController();
 TextEditingController anotacoes = TextEditingController();
 
 class AddPage extends StatelessWidget {
-  const AddPage({super.key});
+  final Usuario usuario;
+  const AddPage({super.key, required this.usuario});
 
   @override
   Widget build(BuildContext context) {
@@ -85,8 +89,13 @@ class AddPage extends StatelessWidget {
                             20),
                         SizedBox(
                             height: MediaQuery.sizeOf(context).height * 0.035),
-                        CustomWidgets().customElevatedButton(
-                            context, () => null, "Adicionar")
+                        CustomWidgets().customElevatedButton(context, () async {
+                          FirebaseAPI().createAnotacao(
+                              indice: 130,
+                              newAnotacao: anotacoes.text,
+                              id: FirebaseAuth.instance.currentUser!.uid,
+                              data: DateTime.now());
+                        }, "Adicionar")
                       ],
                     ),
                   ),

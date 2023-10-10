@@ -3,7 +3,9 @@ import 'package:flutter_diabetes/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Notepage extends StatelessWidget {
-  const Notepage({super.key});
+  final num indice;
+  final String anotacao;
+  const Notepage({super.key, required this.indice, required this.anotacao});
 
   @override
   Widget build(BuildContext context) {
@@ -95,7 +97,7 @@ class Notepage extends StatelessWidget {
                                   height: MediaQuery.sizeOf(context).height *
                                       0.0115),
                               Text(
-                                "122",
+                                indice.toString(),
                                 style: GoogleFonts.ubuntu(
                                     fontSize:
                                         MediaQuery.sizeOf(context).height *
@@ -227,7 +229,7 @@ class Notepage extends StatelessWidget {
                           child: Column(
                             children: [
                               Text(
-                                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec turpis metus. Class aptent taciti sociosqu ad litora torquent per conubia nostra.",
+                                anotacao,
                                 style: GoogleFonts.ubuntu(
                                     fontSize:
                                         MediaQuery.sizeOf(context).height *
