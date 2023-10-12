@@ -1,11 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_diabetes/firebase_api.dart';
+import 'package:flutter_diabetes/homepage.dart';
+import 'package:flutter_diabetes/model/usuario.dart';
 import 'package:flutter_diabetes/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Notepage extends StatelessWidget {
   final num indice;
   final String anotacao;
-  const Notepage({super.key, required this.indice, required this.anotacao});
+  final DateTime data;
+  final Usuario usuario;
+  final String id;
+  const Notepage(
+      {super.key,
+      required this.indice,
+      required this.anotacao,
+      required this.data,
+      required this.usuario,
+      required this.id});
 
   @override
   Widget build(BuildContext context) {
@@ -40,6 +52,68 @@ class Notepage extends StatelessWidget {
                         alignment: Alignment.center,
                         child: CustomWidgets().header(context, Colors.white),
                       ),
+                      Positioned(
+                        top: 15,
+                        right: -4,
+                        child: IconButton(
+                          icon: Icon(
+                            Icons.delete_outline,
+                            color: Colors.white,
+                            size: MediaQuery.of(context).size.height * 0.035,
+                          ),
+                          onPressed: () {
+                            showDialog(
+                                barrierDismissible: false,
+                                context: context,
+                                builder: ((context) {
+                                  return AlertDialog(
+                                    title: Text("Atenção!",
+                                        style: GoogleFonts.ubuntu(
+                                            fontSize: MediaQuery.sizeOf(context)
+                                                    .height *
+                                                0.030)),
+                                    content: Text(
+                                        "Tem certeza que deseja remover sua anotação?",
+                                        style: GoogleFonts.ubuntu(
+                                            fontSize: MediaQuery.sizeOf(context)
+                                                    .height *
+                                                0.023)),
+                                    actions: [
+                                      TextButton(
+                                        onPressed: () {
+                                          FirebaseAPI().deleteAnotacao(
+                                              name: data.toString(), id: id);
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      Homepage(
+                                                          usuario: usuario)));
+                                        },
+                                        child: Text("Sim",
+                                            style: GoogleFonts.ubuntu(
+                                                fontSize:
+                                                    MediaQuery.sizeOf(context)
+                                                            .height *
+                                                        0.023)),
+                                      ),
+                                      TextButton(
+                                        onPressed: () {
+                                          Navigator.pop(context);
+                                        },
+                                        child: Text("Não",
+                                            style: GoogleFonts.ubuntu(
+                                                fontSize:
+                                                    MediaQuery.sizeOf(context)
+                                                            .height *
+                                                        0.023)),
+                                      )
+                                    ],
+                                  );
+                                }));
+                          },
+                        ),
+                      )
                     ],
                   ),
                 ),
@@ -67,7 +141,8 @@ class Notepage extends StatelessWidget {
                                     MediaQuery.sizeOf(context).height * 0.035)),
                         SizedBox(
                             height: MediaQuery.sizeOf(context).height * 0.015),
-                        Text("Suas anotações do dia 01/09/2023, foram:",
+                        Text(
+                            "Suas anotações do dia ${data.day}/${data.month}/${data.year}, foram:",
                             style: GoogleFonts.ubuntu(
                                 fontSize:
                                     MediaQuery.sizeOf(context).height * 0.020)),

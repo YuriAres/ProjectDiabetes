@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_diabetes/alarmpage.dart';
+import 'package:flutter_diabetes/graph_page.dart';
 import 'package:flutter_diabetes/homepage.dart';
 import 'package:flutter_diabetes/model/usuario.dart';
 import 'package:flutter_diabetes/widgets.dart';
@@ -35,6 +36,11 @@ class Perfilpage extends StatelessWidget {
                 return Alarmpage(
                   usuario: usuario,
                 );
+              }));
+            }
+            if (value == 2) {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return GraphPage(usuario: usuario);
               }));
             }
           },

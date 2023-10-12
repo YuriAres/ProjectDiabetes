@@ -1,7 +1,8 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_diabetes/notepage.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import 'model/usuario.dart';
 
 class CustomWidgets {
   Widget customTextfield(BuildContext context, String labeltext,
@@ -219,10 +220,9 @@ class CustomWidgets {
     return "$weekday, ${DateTime.now().day} de $month de ${DateTime.now().year}";
   }
 
-  Widget containerAnotacao(BuildContext context, num indice, String anotacao) {
+  Widget containerAnotacao(BuildContext context, num indice, String anotacao,
+      String data, Usuario usuario, String id) {
     String smallAnotacao;
-
-    print("Teste ${anotacao.length}");
     if (anotacao.length > 28) {
       smallAnotacao = anotacao.substring(0, 28);
       smallAnotacao += "..";
@@ -230,14 +230,34 @@ class CustomWidgets {
       smallAnotacao = anotacao;
     }
 
+    DateTime realdate = DateTime.parse(data);
+    String minutos = realdate.minute.toString();
+    String horas = realdate.hour.toString();
+    print(minutos);
+    if (horas.length == 1) {
+      horas = '0$horas';
+    }
+    if (minutos.length == 1) {
+      minutos = '0$minutos';
+    }
+
     return GestureDetector(
       onTap: () {
         Navigator.push(context, MaterialPageRoute(builder: (context) {
-          return Notepage(indice: indice, anotacao: anotacao);
+          return Notepage(
+            indice: indice,
+            anotacao: anotacao,
+            data: realdate,
+            usuario: usuario,
+            id: id,
+          );
         }));
       },
       child: Container(
-        padding: EdgeInsets.all(MediaQuery.sizeOf(context).height * 0.012),
+        padding: EdgeInsets.only(
+            top: MediaQuery.sizeOf(context).height * 0.012,
+            left: MediaQuery.sizeOf(context).height * 0.012,
+            right: MediaQuery.sizeOf(context).height * 0.012),
         margin: const EdgeInsets.symmetric(vertical: 5),
         height: MediaQuery.sizeOf(context).height * 0.13,
         decoration: BoxDecoration(
@@ -248,7 +268,7 @@ class CustomWidgets {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "01/09/23 as 08:30 PM",
+              "${realdate.day}/${realdate.month}/${realdate.year} - $horas:$minutos",
               style: GoogleFonts.ubuntu(color: Colors.white),
             ),
             SizedBox(

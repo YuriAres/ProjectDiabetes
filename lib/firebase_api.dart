@@ -37,7 +37,8 @@ class FirebaseAPI {
       required String newAnotacao,
       required String id,
       required DateTime data}) async {
-    final anotacao = Anotacao(indice: indice, anotacao: newAnotacao);
+    final anotacao =
+        Anotacao(indice: indice, anotacao: newAnotacao, data: data.toString());
 
     final json = anotacao.toJson();
     final docUser = FirebaseFirestore.instance
@@ -47,5 +48,14 @@ class FirebaseAPI {
         .doc("Anotacao $data");
 
     await docUser.set(json);
+  }
+
+  Future deleteAnotacao({required String name, required String id}) async {
+    FirebaseFirestore.instance
+        .collection('usuarios')
+        .doc(id)
+        .collection('anotacoes')
+        .doc("Anotacao $name")
+        .delete();
   }
 }

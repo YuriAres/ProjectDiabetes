@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_diabetes/add_alarm_page.dart';
+import 'package:flutter_diabetes/graph_page.dart';
 import 'package:flutter_diabetes/homepage.dart';
 import 'package:flutter_diabetes/model/usuario.dart';
 import 'package:flutter_diabetes/perfilpage.dart';
@@ -8,7 +9,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 class Alarmpage extends StatefulWidget {
   final Usuario usuario;
-  Alarmpage({super.key, required this.usuario});
+  const Alarmpage({super.key, required this.usuario});
 
   @override
   State<Alarmpage> createState() => _AlarmpageState();
@@ -44,6 +45,11 @@ class _AlarmpageState extends State<Alarmpage> {
                 return Homepage(
                   usuario: widget.usuario,
                 );
+              }));
+            }
+            if (value == 2) {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return GraphPage(usuario: widget.usuario);
               }));
             }
             if (value == 3) {

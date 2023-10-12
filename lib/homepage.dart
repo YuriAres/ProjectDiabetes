@@ -3,10 +3,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_diabetes/addpage.dart';
 import 'package:flutter_diabetes/alarmpage.dart';
+import 'package:flutter_diabetes/graph_page.dart';
 import 'package:flutter_diabetes/helppage.dart';
+import 'package:flutter_diabetes/login.dart';
 import 'package:flutter_diabetes/model/anotacoes.dart';
 import 'package:flutter_diabetes/model/usuario.dart';
-import 'package:flutter_diabetes/notepage.dart';
 import 'package:flutter_diabetes/perfilpage.dart';
 import 'package:flutter_diabetes/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -31,6 +32,7 @@ class _HomepageState extends State<Homepage> {
     setState(() {
       anotacoes =
           List.from(data.docs.map((doc) => Anotacao.fromMap(doc.data())));
+      anotacoes = anotacoes.reversed.toList();
     });
   }
 
@@ -65,6 +67,11 @@ class _HomepageState extends State<Homepage> {
             if (value == 1) {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
                 return Alarmpage(usuario: widget.usuario);
+              }));
+            }
+            if (value == 2) {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return GraphPage(usuario: widget.usuario);
               }));
             }
             if (value == 3) {
@@ -117,7 +124,54 @@ class _HomepageState extends State<Homepage> {
                               size: MediaQuery.of(context).size.height * 0.035,
                             ),
                             onPressed: () {
-                              Navigator.pop(context);
+                              showDialog(
+                                  barrierDismissible: false,
+                                  context: context,
+                                  builder: ((context) {
+                                    return AlertDialog(
+                                      title: Text("Atenção!",
+                                          style: GoogleFonts.ubuntu(
+                                              fontSize:
+                                                  MediaQuery.sizeOf(context)
+                                                          .height *
+                                                      0.030)),
+                                      content: Text(
+                                          "Tem certeza que deseja deslogar da sua conta?",
+                                          style: GoogleFonts.ubuntu(
+                                              fontSize:
+                                                  MediaQuery.sizeOf(context)
+                                                          .height *
+                                                      0.023)),
+                                      actions: [
+                                        TextButton(
+                                          onPressed: () {
+                                            Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        const LoginPage()));
+                                          },
+                                          child: Text("Sim",
+                                              style: GoogleFonts.ubuntu(
+                                                  fontSize:
+                                                      MediaQuery.sizeOf(context)
+                                                              .height *
+                                                          0.023)),
+                                        ),
+                                        TextButton(
+                                          onPressed: () {
+                                            Navigator.pop(context);
+                                          },
+                                          child: Text("Não",
+                                              style: GoogleFonts.ubuntu(
+                                                  fontSize:
+                                                      MediaQuery.sizeOf(context)
+                                                              .height *
+                                                          0.023)),
+                                        )
+                                      ],
+                                    );
+                                  }));
                             },
                           ),
                         ),
@@ -189,8 +243,13 @@ class _HomepageState extends State<Homepage> {
                   child: ListView.builder(
                     itemCount: anotacoes.length,
                     itemBuilder: (context, index) {
-                      return CustomWidgets().containerAnotacao(context,
-                          anotacoes[index].indice, anotacoes[index].anotacao);
+                      return CustomWidgets().containerAnotacao(
+                          context,
+                          anotacoes[index].indice,
+                          anotacoes[index].anotacao,
+                          anotacoes[index].data,
+                          widget.usuario,
+                          FirebaseAuth.instance.currentUser!.uid);
                     },
                   ),
                 ),
