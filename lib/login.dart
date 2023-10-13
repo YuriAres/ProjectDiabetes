@@ -110,7 +110,7 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       ),
                       SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.05,
+                        height: MediaQuery.of(context).size.height * 0.04,
                       ),
                       CustomWidgets().customTextfield(
                           context,
@@ -119,7 +119,9 @@ class _LoginPageState extends State<LoginPage> {
                           emailController,
                           Colors.white,
                           1,
-                          false),
+                          false,
+                          null,
+                          TextInputType.emailAddress),
                       SizedBox(
                         height: MediaQuery.of(context).size.height * 0.03,
                       ),
@@ -130,7 +132,10 @@ class _LoginPageState extends State<LoginPage> {
                           senhaController,
                           Colors.white,
                           1,
-                          false),
+                          false,
+                          null,
+                          TextInputType.visiblePassword,
+                          true),
                       Align(
                         alignment: Alignment.centerRight,
                         child: TextButton(

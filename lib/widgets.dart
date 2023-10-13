@@ -10,9 +10,13 @@ class CustomWidgets {
       [Color selectedcolor = Colors.white,
       int maxlines = 1,
       bool tipo = true,
-      ScrollController? scController]) {
+      ScrollController? scController,
+      TextInputType inputType = TextInputType.text,
+      bool password = false]) {
     return TextField(
         scrollController: scController,
+        obscureText: password,
+        keyboardType: inputType,
         maxLines: maxlines,
         controller: controller,
         style: GoogleFonts.ubuntu(

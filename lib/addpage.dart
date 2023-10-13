@@ -1,4 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_diabetes/firebase_api.dart';
 import 'package:flutter_diabetes/homepage.dart';
 import 'package:flutter_diabetes/model/usuario.dart';
 import 'package:flutter_diabetes/widgets.dart';
@@ -73,12 +75,27 @@ class AddPage extends StatelessWidget {
                         SizedBox(
                             height: MediaQuery.sizeOf(context).height * 0.045),
                         CustomWidgets().customTextfield(
-                          context,
-                          "Índice Glicêmico",
-                          "Insira o indice obtido",
-                          indiceGlicemico,
-                          Colors.black,
-                        ),
+                            context,
+                            "Índice Glicêmico",
+                            "Insira o indice obtido",
+                            indiceGlicemico,
+                            Colors.black,
+                            1,
+                            true,
+                            null,
+                            TextInputType.number),
+                        SizedBox(
+                            height: MediaQuery.sizeOf(context).height * 0.035),
+                        CustomWidgets().customTextfield(
+                            context,
+                            "Medicamentos",
+                            "Insira os medicamos utilizados",
+                            indiceGlicemico,
+                            Colors.black,
+                            1,
+                            true,
+                            null,
+                            TextInputType.number),
                         SizedBox(
                             height: MediaQuery.sizeOf(context).height * 0.035),
                         Scrollbar(
@@ -90,9 +107,10 @@ class AddPage extends StatelessWidget {
                               "Insira sua anotação aqui...",
                               anotacoes,
                               Colors.black,
-                              20,
+                              13,
                               true,
-                              scrollController),
+                              scrollController,
+                              TextInputType.multiline),
                         ),
                         SizedBox(
                             height: MediaQuery.sizeOf(context).height * 0.035),
@@ -134,6 +152,11 @@ class AddPage extends StatelessWidget {
                                   ],
                                 );
                               }));
+                          FirebaseAPI().createAnotacao(
+                              indice: num.parse(indiceGlicemico.text),
+                              newAnotacao: anotacoes.text,
+                              id: FirebaseAuth.instance.currentUser!.uid,
+                              data: DateTime.now());
                         }, "Adicionar")
                       ],
                     ),

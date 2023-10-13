@@ -132,7 +132,7 @@ class Notepage extends StatelessWidget {
                     ),
                     child: Column(
                       children: [
-                        Row(),
+                        const Row(),
                         SizedBox(
                             height: MediaQuery.sizeOf(context).height * 0.035),
                         Text("Anotação",
@@ -148,43 +148,6 @@ class Notepage extends StatelessWidget {
                                     MediaQuery.sizeOf(context).height * 0.020)),
                         SizedBox(
                             height: MediaQuery.sizeOf(context).height * 0.028),
-                        Container(
-                          padding: EdgeInsets.all(
-                              MediaQuery.sizeOf(context).height * 0.012),
-                          height: MediaQuery.sizeOf(context).height * 0.115,
-                          width: MediaQuery.sizeOf(context).width * 0.9,
-                          decoration: BoxDecoration(
-                              color: const Color(0xff9A68FD),
-                              borderRadius: BorderRadius.all(Radius.circular(
-                                  MediaQuery.sizeOf(context).height * 0.01))),
-                          child: Column(
-                            children: [
-                              Text(
-                                "Índice glicêmico",
-                                style: GoogleFonts.ubuntu(
-                                    fontSize:
-                                        MediaQuery.sizeOf(context).height *
-                                            0.024,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w600),
-                              ),
-                              SizedBox(
-                                  height: MediaQuery.sizeOf(context).height *
-                                      0.0115),
-                              Text(
-                                indice.toString(),
-                                style: GoogleFonts.ubuntu(
-                                    fontSize:
-                                        MediaQuery.sizeOf(context).height *
-                                            0.035,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w400),
-                              ),
-                            ],
-                          ),
-                        ),
-                        SizedBox(
-                            height: MediaQuery.sizeOf(context).height * 0.02),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -202,7 +165,7 @@ class Notepage extends StatelessWidget {
                               child: Column(
                                 children: [
                                   Text(
-                                    "Variação semanal",
+                                    "Indice glicêmico",
                                     style: GoogleFonts.ubuntu(
                                         fontSize:
                                             MediaQuery.sizeOf(context).height *
@@ -213,28 +176,16 @@ class Notepage extends StatelessWidget {
                                   SizedBox(
                                       height:
                                           MediaQuery.sizeOf(context).height *
-                                              0.0115),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Icon(
-                                        Icons.arrow_drop_up,
-                                        color: Colors.white,
-                                        size:
+                                              0.018),
+                                  Text(
+                                    indice.toString(),
+                                    style: GoogleFonts.ubuntu(
+                                        fontSize:
                                             MediaQuery.sizeOf(context).height *
-                                                0.05,
-                                      ),
-                                      Text(
-                                        "12 %",
-                                        style: GoogleFonts.ubuntu(
-                                            fontSize: MediaQuery.sizeOf(context)
-                                                    .height *
                                                 0.035,
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.w400),
-                                      )
-                                    ],
-                                  ),
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w400),
+                                  )
                                 ],
                               ),
                             ),
@@ -289,6 +240,43 @@ class Notepage extends StatelessWidget {
                               ),
                             )
                           ],
+                        ),
+                        SizedBox(
+                            height: MediaQuery.sizeOf(context).height * 0.02),
+                        Container(
+                          padding: EdgeInsets.all(
+                              MediaQuery.sizeOf(context).height * 0.012),
+                          height: MediaQuery.sizeOf(context).height * 0.115,
+                          width: MediaQuery.sizeOf(context).width * 0.9,
+                          decoration: BoxDecoration(
+                              color: const Color(0xff9A68FD),
+                              borderRadius: BorderRadius.all(Radius.circular(
+                                  MediaQuery.sizeOf(context).height * 0.01))),
+                          child: Column(
+                            children: [
+                              Text(
+                                "Medicamentos",
+                                style: GoogleFonts.ubuntu(
+                                    fontSize:
+                                        MediaQuery.sizeOf(context).height *
+                                            0.024,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w600),
+                              ),
+                              SizedBox(
+                                  height: MediaQuery.sizeOf(context).height *
+                                      0.0115),
+                              Text(
+                                "Glipizida 30mg, Gliconil 10mg",
+                                style: GoogleFonts.ubuntu(
+                                    fontSize:
+                                        MediaQuery.sizeOf(context).height *
+                                            0.024,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w400),
+                              ),
+                            ],
+                          ),
                         ),
                         SizedBox(
                             height: MediaQuery.sizeOf(context).height * 0.02),

@@ -1,4 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
         <queries>
     <intent>
         <action android:name="android.intent.action.VIEW" />
@@ -7,7 +9,7 @@
     </intent>
 </queries>
     <application
-        android:label="flutter_diabetes"
+        android:label="Diario Diabetes"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
