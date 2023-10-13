@@ -6,6 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 TextEditingController indiceGlicemico = TextEditingController();
 TextEditingController anotacoes = TextEditingController();
+ScrollController scrollController = ScrollController();
 
 class AddPage extends StatelessWidget {
   final Usuario usuario;
@@ -72,20 +73,27 @@ class AddPage extends StatelessWidget {
                         SizedBox(
                             height: MediaQuery.sizeOf(context).height * 0.045),
                         CustomWidgets().customTextfield(
-                            context,
-                            "Índice Glicêmico",
-                            "Insira o indice obtido",
-                            indiceGlicemico,
-                            Colors.black),
+                          context,
+                          "Índice Glicêmico",
+                          "Insira o indice obtido",
+                          indiceGlicemico,
+                          Colors.black,
+                        ),
                         SizedBox(
                             height: MediaQuery.sizeOf(context).height * 0.035),
-                        CustomWidgets().customTextfield(
-                            context,
-                            "Anotações",
-                            "Insira sua anotação aqui...",
-                            anotacoes,
-                            Colors.black,
-                            20),
+                        Scrollbar(
+                          controller: scrollController,
+                          thumbVisibility: true,
+                          child: CustomWidgets().customTextfield(
+                              context,
+                              "Anotações",
+                              "Insira sua anotação aqui...",
+                              anotacoes,
+                              Colors.black,
+                              20,
+                              true,
+                              scrollController),
+                        ),
                         SizedBox(
                             height: MediaQuery.sizeOf(context).height * 0.035),
                         CustomWidgets().customElevatedButton(context, () async {

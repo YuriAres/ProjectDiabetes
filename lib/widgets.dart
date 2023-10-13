@@ -7,35 +7,61 @@ import 'model/usuario.dart';
 class CustomWidgets {
   Widget customTextfield(BuildContext context, String labeltext,
       String hinttext, TextEditingController controller,
-      [Color selectedcolor = Colors.white, int maxlines = 1]) {
+      [Color selectedcolor = Colors.white,
+      int maxlines = 1,
+      bool tipo = true,
+      ScrollController? scController]) {
     return TextField(
-      maxLines: maxlines,
-      controller: controller,
-      style: GoogleFonts.ubuntu(
-          color: selectedcolor,
-          fontSize: MediaQuery.of(context).size.height * 0.02),
-      decoration: InputDecoration(
-        alignLabelWithHint: true,
-        contentPadding:
-            EdgeInsets.all(MediaQuery.of(context).size.height * 0.02),
-        label: Text(labeltext),
-        labelStyle: GoogleFonts.ubuntu(
-            fontWeight: FontWeight.bold,
+        scrollController: scController,
+        maxLines: maxlines,
+        controller: controller,
+        style: GoogleFonts.ubuntu(
             color: selectedcolor,
             fontSize: MediaQuery.of(context).size.height * 0.02),
-        hintText: hinttext,
-        hintStyle: GoogleFonts.ubuntu(
-            color: selectedcolor,
-            fontSize: MediaQuery.of(context).size.height * 0.02),
-        filled: true,
-        fillColor: const Color(0xff9A68FD),
-        border: const OutlineInputBorder(
-            borderRadius: BorderRadius.all(
-              Radius.circular(10),
-            ),
-            borderSide: BorderSide(width: 0, style: BorderStyle.none)),
-      ),
-    );
+        decoration: InputDecoration(
+            alignLabelWithHint: true,
+            contentPadding:
+                EdgeInsets.all(MediaQuery.of(context).size.height * 0.02),
+            label: Text(labeltext),
+            labelStyle: GoogleFonts.ubuntu(
+                fontWeight: FontWeight.bold,
+                color: selectedcolor,
+                fontSize: MediaQuery.of(context).size.height * 0.02),
+            hintText: hinttext,
+            hintStyle: GoogleFonts.ubuntu(
+                color: selectedcolor,
+                fontSize: MediaQuery.of(context).size.height * 0.02),
+            filled: !tipo,
+            fillColor: const Color(0xff9A68FD),
+            focusedBorder: tipo
+                ? const OutlineInputBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(10),
+                    ),
+                    borderSide: BorderSide(
+                        width: 1,
+                        style: BorderStyle.solid,
+                        color: Color(0xff6318F2)))
+                : const OutlineInputBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(10),
+                    ),
+                    borderSide: BorderSide(width: 0, style: BorderStyle.none)),
+            border: tipo
+                ? const OutlineInputBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(10),
+                    ),
+                    borderSide: BorderSide(
+                        width: 1,
+                        style: BorderStyle.solid,
+                        color: Color(0xff6318F2)))
+                : const OutlineInputBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(10),
+                    ),
+                    borderSide:
+                        BorderSide(width: 0, style: BorderStyle.none))));
   }
 
   Widget header(BuildContext context, Color fontcolor) {

@@ -36,15 +36,12 @@ class _LoginPageState extends State<LoginPage> {
       FirebaseAuth.instance.signInWithEmailAndPassword(
           email: emailController.text, password: senhaController.text);
       User? user = FirebaseAuth.instance.currentUser;
-      print("Entrou1");
       if (user != null) {
-        print("entrou!");
         late Usuario usuario;
         final docUser = await FirebaseFirestore.instance
             .collection('usuarios')
             .doc(user.uid)
             .get();
-        print(user.uid);
         usuario = Usuario.fromMap(docUser.data()!);
         Navigator.push(
             context,
@@ -115,13 +112,25 @@ class _LoginPageState extends State<LoginPage> {
                       SizedBox(
                         height: MediaQuery.of(context).size.height * 0.05,
                       ),
-                      CustomWidgets().customTextfield(context, "Email",
-                          "Insira seu email", emailController),
+                      CustomWidgets().customTextfield(
+                          context,
+                          "Email",
+                          "Insira seu email",
+                          emailController,
+                          Colors.white,
+                          1,
+                          false),
                       SizedBox(
                         height: MediaQuery.of(context).size.height * 0.03,
                       ),
-                      CustomWidgets().customTextfield(context, "Senha",
-                          "Insira sua senha", senhaController),
+                      CustomWidgets().customTextfield(
+                          context,
+                          "Senha",
+                          "Insira sua senha",
+                          senhaController,
+                          Colors.white,
+                          1,
+                          false),
                       Align(
                         alignment: Alignment.centerRight,
                         child: TextButton(
