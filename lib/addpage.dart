@@ -8,6 +8,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 TextEditingController indiceGlicemico = TextEditingController();
 TextEditingController anotacoes = TextEditingController();
+TextEditingController medicamentos = TextEditingController();
 ScrollController scrollController = ScrollController();
 
 class AddPage extends StatelessWidget {
@@ -47,6 +48,37 @@ class AddPage extends StatelessWidget {
                         alignment: Alignment.center,
                         child: CustomWidgets().header(context, Colors.white),
                       ),
+                      Positioned(
+                        top: 15,
+                        right: 0,
+                        child: IconButton(
+                          icon: Icon(
+                            Icons.help_outline,
+                            color: Colors.white,
+                            size: MediaQuery.of(context).size.height * 0.035,
+                          ),
+                          onPressed: () {
+                            showDialog(
+                                context: context,
+                                builder: (context) => AlertDialog(
+                                    title: Text("Ajuda",
+                                        style: GoogleFonts.ubuntu(
+                                            fontSize: MediaQuery.sizeOf(context)
+                                                    .height *
+                                                0.023,
+                                            fontWeight: FontWeight.bold)),
+                                    content: Text(
+                                        "O indice glicêmico deve ser preenchido de acordo com a ultima medição realizada pelo aparelho Glicosimetro."
+                                        " Caso não possua indice apenas não preencha.\n\nJá para os medicamentos também deve se atentar a preencher nesse padrão 'Remédio 100 MG','Remédio 50 MG'."
+                                        " Também não se deve preencher nada caso não tenha tomado!",
+                                        style: GoogleFonts.ubuntu(
+                                            fontSize: MediaQuery.sizeOf(context)
+                                                    .height *
+                                                0.021),
+                                        textAlign: TextAlign.justify)));
+                          },
+                        ),
+                      )
                     ],
                   ),
                 ),
@@ -87,15 +119,15 @@ class AddPage extends StatelessWidget {
                         SizedBox(
                             height: MediaQuery.sizeOf(context).height * 0.035),
                         CustomWidgets().customTextfield(
-                            context,
-                            "Medicamentos",
-                            "Insira os medicamos utilizados",
-                            indiceGlicemico,
-                            Colors.black,
-                            1,
-                            true,
-                            null,
-                            TextInputType.number),
+                          context,
+                          "Medicamentos",
+                          "Insira os medicamos utilizados",
+                          medicamentos,
+                          Colors.black,
+                          1,
+                          true,
+                          null,
+                        ),
                         SizedBox(
                             height: MediaQuery.sizeOf(context).height * 0.035),
                         Scrollbar(
@@ -136,6 +168,7 @@ class AddPage extends StatelessWidget {
                                       onPressed: () {
                                         indiceGlicemico.clear();
                                         anotacoes.clear();
+                                        medicamentos.clear();
                                         Navigator.push(
                                             context,
                                             MaterialPageRoute(
@@ -156,7 +189,8 @@ class AddPage extends StatelessWidget {
                               indice: num.parse(indiceGlicemico.text),
                               newAnotacao: anotacoes.text,
                               id: FirebaseAuth.instance.currentUser!.uid,
-                              data: DateTime.now());
+                              data: DateTime.now(),
+                              medicacao: medicamentos.text);
                         }, "Adicionar")
                       ],
                     ),

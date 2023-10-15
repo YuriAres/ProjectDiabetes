@@ -13,30 +13,30 @@
 13         to allow setting breakpoints, to provide hot reload, etc.
 14    -->
 15    <uses-permission android:name="android.permission.INTERNET" />
-15-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\debug\AndroidManifest.xml:6:5-66
-15-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\debug\AndroidManifest.xml:6:22-64
-16
-17    <queries>
-17-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:2:9-8:11
-18        <intent>
-18-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:3:5-7:14
-19            <action android:name="android.intent.action.VIEW" />
-19-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:4:9-61
-19-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:4:17-58
-20
-21            <category android:name="android.intent.category.BROWSABLE" />
-21-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:5:9-70
-21-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:5:19-67
-22
-23            <data android:scheme="https" />
-23-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:6:9-40
-23-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:6:15-37
-24        </intent>
-25    </queries>
-26
-27    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-27-->[com.google.firebase:firebase-auth:22.1.1] C:\Users\AN5\.gradle\caches\transforms-3\013977f773ffa7f588a4a066bf9a9246\transformed\jetified-firebase-auth-22.1.1\AndroidManifest.xml:26:5-79
-27-->[com.google.firebase:firebase-auth:22.1.1] C:\Users\AN5\.gradle\caches\transforms-3\013977f773ffa7f588a4a066bf9a9246\transformed\jetified-firebase-auth-22.1.1\AndroidManifest.xml:26:22-76
+15-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:2:5-67
+15-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:2:22-64
+16    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+16-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:3:5-79
+16-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:3:22-76
+17
+18    <queries>
+18-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:4:9-10:11
+19        <intent>
+19-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:5:5-9:14
+20            <action android:name="android.intent.action.VIEW" />
+20-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:6:9-61
+20-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:6:17-58
+21
+22            <category android:name="android.intent.category.BROWSABLE" />
+22-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:7:9-70
+22-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:7:19-67
+23
+24            <data android:scheme="https" />
+24-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:8:9-40
+24-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:8:15-37
+25        </intent>
+26    </queries>
+27
 28    <uses-permission android:name="android.permission.WAKE_LOCK" />
 28-->[com.google.android.gms:play-services-measurement-api:21.3.0] C:\Users\AN5\.gradle\caches\transforms-3\5a04a59768dbef76c9a94429546de2a1\transformed\jetified-play-services-measurement-api-21.3.0\AndroidManifest.xml:24:5-68
 28-->[com.google.android.gms:play-services-measurement-api:21.3.0] C:\Users\AN5\.gradle\caches\transforms-3\5a04a59768dbef76c9a94429546de2a1\transformed\jetified-play-services-measurement-api-21.3.0\AndroidManifest.xml:24:22-65
@@ -64,7 +64,7 @@
 40-->[androidx.core:core:1.10.1] C:\Users\AN5\.gradle\caches\transforms-3\17c44a9ee9728471e88635da67cac57c\transformed\core-1.10.1\AndroidManifest.xml:28:18-86
 41        android:debuggable="true"
 42        android:icon="@mipmap/ic_launcher"
-43        android:label="flutter_diabetes" >
+43        android:label="Diario Diabetes" >
 44        <activity
 45            android:name="com.example.flutter_diabetes.MainActivity"
 46            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
@@ -173,22 +173,22 @@
 114            <intent-filter>
 114-->[com.google.firebase:firebase-auth:22.1.1] C:\Users\AN5\.gradle\caches\transforms-3\013977f773ffa7f588a4a066bf9a9246\transformed\jetified-firebase-auth-22.1.1\AndroidManifest.xml:35:13-45:29
 115                <action android:name="android.intent.action.VIEW" />
-115-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:4:9-61
-115-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:4:17-58
+115-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:6:9-61
+115-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:6:17-58
 116
 117                <category android:name="android.intent.category.DEFAULT" />
 117-->[com.google.firebase:firebase-auth:22.1.1] C:\Users\AN5\.gradle\caches\transforms-3\013977f773ffa7f588a4a066bf9a9246\transformed\jetified-firebase-auth-22.1.1\AndroidManifest.xml:38:17-76
 117-->[com.google.firebase:firebase-auth:22.1.1] C:\Users\AN5\.gradle\caches\transforms-3\013977f773ffa7f588a4a066bf9a9246\transformed\jetified-firebase-auth-22.1.1\AndroidManifest.xml:38:27-73
 118                <category android:name="android.intent.category.BROWSABLE" />
-118-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:5:9-70
-118-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:5:19-67
+118-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:7:9-70
+118-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:7:19-67
 119
 120                <data
-120-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:6:9-40
+120-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:8:9-40
 121                    android:host="firebase.auth"
 122                    android:path="/"
 123                    android:scheme="genericidp" />
-123-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:6:15-37
+123-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:8:15-37
 124            </intent-filter>
 125        </activity>
 126        <activity
@@ -206,22 +206,22 @@
 132            <intent-filter>
 132-->[com.google.firebase:firebase-auth:22.1.1] C:\Users\AN5\.gradle\caches\transforms-3\013977f773ffa7f588a4a066bf9a9246\transformed\jetified-firebase-auth-22.1.1\AndroidManifest.xml:53:13-63:29
 133                <action android:name="android.intent.action.VIEW" />
-133-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:4:9-61
-133-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:4:17-58
+133-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:6:9-61
+133-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:6:17-58
 134
 135                <category android:name="android.intent.category.DEFAULT" />
 135-->[com.google.firebase:firebase-auth:22.1.1] C:\Users\AN5\.gradle\caches\transforms-3\013977f773ffa7f588a4a066bf9a9246\transformed\jetified-firebase-auth-22.1.1\AndroidManifest.xml:38:17-76
 135-->[com.google.firebase:firebase-auth:22.1.1] C:\Users\AN5\.gradle\caches\transforms-3\013977f773ffa7f588a4a066bf9a9246\transformed\jetified-firebase-auth-22.1.1\AndroidManifest.xml:38:27-73
 136                <category android:name="android.intent.category.BROWSABLE" />
-136-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:5:9-70
-136-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:5:19-67
+136-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:7:9-70
+136-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:7:19-67
 137
 138                <data
-138-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:6:9-40
+138-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:8:9-40
 139                    android:host="firebase.auth"
 140                    android:path="/"
 141                    android:scheme="recaptcha" />
-141-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:6:15-37
+141-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:8:15-37
 142            </intent-filter>
 143        </activity>
 144

@@ -46,6 +46,18 @@ class _AddAlarmPageState extends State<AddAlarmPage> {
                         alignment: Alignment.center,
                         child: CustomWidgets().header(context, Colors.white),
                       ),
+                      Positioned(
+                        top: 15,
+                        right: -10,
+                        child: IconButton(
+                          icon: Icon(
+                            Icons.help_outline,
+                            color: Colors.white,
+                            size: MediaQuery.of(context).size.height * 0.035,
+                          ),
+                          onPressed: () {},
+                        ),
+                      )
                     ],
                   ),
                 ),

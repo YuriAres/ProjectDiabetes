@@ -251,7 +251,7 @@ class CustomWidgets {
   }
 
   Widget containerAnotacao(BuildContext context, num indice, String anotacao,
-      String data, Usuario usuario, String id) {
+      String data, Usuario usuario, String id, String medicacao) {
     String smallAnotacao;
     if (anotacao.length > 28) {
       smallAnotacao = anotacao.substring(0, 28);
@@ -280,6 +280,7 @@ class CustomWidgets {
             data: realdate,
             usuario: usuario,
             id: id,
+            medicacoes: medicacao,
           );
         }));
       },

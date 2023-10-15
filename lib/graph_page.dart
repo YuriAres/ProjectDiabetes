@@ -5,6 +5,7 @@ import 'package:flutter_diabetes/model/usuario.dart';
 import 'package:flutter_diabetes/perfilpage.dart';
 import 'package:flutter_diabetes/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:fl_chart/fl_chart.dart';
 
 class GraphPage extends StatefulWidget {
   final Usuario usuario;
@@ -15,8 +16,20 @@ class GraphPage extends StatefulWidget {
 }
 
 class _GraphPageState extends State<GraphPage> {
+  List<double> numeros = [10, 20, 30, 40, 50, 60, 70];
   @override
   Widget build(BuildContext context) {
+    BarData mybardata = BarData(
+        domAmount: numeros[0],
+        segAmount: numeros[1],
+        terAmount: numeros[2],
+        quaAmount: numeros[3],
+        quiAmount: numeros[4],
+        sexAmount: numeros[5],
+        sabAmount: numeros[6]);
+
+    mybardata.initializeBarChart();
+
     return Scaffold(
       backgroundColor: const Color(0xFF8851F6),
       bottomNavigationBar: BottomNavigationBar(
@@ -107,7 +120,7 @@ class _GraphPageState extends State<GraphPage> {
                 ),
                 Expanded(
                   child: Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 30),
+                    padding: const EdgeInsets.symmetric(horizontal: 5),
                     decoration: const BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.only(
@@ -124,6 +137,22 @@ class _GraphPageState extends State<GraphPage> {
                             style: GoogleFonts.ubuntu(
                                 fontSize:
                                     MediaQuery.sizeOf(context).height * 0.035)),
+                        SizedBox(
+                            height: MediaQuery.sizeOf(context).height * 0.035),
+                        SizedBox(
+                            height: MediaQuery.sizeOf(context).height * 0.35,
+                            width: MediaQuery.sizeOf(context).width,
+                            child: BarChart(BarChartData(
+                                maxY: 200,
+                                minY: 0,
+                                barGroups: mybardata.bardata
+                                    .map((data) => BarChartGroupData(
+                                            x: data.x,
+                                            barRods: [
+                                              BarChartRodData(
+                                                  toY: data.y, width: 10)
+                                            ]))
+                                    .toList())))
                       ],
                     ),
                   ),
@@ -134,5 +163,45 @@ class _GraphPageState extends State<GraphPage> {
         ),
       ),
     );
+  }
+}
+
+class IndividualBar {
+  final int x;
+  final double y;
+
+  IndividualBar({required this.x, required this.y});
+}
+
+class BarData {
+  final double domAmount;
+  final double segAmount;
+  final double terAmount;
+  final double quaAmount;
+  final double quiAmount;
+  final double sexAmount;
+  final double sabAmount;
+
+  BarData(
+      {required this.domAmount,
+      required this.segAmount,
+      required this.terAmount,
+      required this.quaAmount,
+      required this.quiAmount,
+      required this.sexAmount,
+      required this.sabAmount});
+
+  List<IndividualBar> bardata = [];
+
+  void initializeBarChart() {
+    bardata = [
+      IndividualBar(x: 0, y: domAmount),
+      IndividualBar(x: 1, y: segAmount),
+      IndividualBar(x: 2, y: terAmount),
+      IndividualBar(x: 3, y: quaAmount),
+      IndividualBar(x: 4, y: quiAmount),
+      IndividualBar(x: 5, y: sexAmount),
+      IndividualBar(x: 6, y: sabAmount),
+    ];
   }
 }

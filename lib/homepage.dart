@@ -249,7 +249,8 @@ class _HomepageState extends State<Homepage> {
                           anotacoes[index].anotacao,
                           anotacoes[index].data,
                           widget.usuario,
-                          FirebaseAuth.instance.currentUser!.uid);
+                          FirebaseAuth.instance.currentUser!.uid,
+                          anotacoes[index].medicacao);
                     },
                   ),
                 ),

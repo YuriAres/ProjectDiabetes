@@ -36,9 +36,13 @@ class FirebaseAPI {
       {required num indice,
       required String newAnotacao,
       required String id,
-      required DateTime data}) async {
-    final anotacao =
-        Anotacao(indice: indice, anotacao: newAnotacao, data: data.toString());
+      required DateTime data,
+      required String medicacao}) async {
+    final anotacao = Anotacao(
+        indice: indice,
+        anotacao: newAnotacao,
+        data: data.toString(),
+        medicacao: medicacao);
 
     final json = anotacao.toJson();
     final docUser = FirebaseFirestore.instance
