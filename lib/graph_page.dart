@@ -139,20 +139,13 @@ class _GraphPageState extends State<GraphPage> {
                                     MediaQuery.sizeOf(context).height * 0.035)),
                         SizedBox(
                             height: MediaQuery.sizeOf(context).height * 0.035),
-                        SizedBox(
-                            height: MediaQuery.sizeOf(context).height * 0.35,
-                            width: MediaQuery.sizeOf(context).width,
-                            child: BarChart(BarChartData(
-                                maxY: 200,
-                                minY: 0,
-                                barGroups: mybardata.bardata
-                                    .map((data) => BarChartGroupData(
-                                            x: data.x,
-                                            barRods: [
-                                              BarChartRodData(
-                                                  toY: data.y, width: 10)
-                                            ]))
-                                    .toList())))
+                        Container(
+                          height: MediaQuery.sizeOf(context).height * 0.3,
+                          width: MediaQuery.sizeOf(context).width,
+                          decoration: BoxDecoration(
+                              color: const Color(0xFF8851F6),
+                              borderRadius: BorderRadius.circular(20)),
+                        )
                       ],
                     ),
                   ),
