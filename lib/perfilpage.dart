@@ -5,11 +5,13 @@ import 'package:flutter_diabetes/homepage.dart';
 import 'package:flutter_diabetes/model/usuario.dart';
 import 'package:flutter_diabetes/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'model/anotacoes.dart';
 
 // ignore: must_be_immutable
 class Perfilpage extends StatelessWidget {
   final Usuario usuario;
-  Perfilpage({super.key, required this.usuario});
+  final List<Anotacao> anotacoes;
+  Perfilpage({super.key, required this.usuario, required this.anotacoes});
 
   @override
   Widget build(BuildContext context) {
@@ -33,14 +35,12 @@ class Perfilpage extends StatelessWidget {
             }
             if (value == 1) {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return Alarmpage(
-                  usuario: usuario,
-                );
+                return Alarmpage(usuario: usuario, anotacoes: anotacoes);
               }));
             }
             if (value == 2) {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return GraphPage(usuario: usuario);
+                return GraphPage(usuario: usuario, anotacoes: anotacoes);
               }));
             }
           },

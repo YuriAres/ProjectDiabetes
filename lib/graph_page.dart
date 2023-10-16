@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_diabetes/alarmpage.dart';
 import 'package:flutter_diabetes/homepage.dart';
@@ -6,27 +7,50 @@ import 'package:flutter_diabetes/perfilpage.dart';
 import 'package:flutter_diabetes/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:fl_chart/fl_chart.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+
+import 'model/anotacoes.dart';
 
 class GraphPage extends StatefulWidget {
   final Usuario usuario;
-  const GraphPage({super.key, required this.usuario});
+  final List<Anotacao> anotacoes;
+  const GraphPage({super.key, required this.usuario, required this.anotacoes});
 
   @override
   State<GraphPage> createState() => _GraphPageState();
 }
 
 class _GraphPageState extends State<GraphPage> {
-  List<double> numeros = [10, 20, 30, 40, 50, 60, 70];
+  List<double> numeros = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+  @override
+  void didChangeDependencies() {
+    // TODO: implement didChangeDependencies
+    List<Anotacao> reverselist = widget.anotacoes.reversed.toList();
+    print(widget.anotacoes.length);
+    if (widget.anotacoes.length < 10) {
+      print("Menor que 10");
+      for (int i = 0; i < widget.anotacoes.length; i++) {
+        numeros.insert(i, reverselist[i].indice.toDouble());
+      }
+    } else {
+      print("Maior");
+    }
+    super.didChangeDependencies();
+  }
+
   @override
   Widget build(BuildContext context) {
     BarData mybardata = BarData(
-        domAmount: numeros[0],
-        segAmount: numeros[1],
-        terAmount: numeros[2],
-        quaAmount: numeros[3],
-        quiAmount: numeros[4],
-        sexAmount: numeros[5],
-        sabAmount: numeros[6]);
+        oneAmount: numeros[0],
+        twoAmount: numeros[1],
+        threeAmount: numeros[2],
+        fourAmount: numeros[3],
+        fiveAmount: numeros[4],
+        sixAmount: numeros[5],
+        sevenAmount: numeros[6],
+        eightAmount: numeros[7],
+        nineAmount: numeros[8],
+        tenAmount: numeros[9]);
 
     mybardata.initializeBarChart();
 
@@ -53,14 +77,14 @@ class _GraphPageState extends State<GraphPage> {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
                 return Alarmpage(
                   usuario: widget.usuario,
+                  anotacoes: widget.anotacoes,
                 );
               }));
             }
             if (value == 3) {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
                 return Perfilpage(
-                  usuario: widget.usuario,
-                );
+                    usuario: widget.usuario, anotacoes: widget.anotacoes);
               }));
             }
           },
@@ -120,7 +144,7 @@ class _GraphPageState extends State<GraphPage> {
                 ),
                 Expanded(
                   child: Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 5),
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
                     decoration: const BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.only(
@@ -138,13 +162,296 @@ class _GraphPageState extends State<GraphPage> {
                                 fontSize:
                                     MediaQuery.sizeOf(context).height * 0.035)),
                         SizedBox(
-                            height: MediaQuery.sizeOf(context).height * 0.035),
+                            height: MediaQuery.sizeOf(context).height * 0.025),
                         Container(
-                          height: MediaQuery.sizeOf(context).height * 0.3,
-                          width: MediaQuery.sizeOf(context).width,
+                          padding: EdgeInsets.all(
+                              MediaQuery.sizeOf(context).height * 0.01),
+                          height: MediaQuery.sizeOf(context).height * 0.35,
+                          width: MediaQuery.sizeOf(context).width * 0.9,
                           decoration: BoxDecoration(
                               color: const Color(0xFF8851F6),
                               borderRadius: BorderRadius.circular(20)),
+                          child: Column(children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                IconButton(
+                                    padding: EdgeInsets.zero,
+                                    onPressed: () {},
+                                    icon: Icon(
+                                      Icons.arrow_left,
+                                      color: Colors.white,
+                                      size: MediaQuery.sizeOf(context).height *
+                                          0.04,
+                                    )),
+                                Text("Ultimas medições",
+                                    style: GoogleFonts.ubuntu(
+                                        fontSize:
+                                            MediaQuery.sizeOf(context).height *
+                                                0.025,
+                                        color: Colors.white)),
+                                IconButton(
+                                    padding: EdgeInsets.zero,
+                                    onPressed: () {},
+                                    icon: Icon(Icons.arrow_right,
+                                        color: Colors.white,
+                                        size:
+                                            MediaQuery.sizeOf(context).height *
+                                                0.04)),
+                              ],
+                            ),
+                            const Divider(
+                              color: Colors.white,
+                              thickness: 0.7,
+                            ),
+                            Expanded(
+                                child: BarChart(BarChartData(
+                                    maxY: 200,
+                                    minY: 0,
+                                    gridData: const FlGridData(show: false),
+                                    borderData: FlBorderData(show: false),
+                                    titlesData: const FlTitlesData(
+                                        rightTitles: AxisTitles(
+                                            sideTitles:
+                                                SideTitles(showTitles: false)),
+                                        leftTitles: AxisTitles(
+                                            sideTitles:
+                                                SideTitles(showTitles: false)),
+                                        topTitles: AxisTitles(
+                                            sideTitles:
+                                                SideTitles(showTitles: false)),
+                                        bottomTitles: AxisTitles(
+                                            sideTitles: SideTitles(
+                                                showTitles: true,
+                                                getTitlesWidget:
+                                                    getBottomTitles))),
+                                    barGroups: mybardata.bardata
+                                        .map((data) => BarChartGroupData(
+                                                x: data.x,
+                                                barRods: [
+                                                  BarChartRodData(
+                                                      toY: data.y,
+                                                      width: 15,
+                                                      color: Colors.white)
+                                                ]))
+                                        .toList()))),
+                          ]),
+                        ),
+                        SizedBox(
+                          height: MediaQuery.sizeOf(context).height * 0.03,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                              padding: EdgeInsets.all(
+                                  MediaQuery.sizeOf(context).height * 0.012),
+                              height: MediaQuery.sizeOf(context).height * 0.13,
+                              width: MediaQuery.sizeOf(context).width * 0.40,
+                              decoration: BoxDecoration(
+                                  color: const Color(0xff9A68FD),
+                                  borderRadius: BorderRadius.all(
+                                      Radius.circular(
+                                          MediaQuery.sizeOf(context).height *
+                                              0.01))),
+                              child: Column(
+                                children: [
+                                  Text(
+                                    "Variação",
+                                    style: GoogleFonts.ubuntu(
+                                        fontSize:
+                                            MediaQuery.sizeOf(context).height *
+                                                0.021,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w600),
+                                  ),
+                                  SizedBox(
+                                      height:
+                                          MediaQuery.sizeOf(context).height *
+                                              0.0115),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Icon(
+                                        Icons.arrow_drop_down,
+                                        color: Colors.white,
+                                        size:
+                                            MediaQuery.sizeOf(context).height *
+                                                0.05,
+                                      ),
+                                      Text(
+                                        "5 %",
+                                        style: GoogleFonts.ubuntu(
+                                            fontSize: MediaQuery.sizeOf(context)
+                                                    .height *
+                                                0.035,
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.w400),
+                                      )
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Container(
+                              padding: EdgeInsets.all(
+                                  MediaQuery.sizeOf(context).height * 0.012),
+                              height: MediaQuery.sizeOf(context).height * 0.13,
+                              width: MediaQuery.sizeOf(context).width * 0.40,
+                              decoration: BoxDecoration(
+                                  color: const Color(0xff9A68FD),
+                                  borderRadius: BorderRadius.all(
+                                      Radius.circular(
+                                          MediaQuery.sizeOf(context).height *
+                                              0.01))),
+                              child: Column(
+                                children: [
+                                  Text(
+                                    "Média",
+                                    style: GoogleFonts.ubuntu(
+                                        fontSize:
+                                            MediaQuery.sizeOf(context).height *
+                                                0.021,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w600),
+                                  ),
+                                  SizedBox(
+                                      height:
+                                          MediaQuery.sizeOf(context).height *
+                                              0.0115),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Icon(
+                                        Icons.arrow_drop_down,
+                                        color: Colors.white,
+                                        size:
+                                            MediaQuery.sizeOf(context).height *
+                                                0.05,
+                                      ),
+                                      Text(
+                                        "5 %",
+                                        style: GoogleFonts.ubuntu(
+                                            fontSize: MediaQuery.sizeOf(context)
+                                                    .height *
+                                                0.035,
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.w400),
+                                      )
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            )
+                          ],
+                        ),
+                        SizedBox(
+                          height: MediaQuery.sizeOf(context).height * 0.02,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                              padding: EdgeInsets.all(
+                                  MediaQuery.sizeOf(context).height * 0.012),
+                              height: MediaQuery.sizeOf(context).height * 0.13,
+                              width: MediaQuery.sizeOf(context).width * 0.40,
+                              decoration: BoxDecoration(
+                                  color: const Color(0xff9A68FD),
+                                  borderRadius: BorderRadius.all(
+                                      Radius.circular(
+                                          MediaQuery.sizeOf(context).height *
+                                              0.01))),
+                              child: Column(
+                                children: [
+                                  Text(
+                                    "Maior indice",
+                                    style: GoogleFonts.ubuntu(
+                                        fontSize:
+                                            MediaQuery.sizeOf(context).height *
+                                                0.021,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w600),
+                                  ),
+                                  SizedBox(
+                                      height:
+                                          MediaQuery.sizeOf(context).height *
+                                              0.0115),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Icon(
+                                        Icons.arrow_drop_down,
+                                        color: Colors.white,
+                                        size:
+                                            MediaQuery.sizeOf(context).height *
+                                                0.05,
+                                      ),
+                                      Text(
+                                        "5 %",
+                                        style: GoogleFonts.ubuntu(
+                                            fontSize: MediaQuery.sizeOf(context)
+                                                    .height *
+                                                0.035,
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.w400),
+                                      )
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Container(
+                              padding: EdgeInsets.all(
+                                  MediaQuery.sizeOf(context).height * 0.012),
+                              height: MediaQuery.sizeOf(context).height * 0.13,
+                              width: MediaQuery.sizeOf(context).width * 0.40,
+                              decoration: BoxDecoration(
+                                  color: const Color(0xff9A68FD),
+                                  borderRadius: BorderRadius.all(
+                                      Radius.circular(
+                                          MediaQuery.sizeOf(context).height *
+                                              0.01))),
+                              child: Column(
+                                children: [
+                                  Text(
+                                    "Menor indice",
+                                    style: GoogleFonts.ubuntu(
+                                        fontSize:
+                                            MediaQuery.sizeOf(context).height *
+                                                0.021,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w600),
+                                  ),
+                                  SizedBox(
+                                      height:
+                                          MediaQuery.sizeOf(context).height *
+                                              0.0115),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Icon(
+                                        Icons.arrow_drop_down,
+                                        color: Colors.white,
+                                        size:
+                                            MediaQuery.sizeOf(context).height *
+                                                0.05,
+                                      ),
+                                      Text(
+                                        "5 %",
+                                        style: GoogleFonts.ubuntu(
+                                            fontSize: MediaQuery.sizeOf(context)
+                                                    .height *
+                                                0.035,
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.w400),
+                                      )
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            )
+                          ],
                         )
                       ],
                     ),
@@ -167,34 +474,100 @@ class IndividualBar {
 }
 
 class BarData {
-  final double domAmount;
-  final double segAmount;
-  final double terAmount;
-  final double quaAmount;
-  final double quiAmount;
-  final double sexAmount;
-  final double sabAmount;
+  final double oneAmount;
+  final double twoAmount;
+  final double threeAmount;
+  final double fourAmount;
+  final double fiveAmount;
+  final double sixAmount;
+  final double sevenAmount;
+  final double eightAmount;
+  final double nineAmount;
+  final double tenAmount;
 
   BarData(
-      {required this.domAmount,
-      required this.segAmount,
-      required this.terAmount,
-      required this.quaAmount,
-      required this.quiAmount,
-      required this.sexAmount,
-      required this.sabAmount});
+      {required this.oneAmount,
+      required this.twoAmount,
+      required this.threeAmount,
+      required this.fourAmount,
+      required this.fiveAmount,
+      required this.sixAmount,
+      required this.sevenAmount,
+      required this.eightAmount,
+      required this.nineAmount,
+      required this.tenAmount});
 
   List<IndividualBar> bardata = [];
 
   void initializeBarChart() {
     bardata = [
-      IndividualBar(x: 0, y: domAmount),
-      IndividualBar(x: 1, y: segAmount),
-      IndividualBar(x: 2, y: terAmount),
-      IndividualBar(x: 3, y: quaAmount),
-      IndividualBar(x: 4, y: quiAmount),
-      IndividualBar(x: 5, y: sexAmount),
-      IndividualBar(x: 6, y: sabAmount),
+      IndividualBar(x: 0, y: oneAmount),
+      IndividualBar(x: 1, y: twoAmount),
+      IndividualBar(x: 2, y: threeAmount),
+      IndividualBar(x: 3, y: fourAmount),
+      IndividualBar(x: 4, y: fiveAmount),
+      IndividualBar(x: 5, y: sixAmount),
+      IndividualBar(x: 6, y: sevenAmount),
+      IndividualBar(x: 7, y: eightAmount),
+      IndividualBar(x: 8, y: nineAmount),
+      IndividualBar(x: 9, y: tenAmount),
     ];
   }
+}
+
+Widget getBottomTitles(double value, TitleMeta meta) {
+  TextStyle Style = GoogleFonts.ubuntu(fontSize: 14, color: Colors.white);
+
+  Text week;
+  switch (value.toInt()) {
+    case 0:
+      week = Text("1º", style: Style);
+      break;
+    case 1:
+      week = Text("2º", style: Style);
+      break;
+    case 2:
+      week = Text("3º", style: Style);
+      break;
+    case 3:
+      week = Text("4º", style: Style);
+      break;
+    case 4:
+      week = Text("5º", style: Style);
+      break;
+    case 5:
+      week = Text("6º", style: Style);
+      break;
+    case 6:
+      week = Text("7º", style: Style);
+      break;
+    case 7:
+      week = Text("8º", style: Style);
+      break;
+    case 8:
+      week = Text("9º", style: Style);
+      break;
+    case 9:
+      week = Text("10º", style: Style);
+      break;
+    default:
+      week = Text(
+        "NaN",
+        style: Style,
+      );
+  }
+  return SideTitleWidget(axisSide: meta.axisSide, child: week);
+}
+
+Future<List<Anotacao>> pesquisarDocs(Usuario usuario) async {
+  var querySnapshot = await FirebaseFirestore.instance
+      .collection('usuarios')
+      .doc(FirebaseAuth.instance.currentUser!.uid)
+      .collection('anotacoes')
+      .get();
+
+  List<Anotacao> anotacao;
+  anotacao =
+      List.from(querySnapshot.docs.map((doc) => Anotacao.fromMap(doc.data())));
+  return anotacao;
 }

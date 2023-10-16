@@ -1,4 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_diabetes/addpage.dart';
+import 'package:flutter_diabetes/model/anotacoes.dart';
 import 'package:flutter_diabetes/model/usuario.dart';
 import 'package:flutter_diabetes/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -85,6 +89,18 @@ class _AddAlarmPageState extends State<AddAlarmPage> {
                                     MediaQuery.sizeOf(context).height * 0.035)),
                         SizedBox(
                             height: MediaQuery.sizeOf(context).height * 0.035),
+                        Center(
+                          child: ElevatedButton(
+                              onPressed: () async {
+                                DateTime data = DateTime.parse(
+                                    "2023-10-14 04:36:35.746444");
+                                print(data.weekday);
+                                List<Anotacao> teste =
+                                    await pesquisarDocs(widget.usuario);
+                                print(teste[1].anotacao);
+                              },
+                              child: Text("Teste")),
+                        )
                       ],
                     ),
                   ),
@@ -96,4 +112,17 @@ class _AddAlarmPageState extends State<AddAlarmPage> {
       ),
     );
   }
+}
+
+Future<List<Anotacao>> pesquisarDocs(Usuario usuario) async {
+  var querySnapshot = await FirebaseFirestore.instance
+      .collection('usuarios')
+      .doc(FirebaseAuth.instance.currentUser!.uid)
+      .collection('anotacoes')
+      .get();
+
+  List<Anotacao> anotacao;
+  anotacao =
+      List.from(querySnapshot.docs.map((doc) => Anotacao.fromMap(doc.data())));
+  return anotacao;
 }

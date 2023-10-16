@@ -34,6 +34,7 @@ class _HomepageState extends State<Homepage> {
           List.from(data.docs.map((doc) => Anotacao.fromMap(doc.data())));
       anotacoes = anotacoes.reversed.toList();
     });
+    print(anotacoes.length);
   }
 
   @override
@@ -66,17 +67,21 @@ class _HomepageState extends State<Homepage> {
           onTap: (value) {
             if (value == 1) {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return Alarmpage(usuario: widget.usuario);
+                return Alarmpage(usuario: widget.usuario, anotacoes: anotacoes);
               }));
             }
             if (value == 2) {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return GraphPage(usuario: widget.usuario);
+                return GraphPage(
+                  usuario: widget.usuario,
+                  anotacoes: anotacoes,
+                );
               }));
             }
             if (value == 3) {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return Perfilpage(usuario: widget.usuario);
+                return Perfilpage(
+                    usuario: widget.usuario, anotacoes: anotacoes);
               }));
             }
           },

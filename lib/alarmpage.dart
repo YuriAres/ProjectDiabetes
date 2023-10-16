@@ -7,9 +7,12 @@ import 'package:flutter_diabetes/perfilpage.dart';
 import 'package:flutter_diabetes/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'model/anotacoes.dart';
+
 class Alarmpage extends StatefulWidget {
   final Usuario usuario;
-  const Alarmpage({super.key, required this.usuario});
+  final List<Anotacao> anotacoes;
+  const Alarmpage({super.key, required this.usuario, required this.anotacoes});
 
   @override
   State<Alarmpage> createState() => _AlarmpageState();
@@ -49,14 +52,14 @@ class _AlarmpageState extends State<Alarmpage> {
             }
             if (value == 2) {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return GraphPage(usuario: widget.usuario);
+                return GraphPage(
+                    usuario: widget.usuario, anotacoes: widget.anotacoes);
               }));
             }
             if (value == 3) {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
                 return Perfilpage(
-                  usuario: widget.usuario,
-                );
+                    usuario: widget.usuario, anotacoes: widget.anotacoes);
               }));
             }
           },
