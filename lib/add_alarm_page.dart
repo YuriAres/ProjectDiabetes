@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_diabetes/addpage.dart';
 import 'package:flutter_diabetes/model/anotacoes.dart';
 import 'package:flutter_diabetes/model/usuario.dart';
 import 'package:flutter_diabetes/widgets.dart';

@@ -52,7 +52,12 @@ class _HomepageState extends State<Homepage> {
             bottom: 145, // Ajuste a posição vertical conforme necessário
             right: 15, // Ajuste a posição horizontal conforme necessário
             child: FloatingActionButton(
+              heroTag: null,
               onPressed: () {},
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(
+                    10), // Defina o raio para 0 para torná-lo quadrado
+              ),
               backgroundColor: const Color(0xff6318F2),
               child: const Icon(Icons.archive),
             ),
@@ -61,13 +66,16 @@ class _HomepageState extends State<Homepage> {
               bottom: 75, // Ajuste a posição vertical conforme necessário
               right: 15, // Ajuste a posição horizontal conforme necessário
               child: FloatingActionButton(
-                heroTag: null,
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
                     return AddPage(usuario: widget.usuario);
                   }));
                 },
                 backgroundColor: const Color(0xff6318F2),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(
+                      10), // Defina o raio para 0 para torná-lo quadrado
+                ),
                 child: const Icon(Icons.add),
               )),
         ],

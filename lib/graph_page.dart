@@ -168,6 +168,43 @@ class _GraphPageState extends State<GraphPage> {
                         alignment: Alignment.center,
                         child: CustomWidgets().header(context, Colors.white),
                       ),
+                      Positioned(
+                        top: 15,
+                        right: 0,
+                        child: IconButton(
+                          icon: Icon(
+                            Icons.help_outline,
+                            color: Colors.white,
+                            size: MediaQuery.of(context).size.height * 0.035,
+                          ),
+                          onPressed: () {
+                            showDialog(
+                                context: context,
+                                builder: ((context) {
+                                  return AlertDialog(
+                                    title: Text("Ajuda",
+                                        style: GoogleFonts.ubuntu(
+                                            fontSize: MediaQuery.sizeOf(context)
+                                                    .height *
+                                                0.023,
+                                            fontWeight: FontWeight.bold)),
+                                    content: Text(
+                                        "A pagina de estatitica mostra as ultimas 10 medições glicemicas. Já os 4 indices são:\n\n"
+                                        "1. Variação: Representa a variação percenual entre a medição atual e a ultima afim de obter a variação entre as duas.\n"
+                                        "2. Média: Representa o indice glicêmico médio das ultimas 10 medições.\n"
+                                        "3. Maior indice: Representa o maior indice glicêmico das ultimas 10 medições.\n"
+                                        "4. Menor indice: Representa o menor indice glicêmico das ultimas 10 medições.\n",
+                                        textAlign: TextAlign.justify,
+                                        style: GoogleFonts.ubuntu(
+                                          fontSize: MediaQuery.sizeOf(context)
+                                                  .height *
+                                              0.021,
+                                        )),
+                                  );
+                                }));
+                          },
+                        ),
+                      )
                     ],
                   ),
                 ),
