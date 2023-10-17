@@ -263,7 +263,6 @@ class CustomWidgets {
     DateTime realdate = DateTime.parse(data);
     String minutos = realdate.minute.toString();
     String horas = realdate.hour.toString();
-    print(minutos);
     if (horas.length == 1) {
       horas = '0$horas';
     }

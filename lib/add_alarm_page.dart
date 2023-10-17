@@ -80,7 +80,7 @@ class _AddAlarmPageState extends State<AddAlarmPage> {
                     ),
                     child: Column(
                       children: [
-                        Row(),
+                        const Row(),
                         SizedBox(
                             height: MediaQuery.sizeOf(context).height * 0.035),
                         Text(widget.status ? "Novo Alarme" : "Editar alarme",

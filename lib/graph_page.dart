@@ -22,18 +22,50 @@ class GraphPage extends StatefulWidget {
 
 class _GraphPageState extends State<GraphPage> {
   List<double> numeros = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+  num maior = 0;
+  num menor = 0;
+  num media = 0;
+  double variacao = 0;
+  late num penultimo;
+  late bool status;
   @override
   void didChangeDependencies() {
-    // TODO: implement didChangeDependencies
     List<Anotacao> reverselist = widget.anotacoes.reversed.toList();
-    print(widget.anotacoes.length);
-    if (widget.anotacoes.length < 10) {
-      print("Menor que 10");
+    if (widget.anotacoes.length <= 10) {
       for (int i = 0; i < widget.anotacoes.length; i++) {
         numeros.insert(i, reverselist[i].indice.toDouble());
       }
     } else {
-      print("Maior");
+      int j = 0;
+      for (int i = reverselist.length - 10; i < reverselist.length; i++) {
+        numeros.insert(j, reverselist[i].indice.toDouble());
+        j++;
+      }
+    }
+    for (int i = 0; i < numeros.length; i++) {
+      if (numeros[i] > 0) {
+        if (numeros[i] > maior) {
+          maior = numeros[i];
+        }
+        if (numeros[i] < menor || i == 0) {
+          menor = numeros[i];
+        }
+        media += numeros[i];
+        if ((reverselist.length - (reverselist.length - 10)) - 2 == i) {
+          penultimo = numeros[i];
+          variacao = ((reverselist.last.indice - penultimo) / penultimo) * 100;
+        }
+      }
+    }
+    if (variacao > 0) {
+      status = true;
+    } else {
+      status = false;
+    }
+    if (reverselist.length <= 10) {
+      media = media / reverselist.length;
+    } else {
+      media = media / 10;
     }
     super.didChangeDependencies();
   }
@@ -268,19 +300,21 @@ class _GraphPageState extends State<GraphPage> {
                                   SizedBox(
                                       height:
                                           MediaQuery.sizeOf(context).height *
-                                              0.0115),
+                                              0.013),
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Icon(
-                                        Icons.arrow_drop_down,
+                                        status
+                                            ? Icons.arrow_drop_up
+                                            : Icons.arrow_drop_down,
                                         color: Colors.white,
                                         size:
                                             MediaQuery.sizeOf(context).height *
                                                 0.05,
                                       ),
                                       Text(
-                                        "5 %",
+                                        "${variacao.toStringAsFixed(1)} %",
                                         style: GoogleFonts.ubuntu(
                                             fontSize: MediaQuery.sizeOf(context)
                                                     .height *
@@ -318,19 +352,12 @@ class _GraphPageState extends State<GraphPage> {
                                   SizedBox(
                                       height:
                                           MediaQuery.sizeOf(context).height *
-                                              0.0115),
+                                              0.013),
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      Icon(
-                                        Icons.arrow_drop_down,
-                                        color: Colors.white,
-                                        size:
-                                            MediaQuery.sizeOf(context).height *
-                                                0.05,
-                                      ),
                                       Text(
-                                        "5 %",
+                                        media.toStringAsFixed(1),
                                         style: GoogleFonts.ubuntu(
                                             fontSize: MediaQuery.sizeOf(context)
                                                     .height *
@@ -376,19 +403,12 @@ class _GraphPageState extends State<GraphPage> {
                                   SizedBox(
                                       height:
                                           MediaQuery.sizeOf(context).height *
-                                              0.0115),
+                                              0.013),
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      Icon(
-                                        Icons.arrow_drop_down,
-                                        color: Colors.white,
-                                        size:
-                                            MediaQuery.sizeOf(context).height *
-                                                0.05,
-                                      ),
                                       Text(
-                                        "5 %",
+                                        maior.toString(),
                                         style: GoogleFonts.ubuntu(
                                             fontSize: MediaQuery.sizeOf(context)
                                                     .height *
@@ -426,19 +446,12 @@ class _GraphPageState extends State<GraphPage> {
                                   SizedBox(
                                       height:
                                           MediaQuery.sizeOf(context).height *
-                                              0.0115),
+                                              0.013),
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      Icon(
-                                        Icons.arrow_drop_down,
-                                        color: Colors.white,
-                                        size:
-                                            MediaQuery.sizeOf(context).height *
-                                                0.05,
-                                      ),
                                       Text(
-                                        "5 %",
+                                        menor.toString(),
                                         style: GoogleFonts.ubuntu(
                                             fontSize: MediaQuery.sizeOf(context)
                                                     .height *
@@ -516,44 +529,44 @@ class BarData {
 }
 
 Widget getBottomTitles(double value, TitleMeta meta) {
-  TextStyle Style = GoogleFonts.ubuntu(fontSize: 14, color: Colors.white);
+  TextStyle style = GoogleFonts.ubuntu(fontSize: 14, color: Colors.white);
 
   Text week;
   switch (value.toInt()) {
     case 0:
-      week = Text("1º", style: Style);
+      week = Text("1º", style: style);
       break;
     case 1:
-      week = Text("2º", style: Style);
+      week = Text("2º", style: style);
       break;
     case 2:
-      week = Text("3º", style: Style);
+      week = Text("3º", style: style);
       break;
     case 3:
-      week = Text("4º", style: Style);
+      week = Text("4º", style: style);
       break;
     case 4:
-      week = Text("5º", style: Style);
+      week = Text("5º", style: style);
       break;
     case 5:
-      week = Text("6º", style: Style);
+      week = Text("6º", style: style);
       break;
     case 6:
-      week = Text("7º", style: Style);
+      week = Text("7º", style: style);
       break;
     case 7:
-      week = Text("8º", style: Style);
+      week = Text("8º", style: style);
       break;
     case 8:
-      week = Text("9º", style: Style);
+      week = Text("9º", style: style);
       break;
     case 9:
-      week = Text("10º", style: Style);
+      week = Text("10º", style: style);
       break;
     default:
       week = Text(
         "NaN",
-        style: Style,
+        style: style,
       );
   }
   return SideTitleWidget(axisSide: meta.axisSide, child: week);

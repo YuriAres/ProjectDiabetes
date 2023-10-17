@@ -34,7 +34,6 @@ class _HomepageState extends State<Homepage> {
           List.from(data.docs.map((doc) => Anotacao.fromMap(doc.data())));
       anotacoes = anotacoes.reversed.toList();
     });
-    print(anotacoes.length);
   }
 
   @override
@@ -46,14 +45,32 @@ class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) {
-            return AddPage(usuario: widget.usuario);
-          }));
-        },
-        backgroundColor: const Color(0xff6318F2),
-        child: const Icon(Icons.add),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: Stack(
+        children: [
+          Positioned(
+            bottom: 145, // Ajuste a posição vertical conforme necessário
+            right: 15, // Ajuste a posição horizontal conforme necessário
+            child: FloatingActionButton(
+              onPressed: () {},
+              backgroundColor: const Color(0xff6318F2),
+              child: const Icon(Icons.archive),
+            ),
+          ),
+          Positioned(
+              bottom: 75, // Ajuste a posição vertical conforme necessário
+              right: 15, // Ajuste a posição horizontal conforme necessário
+              child: FloatingActionButton(
+                heroTag: null,
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return AddPage(usuario: widget.usuario);
+                  }));
+                },
+                backgroundColor: const Color(0xff6318F2),
+                child: const Icon(Icons.add),
+              )),
+        ],
       ),
       bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
