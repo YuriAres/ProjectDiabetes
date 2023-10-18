@@ -88,18 +88,107 @@ class _AddAlarmPageState extends State<AddAlarmPage> {
                                     MediaQuery.sizeOf(context).height * 0.035)),
                         SizedBox(
                             height: MediaQuery.sizeOf(context).height * 0.035),
-                        Center(
-                          child: ElevatedButton(
-                              onPressed: () async {
-                                DateTime data = DateTime.parse(
-                                    "2023-10-14 04:36:35.746444");
-                                print(data.weekday);
-                                List<Anotacao> teste =
-                                    await pesquisarDocs(widget.usuario);
-                                print(teste[1].anotacao);
-                              },
-                              child: Text("Teste")),
-                        )
+                        Container(
+                            height: MediaQuery.sizeOf(context).height * 0.25,
+                            width: MediaQuery.sizeOf(context).width * 0.9,
+                            decoration: const BoxDecoration(
+                                color: Color.fromARGB(255, 129, 70, 247),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(10))),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    SizedBox(
+                                      height: 100,
+                                      width: 110,
+                                      child: TextField(
+                                        textAlign: TextAlign.center,
+                                        style: GoogleFonts.ubuntu(
+                                            color: Colors.white,
+                                            fontSize: MediaQuery.sizeOf(context)
+                                                    .height *
+                                                0.065),
+                                        decoration: InputDecoration(
+                                            fillColor: const Color(0xff9A68FD),
+                                            filled: true,
+                                            border: OutlineInputBorder(
+                                                borderSide: const BorderSide(
+                                                    width: 0,
+                                                    style: BorderStyle.none),
+                                                borderRadius:
+                                                    BorderRadius.circular(15))),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: MediaQuery.sizeOf(context).height *
+                                          0.01,
+                                    ),
+                                    Text(":",
+                                        style: GoogleFonts.ubuntu(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: MediaQuery.sizeOf(context)
+                                                    .height *
+                                                0.065,
+                                            color: Colors.white)),
+                                    SizedBox(
+                                      width: MediaQuery.sizeOf(context).height *
+                                          0.01,
+                                    ),
+                                    SizedBox(
+                                      height: 100,
+                                      width: 110,
+                                      child: TextField(
+                                        textAlign: TextAlign.center,
+                                        style: GoogleFonts.ubuntu(
+                                            color: Colors.white,
+                                            fontSize: MediaQuery.sizeOf(context)
+                                                    .height *
+                                                0.065),
+                                        decoration: InputDecoration(
+                                          fillColor: const Color(0xff9A68FD),
+                                          filled: true,
+                                          border: OutlineInputBorder(
+                                              borderSide: const BorderSide(
+                                                  width: 0,
+                                                  style: BorderStyle.none),
+                                              borderRadius:
+                                                  BorderRadius.circular(15)),
+                                        ),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+                                    SizedBox(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          0.19,
+                                    ),
+                                    Text(
+                                      "Horas",
+                                      style: GoogleFonts.ubuntu(
+                                          fontSize: MediaQuery.sizeOf(context)
+                                                  .height *
+                                              0.025,
+                                          color: Colors.white),
+                                    ),
+                                    SizedBox(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          0.18,
+                                    ),
+                                    Text("Minutos",
+                                        style: GoogleFonts.ubuntu(
+                                            fontSize: MediaQuery.sizeOf(context)
+                                                    .height *
+                                                0.025,
+                                            color: Colors.white))
+                                  ],
+                                )
+                              ],
+                            )),
                       ],
                     ),
                   ),
@@ -124,4 +213,10 @@ Future<List<Anotacao>> pesquisarDocs(Usuario usuario) async {
   anotacao =
       List.from(querySnapshot.docs.map((doc) => Anotacao.fromMap(doc.data())));
   return anotacao;
+}
+
+Widget hours(int horas, BuildContext context) {
+  return Text(horas < 10 ? "0$horas" : horas.toString(),
+      style: GoogleFonts.ubuntu(
+          fontSize: MediaQuery.sizeOf(context).height * 0.06));
 }

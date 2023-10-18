@@ -33,9 +33,10 @@ class _LoginPageState extends State<LoginPage> {
                 ],
               ));
     } else {
-      FirebaseAuth.instance.signInWithEmailAndPassword(
-          email: emailController.text, password: senhaController.text);
-      User? user = FirebaseAuth.instance.currentUser;
+      UserCredential userCredential = await FirebaseAuth.instance
+          .signInWithEmailAndPassword(
+              email: emailController.text, password: senhaController.text);
+      User? user = userCredential.user;
       if (user != null) {
         late Usuario usuario;
         final docUser = await FirebaseFirestore.instance
