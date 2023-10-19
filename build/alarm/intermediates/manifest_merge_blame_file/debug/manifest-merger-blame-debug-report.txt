@@ -1,0 +1,69 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.gdelataillade.alarm.alarm" >
+4
+5    <uses-sdk
+6        android:minSdkVersion="19"
+6-->C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml
+7        android:targetSdkVersion="19" />
+7-->C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml
+8
+9    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+9-->C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml:3:3-78
+9-->C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml:3:20-76
+10    <uses-permission android:name="android.permission.WAKE_LOCK" />
+10-->C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml:4:3-65
+10-->C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml:4:20-63
+11    <uses-permission android:name="android.permission.VIBRATE" />
+11-->C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml:5:3-63
+11-->C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml:5:20-61
+12    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
+12-->C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml:6:3-78
+12-->C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml:6:20-76
+13    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+13-->C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml:7:3-76
+13-->C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml:7:20-74
+14
+15    <application>
+15-->C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml:8:3-28:17
+16        <service
+16-->C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml:9:5-12:35
+17            android:name="com.gdelataillade.alarm.alarm.NotificationOnKillService"
+17-->C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml:10:9-50
+18            android:enabled="true"
+18-->C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml:11:9-31
+19            android:exported="false" />
+19-->C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml:12:9-33
+20        <service
+20-->C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml:13:5-16:35
+21            android:name="dev.fluttercommunity.plus.androidalarmmanager.AlarmService"
+21-->C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml:14:9-82
+22            android:exported="false"
+22-->C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml:16:9-33
+23            android:permission="android.permission.BIND_JOB_SERVICE" />
+23-->C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml:15:9-65
+24
+25        <receiver
+25-->C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml:17:5-19:35
+26            android:name="dev.fluttercommunity.plus.androidalarmmanager.AlarmBroadcastReceiver"
+26-->C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml:18:9-92
+27            android:exported="false" />
+27-->C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml:19:9-33
+28        <receiver
+28-->C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml:20:5-27:16
+29            android:name="dev.fluttercommunity.plus.androidalarmmanager.RebootBroadcastReceiver"
+29-->C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml:21:9-93
+30            android:enabled="false"
+30-->C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml:22:9-32
+31            android:exported="false" >
+31-->C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml:23:9-33
+32            <intent-filter>
+32-->C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml:24:9-26:25
+33                <action android:name="android.intent.action.BOOT_COMPLETED" />
+33-->C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml:25:13-75
+33-->C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml:25:21-72
+34            </intent-filter>
+35        </receiver>
+36    </application>
+37
+38</manifest>

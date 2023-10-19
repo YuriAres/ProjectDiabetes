@@ -1,0 +1,83 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml:1:1-29:12
+INJECTED from C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml:1:1-29:12
+INJECTED from C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml:1:1-29:12
+	package
+		ADDED from C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml:2:3-42
+		INJECTED from C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml:1:11-69
+uses-permission#android.permission.RECEIVE_BOOT_COMPLETED
+ADDED from C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml:3:3-78
+	android:name
+		ADDED from C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml:3:20-76
+uses-permission#android.permission.WAKE_LOCK
+ADDED from C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml:4:3-65
+	android:name
+		ADDED from C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml:4:20-63
+uses-permission#android.permission.VIBRATE
+ADDED from C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml:5:3-63
+	android:name
+		ADDED from C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml:5:20-61
+uses-permission#android.permission.USE_FULL_SCREEN_INTENT
+ADDED from C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml:6:3-78
+	android:name
+		ADDED from C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml:6:20-76
+uses-permission#android.permission.SCHEDULE_EXACT_ALARM
+ADDED from C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml:7:3-76
+	android:name
+		ADDED from C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml:7:20-74
+application
+ADDED from C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml:8:3-28:17
+service#com.gdelataillade.alarm.alarm.NotificationOnKillService
+ADDED from C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml:9:5-12:35
+	android:enabled
+		ADDED from C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml:11:9-31
+	android:exported
+		ADDED from C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml:12:9-33
+	android:name
+		ADDED from C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml:10:9-50
+service#dev.fluttercommunity.plus.androidalarmmanager.AlarmService
+ADDED from C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml:13:5-16:35
+	android:exported
+		ADDED from C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml:16:9-33
+	android:permission
+		ADDED from C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml:15:9-65
+	android:name
+		ADDED from C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml:14:9-82
+receiver#dev.fluttercommunity.plus.androidalarmmanager.AlarmBroadcastReceiver
+ADDED from C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml:17:5-19:35
+	android:exported
+		ADDED from C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml:19:9-33
+	android:name
+		ADDED from C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml:18:9-92
+receiver#dev.fluttercommunity.plus.androidalarmmanager.RebootBroadcastReceiver
+ADDED from C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml:20:5-27:16
+	android:enabled
+		ADDED from C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml:22:9-32
+	android:exported
+		ADDED from C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml:23:9-33
+	android:name
+		ADDED from C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml:21:9-93
+intent-filter#action:name:android.intent.action.BOOT_COMPLETED
+ADDED from C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml:24:9-26:25
+action#android.intent.action.BOOT_COMPLETED
+ADDED from C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml:25:13-75
+	android:name
+		ADDED from C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml:25:21-72
+uses-sdk
+INJECTED from C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml
+INJECTED from C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml
+INJECTED from C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml
+INJECTED from C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml
+		ADDED from C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml
+		ADDED from C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\alarm-2.1.0\android\src\main\AndroidManifest.xml

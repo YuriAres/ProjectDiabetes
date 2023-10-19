@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.flutter_diabetes.app-mergeDebugResources-15:/values-pt-rBR/values-pt-rBR.xml",
+            "outputFile": "com.example.flutter_diabetes.app-mergeDebugResources-18:/values-pt-rBR/values-pt-rBR.xml",
             "map": [
                 {
                     "source": "C:\\Users\\AN5\\.gradle\\caches\\transforms-3\\5eaba1f028ac62aaabee71faac8d9308\\transformed\\jetified-play-services-basement-18.1.0\\res\\values-pt-rBR\\values.xml",

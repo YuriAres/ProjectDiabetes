@@ -16,6 +16,8 @@ class AddAlarmPage extends StatefulWidget {
 }
 
 class _AddAlarmPageState extends State<AddAlarmPage> {
+  TextEditingController alarmName = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -189,6 +191,76 @@ class _AddAlarmPageState extends State<AddAlarmPage> {
                                 )
                               ],
                             )),
+                        SizedBox(
+                            height: MediaQuery.sizeOf(context).height * 0.025),
+                        Container(
+                          padding: EdgeInsets.symmetric(
+                              horizontal:
+                                  MediaQuery.sizeOf(context).width * 0.03,
+                              vertical:
+                                  MediaQuery.sizeOf(context).height * 0.02),
+                          height: MediaQuery.sizeOf(context).height * 0.32,
+                          width: MediaQuery.sizeOf(context).height * 0.8,
+                          decoration: const BoxDecoration(
+                              color: Color.fromARGB(255, 129, 70, 247),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(10))),
+                          child: Column(
+                            children: [
+                              Text("Descrição",
+                                  style: GoogleFonts.ubuntu(
+                                      fontSize:
+                                          MediaQuery.sizeOf(context).height *
+                                              0.03,
+                                      color: Colors.white)),
+                              SizedBox(
+                                  height: MediaQuery.sizeOf(context).height *
+                                      0.025),
+                              CustomWidgets().customTextfield(
+                                context,
+                                "Nome do alarme",
+                                "Descreva o nome do alarme",
+                                alarmName,
+                                Colors.white,
+                                1,
+                                false,
+                                null,
+                              ),
+                              SizedBox(
+                                  height: MediaQuery.sizeOf(context).height *
+                                      0.025),
+                              Align(
+                                alignment: Alignment.centerLeft,
+                                child: Text("Frequência",
+                                    style: GoogleFonts.ubuntu(
+                                        fontSize:
+                                            MediaQuery.sizeOf(context).height *
+                                                0.023,
+                                        color: Colors.white)),
+                              ),
+                              SizedBox(
+                                  height:
+                                      MediaQuery.sizeOf(context).height * 0.01),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  customContainer("D", context),
+                                  customContainer("S", context),
+                                  customContainer("T", context),
+                                  customContainer("Q", context),
+                                  customContainer("Q", context),
+                                  customContainer("S", context),
+                                  customContainer("S", context),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                            height: MediaQuery.sizeOf(context).height * 0.025),
+                        CustomWidgets()
+                            .customElevatedButton(context, () => null, "Criar")
                       ],
                     ),
                   ),
@@ -219,4 +291,23 @@ Widget hours(int horas, BuildContext context) {
   return Text(horas < 10 ? "0$horas" : horas.toString(),
       style: GoogleFonts.ubuntu(
           fontSize: MediaQuery.sizeOf(context).height * 0.06));
+}
+
+Widget customContainer(String weekday, BuildContext context) {
+  return GestureDetector(
+    child: Container(
+        height: MediaQuery.sizeOf(context).height * 0.07,
+        width: MediaQuery.sizeOf(context).width * 0.1,
+        decoration: const BoxDecoration(
+            color: Color(0xff9A68FD),
+            borderRadius: BorderRadius.all(Radius.circular(10))),
+        child: Center(
+          child: Text(
+            weekday,
+            style: GoogleFonts.ubuntu(
+                fontSize: MediaQuery.sizeOf(context).height * 0.025,
+                color: Colors.white),
+          ),
+        )),
+  );
 }
