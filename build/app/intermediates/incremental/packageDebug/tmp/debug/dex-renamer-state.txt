@@ -1,4 +1,4 @@
-#Wed Oct 18 20:48:28 BRT 2023
+#Wed Nov 29 19:05:15 BRT 2023
 base.2=C\:\\Users\\AN5\\Desktop\\Flutter Project\\flutter_diabetes\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes3.dex
 path.2=classes3.dex
 base.1=C\:\\Users\\AN5\\Desktop\\Flutter Project\\flutter_diabetes\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes2.dex

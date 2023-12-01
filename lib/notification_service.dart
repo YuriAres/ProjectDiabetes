@@ -48,19 +48,26 @@ class NotificationService {
   }
 
   showNotification(CustomNotification notification) {
-    androidDetails = AndroidNotificationDetails(
+    androidDetails = const AndroidNotificationDetails(
         'lembretes_notifications', "Lembretes",
         priority: Priority.max,
         importance: Importance.max,
         enableVibration: true);
 
-    localNotificationPlugin.show(notification.id, notification.title,
-        notification.body, NotificationDetails(android: androidDetails),
-        payload: notification.payload);
+    localNotificationPlugin.show(
+      notification.id,
+      notification.title,
+      notification.body,
+      NotificationDetails(android: androidDetails),
+      payload: notification.payload,
+    );
   }
 
   checkForNotifications() async {
     final details =
-        await localNotificationPlugin.getNotificationAppLaunchDetails;
+        await localNotificationPlugin.getNotificationAppLaunchDetails();
+    if (details != null && details.didNotificationLaunchApp) {
+      onSelectedNotification(details.notificationResponse!);
+    }
   }
 }

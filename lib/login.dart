@@ -3,9 +3,13 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_diabetes/homepage.dart';
 import 'package:flutter_diabetes/model/usuario.dart';
+import 'package:flutter_diabetes/notification_service.dart';
 import 'package:flutter_diabetes/register.dart';
 import 'package:flutter_diabetes/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+
+import 'firebase_messaging.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key});
@@ -17,6 +21,24 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   TextEditingController emailController = TextEditingController();
   TextEditingController senhaController = TextEditingController();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    InitializeFirebaseMessaging();
+    checkNotifications();
+  }
+
+  checkNotifications() async {
+    await Provider.of<NotificationService>(context, listen: false)
+        .checkForNotifications();
+  }
+
+  InitializeFirebaseMessaging() async {
+    await Provider.of<FirebaseMessagingService>(context, listen: false)
+        .initialize();
+  }
 
   Future login() async {
     if (emailController.text == "" || senhaController.text == "") {

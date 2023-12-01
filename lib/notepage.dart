@@ -153,98 +153,40 @@ class Notepage extends StatelessWidget {
                                     MediaQuery.sizeOf(context).height * 0.020)),
                         SizedBox(
                             height: MediaQuery.sizeOf(context).height * 0.028),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Container(
-                              padding: EdgeInsets.all(
-                                  MediaQuery.sizeOf(context).height * 0.012),
-                              height: MediaQuery.sizeOf(context).height * 0.13,
-                              width: MediaQuery.sizeOf(context).width * 0.4,
-                              decoration: BoxDecoration(
-                                  color: const Color(0xff9A68FD),
-                                  borderRadius: BorderRadius.all(
-                                      Radius.circular(
-                                          MediaQuery.sizeOf(context).height *
-                                              0.01))),
-                              child: Column(
-                                children: [
-                                  Text(
-                                    "Indice glicêmico",
-                                    style: GoogleFonts.ubuntu(
-                                        fontSize:
-                                            MediaQuery.sizeOf(context).height *
-                                                0.021,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w600),
-                                  ),
-                                  SizedBox(
-                                      height:
-                                          MediaQuery.sizeOf(context).height *
-                                              0.018),
-                                  Text(
-                                    indice.toString(),
-                                    style: GoogleFonts.ubuntu(
-                                        fontSize:
-                                            MediaQuery.sizeOf(context).height *
-                                                0.035,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w400),
-                                  )
-                                ],
+                        Container(
+                          padding: EdgeInsets.all(
+                              MediaQuery.sizeOf(context).height * 0.012),
+                          height: MediaQuery.sizeOf(context).height * 0.13,
+                          width: MediaQuery.sizeOf(context).width * 0.9,
+                          decoration: BoxDecoration(
+                              color: const Color(0xff9A68FD),
+                              borderRadius: BorderRadius.all(Radius.circular(
+                                  MediaQuery.sizeOf(context).height * 0.01))),
+                          child: Column(
+                            children: [
+                              Text(
+                                "Indice glicêmico",
+                                style: GoogleFonts.ubuntu(
+                                    fontSize:
+                                        MediaQuery.sizeOf(context).height *
+                                            0.021,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w600),
                               ),
-                            ),
-                            Container(
-                              padding: EdgeInsets.all(
-                                  MediaQuery.sizeOf(context).height * 0.012),
-                              height: MediaQuery.sizeOf(context).height * 0.13,
-                              width: MediaQuery.sizeOf(context).width * 0.40,
-                              decoration: BoxDecoration(
-                                  color: const Color(0xff9A68FD),
-                                  borderRadius: BorderRadius.all(
-                                      Radius.circular(
-                                          MediaQuery.sizeOf(context).height *
-                                              0.01))),
-                              child: Column(
-                                children: [
-                                  Text(
-                                    "Variação mensal",
-                                    style: GoogleFonts.ubuntu(
-                                        fontSize:
-                                            MediaQuery.sizeOf(context).height *
-                                                0.021,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w600),
-                                  ),
-                                  SizedBox(
-                                      height:
-                                          MediaQuery.sizeOf(context).height *
-                                              0.0115),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Icon(
-                                        Icons.arrow_drop_down,
-                                        color: Colors.white,
-                                        size:
-                                            MediaQuery.sizeOf(context).height *
-                                                0.05,
-                                      ),
-                                      Text(
-                                        "5 %",
-                                        style: GoogleFonts.ubuntu(
-                                            fontSize: MediaQuery.sizeOf(context)
-                                                    .height *
-                                                0.035,
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.w400),
-                                      )
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            )
-                          ],
+                              SizedBox(
+                                  height: MediaQuery.sizeOf(context).height *
+                                      0.018),
+                              Text(
+                                indice.toString(),
+                                style: GoogleFonts.ubuntu(
+                                    fontSize:
+                                        MediaQuery.sizeOf(context).height *
+                                            0.035,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w400),
+                              )
+                            ],
+                          ),
                         ),
                         SizedBox(
                             height: MediaQuery.sizeOf(context).height * 0.02),

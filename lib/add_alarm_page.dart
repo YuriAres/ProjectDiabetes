@@ -3,8 +3,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_diabetes/model/anotacoes.dart';
 import 'package:flutter_diabetes/model/usuario.dart';
+import 'package:flutter_diabetes/notification_service.dart';
 import 'package:flutter_diabetes/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class AddAlarmPage extends StatefulWidget {
   final bool status;
@@ -17,6 +19,19 @@ class AddAlarmPage extends StatefulWidget {
 
 class _AddAlarmPageState extends State<AddAlarmPage> {
   TextEditingController alarmName = TextEditingController();
+  bool valor = false;
+  showNotification() {
+    setState(() {
+      valor = !valor;
+
+      if (valor) {
+        print(valor);
+        Provider.of<NotificationService>(context, listen: false)
+            .showNotification(CustomNotification(
+                id: 1, title: "Teste!", body: "Entre no APP!", payload: "/"));
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +71,9 @@ class _AddAlarmPageState extends State<AddAlarmPage> {
                         right: -10,
                         child: IconButton(
                           icon: Icon(
-                            Icons.help_outline,
+                            widget.status
+                                ? Icons.help_outline
+                                : Icons.delete_outline,
                             color: Colors.white,
                             size: MediaQuery.of(context).size.height * 0.035,
                           ),
@@ -259,8 +276,10 @@ class _AddAlarmPageState extends State<AddAlarmPage> {
                         ),
                         SizedBox(
                             height: MediaQuery.sizeOf(context).height * 0.025),
-                        CustomWidgets()
-                            .customElevatedButton(context, () => null, "Criar")
+                        CustomWidgets().customElevatedButton(
+                            context,
+                            showNotification,
+                            widget.status ? "Criar" : "Editar")
                       ],
                     ),
                   ),
