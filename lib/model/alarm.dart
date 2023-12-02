@@ -1,7 +1,7 @@
 class Alarm {
   final String nome;
-  final String hora;
-  final String minutos;
+  final int hora;
+  final int minutos;
 
   Alarm({
     required this.nome,

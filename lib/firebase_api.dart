@@ -1,6 +1,7 @@
 // ignore_for_file: file_names
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter_diabetes/model/alarm.dart';
 import 'package:flutter_diabetes/model/anotacoes.dart';
 import 'package:flutter_diabetes/model/usuario.dart';
 
@@ -61,5 +62,27 @@ class FirebaseAPI {
         .collection('anotacoes')
         .doc("Anotacao $name")
         .delete();
+  }
+
+  Future createAlarm(
+      {required String nome,
+      required int horas,
+      required int minutos,
+      required String id,
+      required DateTime data}) async {
+    final alarm = Alarm(
+      nome: nome,
+      hora: horas,
+      minutos: minutos,
+    );
+
+    final json = alarm.toJson();
+    final docUser = FirebaseFirestore.instance
+        .collection('usuarios')
+        .doc(id)
+        .collection('anotacoes')
+        .doc("Alarme $nome - $data");
+
+    await docUser.set(json);
   }
 }

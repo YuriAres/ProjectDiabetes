@@ -142,72 +142,13 @@ class _AlarmpageState extends State<Alarmpage> {
                         Expanded(
                             child: ListView(
                           children: [
-                            GestureDetector(
-                              onTap: () {
-                                Navigator.push(context,
-                                    MaterialPageRoute(builder: (context) {
-                                  return AddAlarmPage(
-                                      status: false, usuario: widget.usuario);
-                                }));
-                              },
-                              child: Container(
-                                padding: EdgeInsets.all(
-                                    MediaQuery.sizeOf(context).height * 0.012),
-                                height:
-                                    MediaQuery.sizeOf(context).height * 0.14,
-                                decoration: BoxDecoration(
-                                    color: const Color(0xff9A68FD),
-                                    borderRadius: BorderRadius.all(
-                                        Radius.circular(
-                                            MediaQuery.sizeOf(context).height *
-                                                0.01))),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      "Insulina",
-                                      style: GoogleFonts.ubuntu(
-                                          color: Colors.white,
-                                          fontSize: MediaQuery.sizeOf(context)
-                                                  .height *
-                                              0.024),
-                                    ),
-                                    const Divider(
-                                      thickness: 1,
-                                      color: Colors.white,
-                                    ),
-                                    SizedBox(
-                                        height:
-                                            MediaQuery.sizeOf(context).height *
-                                                0.004),
-                                    Row(
-                                      children: [
-                                        Text(
-                                          "22:30",
-                                          style: GoogleFonts.ubuntu(
-                                              color: Colors.white,
-                                              fontSize:
-                                                  MediaQuery.sizeOf(context)
-                                                          .height *
-                                                      0.045),
-                                        ),
-                                        const Spacer(),
-                                        Switch(
-                                          value: switchstatus,
-                                          onChanged: (value) {
-                                            setState(() {
-                                              switchstatus = value;
-                                              print(switchstatus);
-                                            });
-                                          },
-                                          activeColor: Colors.white,
-                                        )
-                                      ],
-                                    )
-                                  ],
-                                ),
-                              ),
-                            )
+                            CustomWidgets().widgetContainerAlarm(
+                                context, widget.usuario, switchstatus, (value) {
+                              setState(() {
+                                switchstatus = value;
+                                print(switchstatus);
+                              });
+                            })
                           ],
                         ))
                       ],

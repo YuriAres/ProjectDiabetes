@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_diabetes/add_alarm_page.dart';
 import 'package:flutter_diabetes/notepage.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -319,6 +320,57 @@ class CustomWidgets {
                   color: Colors.white,
                   fontSize: MediaQuery.sizeOf(context).height * 0.022),
             ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget widgetContainerAlarm(BuildContext context, Usuario usuario,
+      bool switchstatus, void status(value)) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return AddAlarmPage(status: false, usuario: usuario);
+        }));
+      },
+      child: Container(
+        padding: EdgeInsets.all(MediaQuery.sizeOf(context).height * 0.012),
+        height: MediaQuery.sizeOf(context).height * 0.14,
+        decoration: BoxDecoration(
+            color: const Color(0xff9A68FD),
+            borderRadius: BorderRadius.all(
+                Radius.circular(MediaQuery.sizeOf(context).height * 0.01))),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              "Insulina",
+              style: GoogleFonts.ubuntu(
+                  color: Colors.white,
+                  fontSize: MediaQuery.sizeOf(context).height * 0.024),
+            ),
+            const Divider(
+              thickness: 1,
+              color: Colors.white,
+            ),
+            SizedBox(height: MediaQuery.sizeOf(context).height * 0.004),
+            Row(
+              children: [
+                Text(
+                  "22:30",
+                  style: GoogleFonts.ubuntu(
+                      color: Colors.white,
+                      fontSize: MediaQuery.sizeOf(context).height * 0.045),
+                ),
+                const Spacer(),
+                Switch(
+                  value: switchstatus,
+                  onChanged: status,
+                  activeColor: Colors.white,
+                )
+              ],
+            )
           ],
         ),
       ),
