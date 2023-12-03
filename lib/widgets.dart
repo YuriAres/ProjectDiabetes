@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_diabetes/add_alarm_page.dart';
+import 'package:flutter_diabetes/model/anotacoes.dart';
 import 'package:flutter_diabetes/notepage.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -13,8 +14,10 @@ class CustomWidgets {
       bool tipo = true,
       ScrollController? scController,
       TextInputType inputType = TextInputType.text,
-      bool password = false]) {
+      bool password = false,
+      bool enabled = true]) {
     return TextField(
+        enabled: enabled,
         scrollController: scController,
         obscureText: password,
         keyboardType: inputType,
@@ -326,16 +329,33 @@ class CustomWidgets {
     );
   }
 
-  Widget widgetContainerAlarm(BuildContext context, Usuario usuario,
-      bool switchstatus, void status(value)) {
+  Widget widgetContainerAlarm(
+      BuildContext context,
+      Usuario usuario,
+      List<Anotacao> anotacoes,
+      bool switchstatus,
+      void status(value),
+      String nome,
+      int hora,
+      int minutos,
+      String data) {
     return GestureDetector(
       onTap: () {
         Navigator.push(context, MaterialPageRoute(builder: (context) {
-          return AddAlarmPage(status: false, usuario: usuario);
+          return AddAlarmPage(
+            status: false,
+            usuario: usuario,
+            anotacoes: anotacoes,
+            nomeAlarm: nome,
+            horaAlarm: hora,
+            minutosAlarm: minutos,
+            data: data,
+          );
         }));
       },
       child: Container(
         padding: EdgeInsets.all(MediaQuery.sizeOf(context).height * 0.012),
+        margin: const EdgeInsets.symmetric(vertical: 5),
         height: MediaQuery.sizeOf(context).height * 0.14,
         decoration: BoxDecoration(
             color: const Color(0xff9A68FD),
@@ -345,7 +365,7 @@ class CustomWidgets {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "Insulina",
+              nome,
               style: GoogleFonts.ubuntu(
                   color: Colors.white,
                   fontSize: MediaQuery.sizeOf(context).height * 0.024),
@@ -358,7 +378,7 @@ class CustomWidgets {
             Row(
               children: [
                 Text(
-                  "22:30",
+                  "$hora:$minutos",
                   style: GoogleFonts.ubuntu(
                       color: Colors.white,
                       fontSize: MediaQuery.sizeOf(context).height * 0.045),

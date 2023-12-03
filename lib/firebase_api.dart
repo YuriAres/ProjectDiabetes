@@ -70,19 +70,26 @@ class FirebaseAPI {
       required int minutos,
       required String id,
       required DateTime data}) async {
-    final alarm = Alarm(
-      nome: nome,
-      hora: horas,
-      minutos: minutos,
-    );
+    final alarm =
+        Alarm(nome: nome, hora: horas, minutos: minutos, data: data.toString());
 
     final json = alarm.toJson();
     final docUser = FirebaseFirestore.instance
         .collection('usuarios')
         .doc(id)
-        .collection('anotacoes')
+        .collection('alarmes')
         .doc("Alarme $nome - $data");
 
     await docUser.set(json);
+  }
+
+  Future deleteAlarm(
+      {required String name, required String id, required String data}) async {
+    FirebaseFirestore.instance
+        .collection('usuarios')
+        .doc(id)
+        .collection('alarmes')
+        .doc("Alarme $name - $data")
+        .delete();
   }
 }

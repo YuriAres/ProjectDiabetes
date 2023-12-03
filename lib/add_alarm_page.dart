@@ -1,6 +1,10 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_diabetes/alarmpage.dart';
+import 'package:flutter_diabetes/firebase_api.dart';
 import 'package:flutter_diabetes/model/anotacoes.dart';
 import 'package:flutter_diabetes/model/usuario.dart';
 import 'package:flutter_diabetes/notification_service.dart';
@@ -11,15 +15,82 @@ import 'package:provider/provider.dart';
 class AddAlarmPage extends StatefulWidget {
   final bool status;
   final Usuario usuario;
-  const AddAlarmPage({super.key, required this.status, required this.usuario});
+  final List<Anotacao> anotacoes;
+  String? nomeAlarm;
+  int? horaAlarm;
+  int? minutosAlarm;
+  String? data;
+  AddAlarmPage(
+      {super.key,
+      required this.status,
+      required this.usuario,
+      required this.anotacoes,
+      this.nomeAlarm,
+      this.horaAlarm,
+      this.minutosAlarm,
+      this.data});
 
   @override
   State<AddAlarmPage> createState() => _AddAlarmPageState();
 }
 
 class _AddAlarmPageState extends State<AddAlarmPage> {
+  @override
+  void initState() {
+    if (widget.status == false) {
+      alarmHora.text = widget.horaAlarm.toString();
+      alarmMinutos.text = widget.minutosAlarm.toString();
+      alarmName.text = widget.nomeAlarm.toString();
+      showNotification();
+    }
+    super.initState();
+  }
+
   TextEditingController alarmName = TextEditingController();
+  TextEditingController alarmHora = TextEditingController();
+  TextEditingController alarmMinutos = TextEditingController();
   bool valor = false;
+
+  createALarm() async {
+    showDialog(
+        barrierDismissible: false,
+        context: context,
+        builder: ((context) {
+          return AlertDialog(
+            title: Text("Sucesso!",
+                style: GoogleFonts.ubuntu(
+                    fontSize: MediaQuery.sizeOf(context).height * 0.030)),
+            content: Text("Seu alarme foi criado com sucesso!",
+                style: GoogleFonts.ubuntu(
+                    fontSize: MediaQuery.sizeOf(context).height * 0.023)),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  alarmName.clear();
+                  alarmHora.clear();
+                  alarmMinutos.clear();
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => Alarmpage(
+                              usuario: widget.usuario,
+                              anotacoes: widget.anotacoes)));
+                },
+                child: Text("Concluir",
+                    style: GoogleFonts.ubuntu(
+                        fontSize: MediaQuery.sizeOf(context).height * 0.023)),
+              )
+            ],
+          );
+        }));
+    FirebaseAPI().createAlarm(
+        nome: alarmName.text,
+        horas: int.parse(alarmHora.text),
+        id: FirebaseAuth.instance.currentUser!.uid,
+        data: DateTime.now(),
+        minutos: int.parse(alarmMinutos.text));
+  }
+
   showNotification() {
     setState(() {
       valor = !valor;
@@ -28,7 +99,7 @@ class _AddAlarmPageState extends State<AddAlarmPage> {
         print(valor);
         Provider.of<NotificationService>(context, listen: false)
             .showNotification(CustomNotification(
-                id: 1, title: "Teste!", body: "Entre no APP!", payload: "/"));
+                id: 1, title: widget.nomeAlarm, body: "", payload: "/"));
       }
     });
   }
@@ -70,15 +141,77 @@ class _AddAlarmPageState extends State<AddAlarmPage> {
                         top: 15,
                         right: -10,
                         child: IconButton(
-                          icon: Icon(
-                            widget.status
-                                ? Icons.help_outline
-                                : Icons.delete_outline,
-                            color: Colors.white,
-                            size: MediaQuery.of(context).size.height * 0.035,
-                          ),
-                          onPressed: () {},
-                        ),
+                            icon: Icon(
+                              widget.status
+                                  ? Icons.help_outline
+                                  : Icons.delete_outline,
+                              color: Colors.white,
+                              size: MediaQuery.of(context).size.height * 0.035,
+                            ),
+                            onPressed: widget.status
+                                ? () {}
+                                : () {
+                                    showDialog(
+                                        barrierDismissible: false,
+                                        context: context,
+                                        builder: ((context) {
+                                          return AlertDialog(
+                                            title: Text("Atenção!",
+                                                style: GoogleFonts.ubuntu(
+                                                    fontSize: MediaQuery.sizeOf(
+                                                                context)
+                                                            .height *
+                                                        0.030)),
+                                            content: Text(
+                                                "Tem certeza que deseja remover seu alarme?",
+                                                style: GoogleFonts.ubuntu(
+                                                    fontSize: MediaQuery.sizeOf(
+                                                                context)
+                                                            .height *
+                                                        0.023)),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () {
+                                                  FirebaseAPI().deleteAlarm(
+                                                      name: widget.nomeAlarm!,
+                                                      id: FirebaseAuth.instance
+                                                          .currentUser!.uid,
+                                                      data: widget.data!
+                                                          .toString());
+                                                  Navigator.push(
+                                                      context,
+                                                      MaterialPageRoute(
+                                                          builder: (context) =>
+                                                              Alarmpage(
+                                                                  usuario: widget
+                                                                      .usuario,
+                                                                  anotacoes: widget
+                                                                      .anotacoes)));
+                                                },
+                                                child: Text("Sim",
+                                                    style: GoogleFonts.ubuntu(
+                                                        fontSize:
+                                                            MediaQuery.sizeOf(
+                                                                        context)
+                                                                    .height *
+                                                                0.023)),
+                                              ),
+                                              TextButton(
+                                                onPressed: () {
+                                                  Navigator.pop(context);
+                                                },
+                                                child: Text("Não",
+                                                    style: GoogleFonts.ubuntu(
+                                                        fontSize:
+                                                            MediaQuery.sizeOf(
+                                                                        context)
+                                                                    .height *
+                                                                0.023)),
+                                              )
+                                            ],
+                                          );
+                                        }));
+                                  }),
                       )
                     ],
                   ),
@@ -124,6 +257,10 @@ class _AddAlarmPageState extends State<AddAlarmPage> {
                                       height: 100,
                                       width: 110,
                                       child: TextField(
+                                        enabled: widget.status,
+                                        controller: alarmHora,
+                                        keyboardType: TextInputType.number,
+                                        maxLength: 2,
                                         textAlign: TextAlign.center,
                                         style: GoogleFonts.ubuntu(
                                             color: Colors.white,
@@ -131,6 +268,7 @@ class _AddAlarmPageState extends State<AddAlarmPage> {
                                                     .height *
                                                 0.065),
                                         decoration: InputDecoration(
+                                            counterText: "",
                                             fillColor: const Color(0xff9A68FD),
                                             filled: true,
                                             border: OutlineInputBorder(
@@ -160,6 +298,10 @@ class _AddAlarmPageState extends State<AddAlarmPage> {
                                       height: 100,
                                       width: 110,
                                       child: TextField(
+                                        enabled: widget.status,
+                                        controller: alarmMinutos,
+                                        keyboardType: TextInputType.number,
+                                        maxLength: 2,
                                         textAlign: TextAlign.center,
                                         style: GoogleFonts.ubuntu(
                                             color: Colors.white,
@@ -167,6 +309,7 @@ class _AddAlarmPageState extends State<AddAlarmPage> {
                                                     .height *
                                                 0.065),
                                         decoration: InputDecoration(
+                                          counterText: "",
                                           fillColor: const Color(0xff9A68FD),
                                           filled: true,
                                           border: OutlineInputBorder(
@@ -234,15 +377,17 @@ class _AddAlarmPageState extends State<AddAlarmPage> {
                                   height: MediaQuery.sizeOf(context).height *
                                       0.025),
                               CustomWidgets().customTextfield(
-                                context,
-                                "Nome do alarme",
-                                "Descreva o nome do alarme",
-                                alarmName,
-                                Colors.white,
-                                1,
-                                false,
-                                null,
-                              ),
+                                  context,
+                                  "Nome do alarme",
+                                  "Descreva o nome do alarme",
+                                  alarmName,
+                                  Colors.white,
+                                  1,
+                                  false,
+                                  null,
+                                  TextInputType.name,
+                                  false,
+                                  widget.status),
                               SizedBox(
                                   height: MediaQuery.sizeOf(context).height *
                                       0.025),
@@ -278,7 +423,11 @@ class _AddAlarmPageState extends State<AddAlarmPage> {
                             height: MediaQuery.sizeOf(context).height * 0.025),
                         CustomWidgets().customElevatedButton(
                             context,
-                            showNotification,
+                            widget.status
+                                ? createALarm
+                                : () {
+                                    print("Não criado!");
+                                  },
                             widget.status ? "Criar" : "Editar")
                       ],
                     ),

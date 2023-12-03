@@ -150,20 +150,6 @@ class _GraphPageState extends State<GraphPage> {
                   padding: const EdgeInsets.symmetric(horizontal: 0),
                   child: Stack(
                     children: [
-                      Positioned(
-                        top: 15,
-                        left: 0,
-                        child: IconButton(
-                          icon: Icon(
-                            Icons.arrow_back,
-                            color: Colors.white,
-                            size: MediaQuery.of(context).size.height * 0.035,
-                          ),
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
-                        ),
-                      ),
                       Align(
                         alignment: Alignment.center,
                         child: CustomWidgets().header(context, Colors.white),

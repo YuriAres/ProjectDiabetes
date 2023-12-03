@@ -1,5 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_diabetes/add_alarm_page.dart';
+import 'package:flutter_diabetes/addpage.dart';
 import 'package:flutter_diabetes/graph_page.dart';
 import 'package:flutter_diabetes/homepage.dart';
 import 'package:flutter_diabetes/model/usuario.dart';
@@ -7,6 +10,7 @@ import 'package:flutter_diabetes/perfilpage.dart';
 import 'package:flutter_diabetes/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'model/alarm.dart';
 import 'model/anotacoes.dart';
 
 class Alarmpage extends StatefulWidget {
@@ -21,13 +25,37 @@ class Alarmpage extends StatefulWidget {
 class _AlarmpageState extends State<Alarmpage> {
   bool switchstatus = false;
 
+  List<Alarm> alarmes = [];
+
+  Future getAtividades() async {
+    var data = await FirebaseFirestore.instance
+        .collection('usuarios')
+        .doc(FirebaseAuth.instance.currentUser!.uid)
+        .collection('alarmes')
+        .get();
+    setState(() {
+      alarmes = List.from(data.docs.map((doc) => Alarm.fromMap(doc.data())));
+      alarmes = alarmes.reversed.toList();
+    });
+  }
+
+  @override
+  void didChangeDependencies() {
+    getAtividades();
+    super.didChangeDependencies();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.push(context, MaterialPageRoute(builder: (context) {
-            return AddAlarmPage(status: true, usuario: widget.usuario);
+            return AddAlarmPage(
+              status: true,
+              usuario: widget.usuario,
+              anotacoes: widget.anotacoes,
+            );
           }));
         },
         backgroundColor: const Color(0xff6318F2),
@@ -94,20 +122,6 @@ class _AlarmpageState extends State<Alarmpage> {
                   padding: const EdgeInsets.symmetric(horizontal: 0),
                   child: Stack(
                     children: [
-                      Positioned(
-                        top: 15,
-                        left: 0,
-                        child: IconButton(
-                          icon: Icon(
-                            Icons.arrow_back,
-                            color: Colors.white,
-                            size: MediaQuery.of(context).size.height * 0.035,
-                          ),
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
-                        ),
-                      ),
                       Align(
                         alignment: Alignment.center,
                         child: CustomWidgets().header(context, Colors.white),
@@ -140,16 +154,21 @@ class _AlarmpageState extends State<Alarmpage> {
                         SizedBox(
                             height: MediaQuery.sizeOf(context).height * 0.035),
                         Expanded(
-                            child: ListView(
-                          children: [
-                            CustomWidgets().widgetContainerAlarm(
-                                context, widget.usuario, switchstatus, (value) {
+                            child: ListView.builder(
+                          itemCount: alarmes.length,
+                          itemBuilder: (BuildContext context, int index) {
+                            return CustomWidgets().widgetContainerAlarm(
+                                context,
+                                widget.usuario,
+                                widget.anotacoes,
+                                switchstatus, (value) {
                               setState(() {
                                 switchstatus = value;
                                 print(switchstatus);
                               });
-                            })
-                          ],
+                            }, alarmes[index].nome, alarmes[index].hora,
+                                alarmes[index].minutos, alarmes[index].data);
+                          },
                         ))
                       ],
                     ),
