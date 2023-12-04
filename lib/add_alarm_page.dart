@@ -41,7 +41,6 @@ class _AddAlarmPageState extends State<AddAlarmPage> {
       alarmHora.text = widget.horaAlarm.toString();
       alarmMinutos.text = widget.minutosAlarm.toString();
       alarmName.text = widget.nomeAlarm.toString();
-      showNotification();
     }
     super.initState();
   }
@@ -89,17 +88,36 @@ class _AddAlarmPageState extends State<AddAlarmPage> {
         id: FirebaseAuth.instance.currentUser!.uid,
         data: DateTime.now(),
         minutos: int.parse(alarmMinutos.text));
+    showNotification();
   }
 
-  showNotification() {
+  showNotification() async {
+    String name = alarmName.text;
+    int hoursResult = int.parse(alarmHora.text) - DateTime.now().hour;
+    int minutesResult = int.parse(alarmMinutos.text) - DateTime.now().minute;
+    if (minutesResult < 0) {
+      minutesResult *= -1;
+    }
+
+    debugPrint("Horas: $hoursResult, Minutos: $minutesResult");
+    await Future.delayed(Duration(hours: hoursResult, minutes: minutesResult));
+    Provider.of<NotificationService>(context, listen: false).showNotification(
+        CustomNotification(
+            id: 1,
+            title: "Lembrete!",
+            body: "Sua notificação agendada: $name!",
+            payload: "/"));
+  }
+
+  showScheduleNotification() {
     setState(() {
       valor = !valor;
 
       if (valor) {
         print(valor);
         Provider.of<NotificationService>(context, listen: false)
-            .showNotification(CustomNotification(
-                id: 1, title: widget.nomeAlarm, body: "", payload: "/"));
+            .scheduleNotification(
+                scheduledNotificationDateTime: DateTime(2023, 12, 3, 11, 08));
       }
     });
   }
