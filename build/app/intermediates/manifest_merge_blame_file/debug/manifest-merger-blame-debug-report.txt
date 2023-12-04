@@ -1,0 +1,468 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.flutter_diabetes"
+4    android:versionCode="1"
+5    android:versionName="1.0.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="24"
+9        android:targetSdkVersion="33" />
+10    <!--
+11         The INTERNET permission is required for development. Specifically,
+12         the Flutter tool needs it to communicate with the running application
+13         to allow setting breakpoints, to provide hot reload, etc.
+14    -->
+15    <uses-permission android:name="android.permission.INTERNET" />
+15-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:2:5-67
+15-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:2:22-64
+16    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+16-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:3:5-79
+16-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:3:22-76
+17    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+17-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:4:5-80
+17-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:4:22-78
+18    <uses-permission android:name="android.permission.WAKE_LOCK" />
+18-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:5:5-67
+18-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:5:22-65
+19    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+19-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:6:5-78
+19-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:6:22-76
+20
+21    <queries>
+21-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:7:9-13:11
+22        <intent>
+22-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:8:5-12:14
+23            <action android:name="android.intent.action.VIEW" />
+23-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:9:9-61
+23-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:9:17-58
+24
+25            <category android:name="android.intent.category.BROWSABLE" />
+25-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:10:9-70
+25-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:10:19-67
+26
+27            <data android:scheme="https" />
+27-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:11:9-40
+27-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:11:15-37
+28        </intent>
+29    </queries> <!-- Permissions options for the `notification` group -->
+30    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+30-->[:firebase_messaging] C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:13:5-77
+30-->[:firebase_messaging] C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:13:22-74
+31    <uses-permission android:name="android.permission.VIBRATE" /> <!-- Required by older versions of Google Play services to create IID tokens -->
+31-->[:flutter_local_notifications] C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-66
+31-->[:flutter_local_notifications] C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:9:22-63
+32    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+32-->[com.google.firebase:firebase-messaging:23.2.1] C:\Users\AN5\.gradle\caches\transforms-3\c5195acd4aa75b96924d629c1f66acc7\transformed\jetified-firebase-messaging-23.2.1\AndroidManifest.xml:26:5-82
+32-->[com.google.firebase:firebase-messaging:23.2.1] C:\Users\AN5\.gradle\caches\transforms-3\c5195acd4aa75b96924d629c1f66acc7\transformed\jetified-firebase-messaging-23.2.1\AndroidManifest.xml:26:22-79
+33    <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
+33-->[com.google.android.gms:play-services-measurement-api:21.3.0] C:\Users\AN5\.gradle\caches\transforms-3\293fb140d1b09c84aaaa94efb618e337\transformed\jetified-play-services-measurement-api-21.3.0\AndroidManifest.xml:25:5-79
+33-->[com.google.android.gms:play-services-measurement-api:21.3.0] C:\Users\AN5\.gradle\caches\transforms-3\293fb140d1b09c84aaaa94efb618e337\transformed\jetified-play-services-measurement-api-21.3.0\AndroidManifest.xml:25:22-76
+34    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
+34-->[com.google.android.gms:play-services-measurement:21.3.0] C:\Users\AN5\.gradle\caches\transforms-3\ea7c2d2f0c692b077dc376ded525a4e3\transformed\jetified-play-services-measurement-21.3.0\AndroidManifest.xml:26:5-110
+34-->[com.google.android.gms:play-services-measurement:21.3.0] C:\Users\AN5\.gradle\caches\transforms-3\ea7c2d2f0c692b077dc376ded525a4e3\transformed\jetified-play-services-measurement-21.3.0\AndroidManifest.xml:26:22-107
+35
+36    <permission
+36-->[androidx.core:core:1.10.1] C:\Users\AN5\.gradle\caches\transforms-3\eb83a016fb9588fd8d5a4058baf52b42\transformed\core-1.10.1\AndroidManifest.xml:22:5-24:47
+37        android:name="com.example.flutter_diabetes.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+37-->[androidx.core:core:1.10.1] C:\Users\AN5\.gradle\caches\transforms-3\eb83a016fb9588fd8d5a4058baf52b42\transformed\core-1.10.1\AndroidManifest.xml:23:9-81
+38        android:protectionLevel="signature" />
+38-->[androidx.core:core:1.10.1] C:\Users\AN5\.gradle\caches\transforms-3\eb83a016fb9588fd8d5a4058baf52b42\transformed\core-1.10.1\AndroidManifest.xml:24:9-44
+39
+40    <uses-permission android:name="com.example.flutter_diabetes.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+40-->[androidx.core:core:1.10.1] C:\Users\AN5\.gradle\caches\transforms-3\eb83a016fb9588fd8d5a4058baf52b42\transformed\core-1.10.1\AndroidManifest.xml:26:5-97
+40-->[androidx.core:core:1.10.1] C:\Users\AN5\.gradle\caches\transforms-3\eb83a016fb9588fd8d5a4058baf52b42\transformed\core-1.10.1\AndroidManifest.xml:26:22-94
+41
+42    <application
+43        android:name="android.app.Application"
+44        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+44-->[androidx.core:core:1.10.1] C:\Users\AN5\.gradle\caches\transforms-3\eb83a016fb9588fd8d5a4058baf52b42\transformed\core-1.10.1\AndroidManifest.xml:28:18-86
+45        android:debuggable="true"
+46        android:extractNativeLibs="false"
+47        android:icon="@mipmap/ic_launcher"
+48        android:label="Diario Diabetes" >
+49        <service
+50            android:name="dev.fluttercommunity.plus.androidalarmmanager.AlarmService"
+51            android:exported="false"
+52            android:permission="android.permission.BIND_JOB_SERVICE" />
+53
+54        <receiver
+55            android:name="dev.fluttercommunity.plus.androidalarmmanager.AlarmBroadcastReceiver"
+56            android:exported="false" />
+57        <receiver
+58            android:name="dev.fluttercommunity.plus.androidalarmmanager.RebootBroadcastReceiver"
+59            android:enabled="false"
+60            android:exported="false" >
+61            <intent-filter>
+62                <action android:name="android.intent.action.BOOT_COMPLETED" />
+63            </intent-filter>
+64        </receiver>
+65
+66        <activity
+67            android:name="com.example.flutter_diabetes.MainActivity"
+68            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+69            android:exported="true"
+70            android:hardwareAccelerated="true"
+71            android:launchMode="singleTop"
+72            android:theme="@style/LaunchTheme"
+73            android:windowSoftInputMode="adjustResize" >
+74
+75            <!--
+76                 Specifies an Android theme to apply to this Activity as soon as
+77                 the Android process has started. This theme is visible to the user
+78                 while the Flutter UI initializes. After that, this theme continues
+79                 to determine the Window background behind the Flutter UI.
+80            -->
+81            <meta-data
+82                android:name="io.flutter.embedding.android.NormalTheme"
+83                android:resource="@style/NormalTheme" />
+84
+85            <intent-filter>
+86                <action android:name="android.intent.action.MAIN" />
+87
+88                <category android:name="android.intent.category.LAUNCHER" />
+89            </intent-filter>
+90        </activity>
+91        <!--
+92             Don't delete the meta-data below.
+93             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+94        -->
+95        <meta-data
+96            android:name="flutterEmbedding"
+97            android:value="2" />
+98
+99        <service
+99-->[:firebase_auth] C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:10:9-14:19
+100            android:name="com.google.firebase.components.ComponentDiscoveryService"
+100-->[:firebase_auth] C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:10:18-89
+101            android:directBootAware="true"
+101-->[com.google.firebase:firebase-common:20.3.3] C:\Users\AN5\.gradle\caches\transforms-3\82f1e55ebc90e24a1a823bb0809aa68c\transformed\jetified-firebase-common-20.3.3\AndroidManifest.xml:34:13-43
+102            android:exported="false" >
+102-->[com.google.firebase:firebase-auth:22.1.2] C:\Users\AN5\.gradle\caches\transforms-3\dbb75ec18adde430a392019e32a2ee5e\transformed\jetified-firebase-auth-22.1.2\AndroidManifest.xml:68:13-37
+103            <meta-data
+103-->[:firebase_auth] C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-13:85
+104                android:name="com.google.firebase.components:io.flutter.plugins.firebase.auth.FlutterFirebaseAuthRegistrar"
+104-->[:firebase_auth] C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:12:17-124
+105                android:value="com.google.firebase.components.ComponentRegistrar" />
+105-->[:firebase_auth] C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:13:17-82
+106            <meta-data
+106-->[:cloud_firestore] C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\cloud_firestore\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-13:85
+107                android:name="com.google.firebase.components:io.flutter.plugins.firebase.firestore.FlutterFirebaseFirestoreRegistrar"
+107-->[:cloud_firestore] C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\cloud_firestore\intermediates\merged_manifest\debug\AndroidManifest.xml:12:17-134
+108                android:value="com.google.firebase.components.ComponentRegistrar" />
+108-->[:cloud_firestore] C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\cloud_firestore\intermediates\merged_manifest\debug\AndroidManifest.xml:13:17-82
+109            <meta-data
+109-->[:firebase_messaging] C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:38:13-40:85
+110                android:name="com.google.firebase.components:io.flutter.plugins.firebase.messaging.FlutterFirebaseAppRegistrar"
+110-->[:firebase_messaging] C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:39:17-128
+111                android:value="com.google.firebase.components.ComponentRegistrar" />
+111-->[:firebase_messaging] C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:40:17-82
+112            <meta-data
+112-->[:firebase_core] C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-13:85
+113                android:name="com.google.firebase.components:io.flutter.plugins.firebase.core.FlutterFirebaseCoreRegistrar"
+113-->[:firebase_core] C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:12:17-124
+114                android:value="com.google.firebase.components.ComponentRegistrar" />
+114-->[:firebase_core] C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:13:17-82
+115            <meta-data
+115-->[com.google.firebase:firebase-auth:22.1.2] C:\Users\AN5\.gradle\caches\transforms-3\dbb75ec18adde430a392019e32a2ee5e\transformed\jetified-firebase-auth-22.1.2\AndroidManifest.xml:69:13-71:85
+116                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
+116-->[com.google.firebase:firebase-auth:22.1.2] C:\Users\AN5\.gradle\caches\transforms-3\dbb75ec18adde430a392019e32a2ee5e\transformed\jetified-firebase-auth-22.1.2\AndroidManifest.xml:70:17-109
+117                android:value="com.google.firebase.components.ComponentRegistrar" />
+117-->[com.google.firebase:firebase-auth:22.1.2] C:\Users\AN5\.gradle\caches\transforms-3\dbb75ec18adde430a392019e32a2ee5e\transformed\jetified-firebase-auth-22.1.2\AndroidManifest.xml:71:17-82
+118            <meta-data
+118-->[com.google.firebase:firebase-messaging:23.2.1] C:\Users\AN5\.gradle\caches\transforms-3\c5195acd4aa75b96924d629c1f66acc7\transformed\jetified-firebase-messaging-23.2.1\AndroidManifest.xml:53:13-55:85
+119                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar"
+119-->[com.google.firebase:firebase-messaging:23.2.1] C:\Users\AN5\.gradle\caches\transforms-3\c5195acd4aa75b96924d629c1f66acc7\transformed\jetified-firebase-messaging-23.2.1\AndroidManifest.xml:54:17-119
+120                android:value="com.google.firebase.components.ComponentRegistrar" />
+120-->[com.google.firebase:firebase-messaging:23.2.1] C:\Users\AN5\.gradle\caches\transforms-3\c5195acd4aa75b96924d629c1f66acc7\transformed\jetified-firebase-messaging-23.2.1\AndroidManifest.xml:55:17-82
+121            <meta-data
+121-->[com.google.firebase:firebase-datatransport:18.1.7] C:\Users\AN5\.gradle\caches\transforms-3\d58997c8536f97b77d1e21cf69965532\transformed\jetified-firebase-datatransport-18.1.7\AndroidManifest.xml:27:13-29:85
+122                android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar"
+122-->[com.google.firebase:firebase-datatransport:18.1.7] C:\Users\AN5\.gradle\caches\transforms-3\d58997c8536f97b77d1e21cf69965532\transformed\jetified-firebase-datatransport-18.1.7\AndroidManifest.xml:28:17-115
+123                android:value="com.google.firebase.components.ComponentRegistrar" />
+123-->[com.google.firebase:firebase-datatransport:18.1.7] C:\Users\AN5\.gradle\caches\transforms-3\d58997c8536f97b77d1e21cf69965532\transformed\jetified-firebase-datatransport-18.1.7\AndroidManifest.xml:29:17-82
+124            <meta-data
+124-->[com.google.firebase:firebase-firestore:24.8.1] C:\Users\AN5\.gradle\caches\transforms-3\fce6e658f7c6b949a3d978665b7a3c56\transformed\jetified-firebase-firestore-24.8.1\AndroidManifest.xml:17:13-19:85
+125                android:name="com.google.firebase.components:com.google.firebase.firestore.FirestoreRegistrar"
+125-->[com.google.firebase:firebase-firestore:24.8.1] C:\Users\AN5\.gradle\caches\transforms-3\fce6e658f7c6b949a3d978665b7a3c56\transformed\jetified-firebase-firestore-24.8.1\AndroidManifest.xml:18:17-111
+126                android:value="com.google.firebase.components.ComponentRegistrar" />
+126-->[com.google.firebase:firebase-firestore:24.8.1] C:\Users\AN5\.gradle\caches\transforms-3\fce6e658f7c6b949a3d978665b7a3c56\transformed\jetified-firebase-firestore-24.8.1\AndroidManifest.xml:19:17-82
+127            <meta-data
+127-->[com.google.firebase:firebase-iid:21.1.0] C:\Users\AN5\.gradle\caches\transforms-3\fe4e6498c586626f6ddc29c39eda6699\transformed\jetified-firebase-iid-21.1.0\AndroidManifest.xml:32:13-34:85
+128                android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
+128-->[com.google.firebase:firebase-iid:21.1.0] C:\Users\AN5\.gradle\caches\transforms-3\fe4e6498c586626f6ddc29c39eda6699\transformed\jetified-firebase-iid-21.1.0\AndroidManifest.xml:33:17-96
+129                android:value="com.google.firebase.components.ComponentRegistrar" />
+129-->[com.google.firebase:firebase-iid:21.1.0] C:\Users\AN5\.gradle\caches\transforms-3\fe4e6498c586626f6ddc29c39eda6699\transformed\jetified-firebase-iid-21.1.0\AndroidManifest.xml:34:17-82
+130            <meta-data
+130-->[com.google.android.gms:play-services-measurement-api:21.3.0] C:\Users\AN5\.gradle\caches\transforms-3\293fb140d1b09c84aaaa94efb618e337\transformed\jetified-play-services-measurement-api-21.3.0\AndroidManifest.xml:31:13-33:85
+131                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
+131-->[com.google.android.gms:play-services-measurement-api:21.3.0] C:\Users\AN5\.gradle\caches\transforms-3\293fb140d1b09c84aaaa94efb618e337\transformed\jetified-play-services-measurement-api-21.3.0\AndroidManifest.xml:32:17-139
+132                android:value="com.google.firebase.components.ComponentRegistrar" />
+132-->[com.google.android.gms:play-services-measurement-api:21.3.0] C:\Users\AN5\.gradle\caches\transforms-3\293fb140d1b09c84aaaa94efb618e337\transformed\jetified-play-services-measurement-api-21.3.0\AndroidManifest.xml:33:17-82
+133            <meta-data
+133-->[com.google.firebase:firebase-installations:17.1.4] C:\Users\AN5\.gradle\caches\transforms-3\1e3f33476b54a4d7ce29a41acb1dc83a\transformed\jetified-firebase-installations-17.1.4\AndroidManifest.xml:15:13-17:85
+134                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
+134-->[com.google.firebase:firebase-installations:17.1.4] C:\Users\AN5\.gradle\caches\transforms-3\1e3f33476b54a4d7ce29a41acb1dc83a\transformed\jetified-firebase-installations-17.1.4\AndroidManifest.xml:16:17-127
+135                android:value="com.google.firebase.components.ComponentRegistrar" />
+135-->[com.google.firebase:firebase-installations:17.1.4] C:\Users\AN5\.gradle\caches\transforms-3\1e3f33476b54a4d7ce29a41acb1dc83a\transformed\jetified-firebase-installations-17.1.4\AndroidManifest.xml:17:17-82
+136        </service>
+137        <service
+137-->[:firebase_messaging] C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:16:9-19:72
+138            android:name="io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingBackgroundService"
+138-->[:firebase_messaging] C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:17:13-107
+139            android:exported="false"
+139-->[:firebase_messaging] C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:18:13-37
+140            android:permission="android.permission.BIND_JOB_SERVICE" />
+140-->[:firebase_messaging] C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:19:13-69
+141        <service
+141-->[:firebase_messaging] C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:20:9-26:19
+142            android:name="io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingService"
+142-->[:firebase_messaging] C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:21:13-97
+143            android:exported="false" >
+143-->[:firebase_messaging] C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:22:13-37
+144            <intent-filter>
+144-->[:firebase_messaging] C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:23:13-25:29
+145                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+145-->[:firebase_messaging] C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:24:17-78
+145-->[:firebase_messaging] C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:24:25-75
+146            </intent-filter>
+147        </service>
+148
+149        <receiver
+149-->[:firebase_messaging] C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:28:9-35:20
+150            android:name="io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingReceiver"
+150-->[:firebase_messaging] C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:29:13-98
+151            android:exported="true"
+151-->[:firebase_messaging] C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:30:13-36
+152            android:permission="com.google.android.c2dm.permission.SEND" >
+152-->[:firebase_messaging] C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:31:13-73
+153            <intent-filter>
+153-->[:firebase_messaging] C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:32:13-34:29
+154                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+154-->[:firebase_messaging] C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:33:17-81
+154-->[:firebase_messaging] C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:33:25-78
+155            </intent-filter>
+156        </receiver>
+157
+158        <provider
+158-->[:firebase_messaging] C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:43:9-47:38
+159            android:name="io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingInitProvider"
+159-->[:firebase_messaging] C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:44:13-102
+160            android:authorities="com.example.flutter_diabetes.flutterfirebasemessaginginitprovider"
+160-->[:firebase_messaging] C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:45:13-88
+161            android:exported="false"
+161-->[:firebase_messaging] C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:46:13-37
+162            android:initOrder="99" />
+162-->[:firebase_messaging] C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:47:13-35
+163
+164        <activity
+164-->[:url_launcher_android] C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:10:9-13:74
+165            android:name="io.flutter.plugins.urllauncher.WebViewActivity"
+165-->[:url_launcher_android] C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-74
+166            android:exported="false"
+166-->[:url_launcher_android] C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:12:13-37
+167            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+167-->[:url_launcher_android] C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:13:13-71
+168        <activity
+168-->[com.google.firebase:firebase-auth:22.1.2] C:\Users\AN5\.gradle\caches\transforms-3\dbb75ec18adde430a392019e32a2ee5e\transformed\jetified-firebase-auth-22.1.2\AndroidManifest.xml:29:9-46:20
+169            android:name="com.google.firebase.auth.internal.GenericIdpActivity"
+169-->[com.google.firebase:firebase-auth:22.1.2] C:\Users\AN5\.gradle\caches\transforms-3\dbb75ec18adde430a392019e32a2ee5e\transformed\jetified-firebase-auth-22.1.2\AndroidManifest.xml:30:13-80
+170            android:excludeFromRecents="true"
+170-->[com.google.firebase:firebase-auth:22.1.2] C:\Users\AN5\.gradle\caches\transforms-3\dbb75ec18adde430a392019e32a2ee5e\transformed\jetified-firebase-auth-22.1.2\AndroidManifest.xml:31:13-46
+171            android:exported="true"
+171-->[com.google.firebase:firebase-auth:22.1.2] C:\Users\AN5\.gradle\caches\transforms-3\dbb75ec18adde430a392019e32a2ee5e\transformed\jetified-firebase-auth-22.1.2\AndroidManifest.xml:32:13-36
+172            android:launchMode="singleTask"
+172-->[com.google.firebase:firebase-auth:22.1.2] C:\Users\AN5\.gradle\caches\transforms-3\dbb75ec18adde430a392019e32a2ee5e\transformed\jetified-firebase-auth-22.1.2\AndroidManifest.xml:33:13-44
+173            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+173-->[com.google.firebase:firebase-auth:22.1.2] C:\Users\AN5\.gradle\caches\transforms-3\dbb75ec18adde430a392019e32a2ee5e\transformed\jetified-firebase-auth-22.1.2\AndroidManifest.xml:34:13-72
+174            <intent-filter>
+174-->[com.google.firebase:firebase-auth:22.1.2] C:\Users\AN5\.gradle\caches\transforms-3\dbb75ec18adde430a392019e32a2ee5e\transformed\jetified-firebase-auth-22.1.2\AndroidManifest.xml:35:13-45:29
+175                <action android:name="android.intent.action.VIEW" />
+175-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:9:9-61
+175-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:9:17-58
+176
+177                <category android:name="android.intent.category.DEFAULT" />
+177-->[com.google.firebase:firebase-auth:22.1.2] C:\Users\AN5\.gradle\caches\transforms-3\dbb75ec18adde430a392019e32a2ee5e\transformed\jetified-firebase-auth-22.1.2\AndroidManifest.xml:38:17-76
+177-->[com.google.firebase:firebase-auth:22.1.2] C:\Users\AN5\.gradle\caches\transforms-3\dbb75ec18adde430a392019e32a2ee5e\transformed\jetified-firebase-auth-22.1.2\AndroidManifest.xml:38:27-73
+178                <category android:name="android.intent.category.BROWSABLE" />
+178-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:10:9-70
+178-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:10:19-67
+179
+180                <data
+180-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:11:9-40
+181                    android:host="firebase.auth"
+182                    android:path="/"
+183                    android:scheme="genericidp" />
+183-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:11:15-37
+184            </intent-filter>
+185        </activity>
+186        <activity
+186-->[com.google.firebase:firebase-auth:22.1.2] C:\Users\AN5\.gradle\caches\transforms-3\dbb75ec18adde430a392019e32a2ee5e\transformed\jetified-firebase-auth-22.1.2\AndroidManifest.xml:47:9-64:20
+187            android:name="com.google.firebase.auth.internal.RecaptchaActivity"
+187-->[com.google.firebase:firebase-auth:22.1.2] C:\Users\AN5\.gradle\caches\transforms-3\dbb75ec18adde430a392019e32a2ee5e\transformed\jetified-firebase-auth-22.1.2\AndroidManifest.xml:48:13-79
+188            android:excludeFromRecents="true"
+188-->[com.google.firebase:firebase-auth:22.1.2] C:\Users\AN5\.gradle\caches\transforms-3\dbb75ec18adde430a392019e32a2ee5e\transformed\jetified-firebase-auth-22.1.2\AndroidManifest.xml:49:13-46
+189            android:exported="true"
+189-->[com.google.firebase:firebase-auth:22.1.2] C:\Users\AN5\.gradle\caches\transforms-3\dbb75ec18adde430a392019e32a2ee5e\transformed\jetified-firebase-auth-22.1.2\AndroidManifest.xml:50:13-36
+190            android:launchMode="singleTask"
+190-->[com.google.firebase:firebase-auth:22.1.2] C:\Users\AN5\.gradle\caches\transforms-3\dbb75ec18adde430a392019e32a2ee5e\transformed\jetified-firebase-auth-22.1.2\AndroidManifest.xml:51:13-44
+191            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+191-->[com.google.firebase:firebase-auth:22.1.2] C:\Users\AN5\.gradle\caches\transforms-3\dbb75ec18adde430a392019e32a2ee5e\transformed\jetified-firebase-auth-22.1.2\AndroidManifest.xml:52:13-72
+192            <intent-filter>
+192-->[com.google.firebase:firebase-auth:22.1.2] C:\Users\AN5\.gradle\caches\transforms-3\dbb75ec18adde430a392019e32a2ee5e\transformed\jetified-firebase-auth-22.1.2\AndroidManifest.xml:53:13-63:29
+193                <action android:name="android.intent.action.VIEW" />
+193-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:9:9-61
+193-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:9:17-58
+194
+195                <category android:name="android.intent.category.DEFAULT" />
+195-->[com.google.firebase:firebase-auth:22.1.2] C:\Users\AN5\.gradle\caches\transforms-3\dbb75ec18adde430a392019e32a2ee5e\transformed\jetified-firebase-auth-22.1.2\AndroidManifest.xml:38:17-76
+195-->[com.google.firebase:firebase-auth:22.1.2] C:\Users\AN5\.gradle\caches\transforms-3\dbb75ec18adde430a392019e32a2ee5e\transformed\jetified-firebase-auth-22.1.2\AndroidManifest.xml:38:27-73
+196                <category android:name="android.intent.category.BROWSABLE" />
+196-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:10:9-70
+196-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:10:19-67
+197
+198                <data
+198-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:11:9-40
+199                    android:host="firebase.auth"
+200                    android:path="/"
+201                    android:scheme="recaptcha" />
+201-->C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\AndroidManifest.xml:11:15-37
+202            </intent-filter>
+203        </activity>
+204
+205        <uses-library
+205-->[androidx.window:window:1.0.0-beta04] C:\Users\AN5\.gradle\caches\transforms-3\82bc019d4fb57611b6701e4aa6397281\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:25:9-27:40
+206            android:name="androidx.window.extensions"
+206-->[androidx.window:window:1.0.0-beta04] C:\Users\AN5\.gradle\caches\transforms-3\82bc019d4fb57611b6701e4aa6397281\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:26:13-54
+207            android:required="false" />
+207-->[androidx.window:window:1.0.0-beta04] C:\Users\AN5\.gradle\caches\transforms-3\82bc019d4fb57611b6701e4aa6397281\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:27:13-37
+208        <uses-library
+208-->[androidx.window:window:1.0.0-beta04] C:\Users\AN5\.gradle\caches\transforms-3\82bc019d4fb57611b6701e4aa6397281\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:28:9-30:40
+209            android:name="androidx.window.sidecar"
+209-->[androidx.window:window:1.0.0-beta04] C:\Users\AN5\.gradle\caches\transforms-3\82bc019d4fb57611b6701e4aa6397281\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:29:13-51
+210            android:required="false" />
+210-->[androidx.window:window:1.0.0-beta04] C:\Users\AN5\.gradle\caches\transforms-3\82bc019d4fb57611b6701e4aa6397281\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:30:13-37
+211
+212        <receiver
+212-->[com.google.firebase:firebase-messaging:23.2.1] C:\Users\AN5\.gradle\caches\transforms-3\c5195acd4aa75b96924d629c1f66acc7\transformed\jetified-firebase-messaging-23.2.1\AndroidManifest.xml:29:9-36:20
+213            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+213-->[com.google.firebase:firebase-messaging:23.2.1] C:\Users\AN5\.gradle\caches\transforms-3\c5195acd4aa75b96924d629c1f66acc7\transformed\jetified-firebase-messaging-23.2.1\AndroidManifest.xml:30:13-78
+214            android:exported="true"
+214-->[com.google.firebase:firebase-messaging:23.2.1] C:\Users\AN5\.gradle\caches\transforms-3\c5195acd4aa75b96924d629c1f66acc7\transformed\jetified-firebase-messaging-23.2.1\AndroidManifest.xml:31:13-36
+215            android:permission="com.google.android.c2dm.permission.SEND" >
+215-->[com.google.firebase:firebase-messaging:23.2.1] C:\Users\AN5\.gradle\caches\transforms-3\c5195acd4aa75b96924d629c1f66acc7\transformed\jetified-firebase-messaging-23.2.1\AndroidManifest.xml:32:13-73
+216            <intent-filter>
+216-->[:firebase_messaging] C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:32:13-34:29
+217                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+217-->[:firebase_messaging] C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:33:17-81
+217-->[:firebase_messaging] C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:33:25-78
+218            </intent-filter>
+219        </receiver>
+220        <!--
+221             FirebaseMessagingService performs security checks at runtime,
+222             but set to not exported to explicitly avoid allowing another app to call it.
+223        -->
+224        <service
+224-->[com.google.firebase:firebase-messaging:23.2.1] C:\Users\AN5\.gradle\caches\transforms-3\c5195acd4aa75b96924d629c1f66acc7\transformed\jetified-firebase-messaging-23.2.1\AndroidManifest.xml:42:9-49:19
+225            android:name="com.google.firebase.messaging.FirebaseMessagingService"
+225-->[com.google.firebase:firebase-messaging:23.2.1] C:\Users\AN5\.gradle\caches\transforms-3\c5195acd4aa75b96924d629c1f66acc7\transformed\jetified-firebase-messaging-23.2.1\AndroidManifest.xml:43:13-82
+226            android:directBootAware="true"
+226-->[com.google.firebase:firebase-messaging:23.2.1] C:\Users\AN5\.gradle\caches\transforms-3\c5195acd4aa75b96924d629c1f66acc7\transformed\jetified-firebase-messaging-23.2.1\AndroidManifest.xml:44:13-43
+227            android:exported="false" >
+227-->[com.google.firebase:firebase-messaging:23.2.1] C:\Users\AN5\.gradle\caches\transforms-3\c5195acd4aa75b96924d629c1f66acc7\transformed\jetified-firebase-messaging-23.2.1\AndroidManifest.xml:45:13-37
+228            <intent-filter android:priority="-500" >
+228-->[:firebase_messaging] C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:23:13-25:29
+229                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+229-->[:firebase_messaging] C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:24:17-78
+229-->[:firebase_messaging] C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:24:25-75
+230            </intent-filter>
+231        </service>
+232        <service
+232-->[com.google.android.datatransport:transport-backend-cct:3.1.8] C:\Users\AN5\.gradle\caches\transforms-3\0a2140fe585c7c064d6d4f7867cbad81\transformed\jetified-transport-backend-cct-3.1.8\AndroidManifest.xml:28:9-34:19
+233            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
+233-->[com.google.android.datatransport:transport-backend-cct:3.1.8] C:\Users\AN5\.gradle\caches\transforms-3\0a2140fe585c7c064d6d4f7867cbad81\transformed\jetified-transport-backend-cct-3.1.8\AndroidManifest.xml:29:13-103
+234            android:exported="false" >
+234-->[com.google.android.datatransport:transport-backend-cct:3.1.8] C:\Users\AN5\.gradle\caches\transforms-3\0a2140fe585c7c064d6d4f7867cbad81\transformed\jetified-transport-backend-cct-3.1.8\AndroidManifest.xml:30:13-37
+235            <meta-data
+235-->[com.google.android.datatransport:transport-backend-cct:3.1.8] C:\Users\AN5\.gradle\caches\transforms-3\0a2140fe585c7c064d6d4f7867cbad81\transformed\jetified-transport-backend-cct-3.1.8\AndroidManifest.xml:31:13-33:39
+236                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
+236-->[com.google.android.datatransport:transport-backend-cct:3.1.8] C:\Users\AN5\.gradle\caches\transforms-3\0a2140fe585c7c064d6d4f7867cbad81\transformed\jetified-transport-backend-cct-3.1.8\AndroidManifest.xml:32:17-94
+237                android:value="cct" />
+237-->[com.google.android.datatransport:transport-backend-cct:3.1.8] C:\Users\AN5\.gradle\caches\transforms-3\0a2140fe585c7c064d6d4f7867cbad81\transformed\jetified-transport-backend-cct-3.1.8\AndroidManifest.xml:33:17-36
+238        </service>
+239        <service
+239-->[com.google.android.datatransport:transport-runtime:3.1.8] C:\Users\AN5\.gradle\caches\transforms-3\4749ca04a74d4346ecc83b317e09450d\transformed\jetified-transport-runtime-3.1.8\AndroidManifest.xml:26:9-30:19
+240            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
+240-->[com.google.android.datatransport:transport-runtime:3.1.8] C:\Users\AN5\.gradle\caches\transforms-3\4749ca04a74d4346ecc83b317e09450d\transformed\jetified-transport-runtime-3.1.8\AndroidManifest.xml:27:13-117
+241            android:exported="false"
+241-->[com.google.android.datatransport:transport-runtime:3.1.8] C:\Users\AN5\.gradle\caches\transforms-3\4749ca04a74d4346ecc83b317e09450d\transformed\jetified-transport-runtime-3.1.8\AndroidManifest.xml:28:13-37
+242            android:permission="android.permission.BIND_JOB_SERVICE" >
+242-->[com.google.android.datatransport:transport-runtime:3.1.8] C:\Users\AN5\.gradle\caches\transforms-3\4749ca04a74d4346ecc83b317e09450d\transformed\jetified-transport-runtime-3.1.8\AndroidManifest.xml:29:13-69
+243        </service>
+244
+245        <receiver
+245-->[com.google.android.datatransport:transport-runtime:3.1.8] C:\Users\AN5\.gradle\caches\transforms-3\4749ca04a74d4346ecc83b317e09450d\transformed\jetified-transport-runtime-3.1.8\AndroidManifest.xml:32:9-34:40
+246            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+246-->[com.google.android.datatransport:transport-runtime:3.1.8] C:\Users\AN5\.gradle\caches\transforms-3\4749ca04a74d4346ecc83b317e09450d\transformed\jetified-transport-runtime-3.1.8\AndroidManifest.xml:33:13-132
+247            android:exported="false" />
+247-->[com.google.android.datatransport:transport-runtime:3.1.8] C:\Users\AN5\.gradle\caches\transforms-3\4749ca04a74d4346ecc83b317e09450d\transformed\jetified-transport-runtime-3.1.8\AndroidManifest.xml:34:13-37
+248
+249        <provider
+249-->[com.google.firebase:firebase-common:20.3.3] C:\Users\AN5\.gradle\caches\transforms-3\82f1e55ebc90e24a1a823bb0809aa68c\transformed\jetified-firebase-common-20.3.3\AndroidManifest.xml:25:9-30:39
+250            android:name="com.google.firebase.provider.FirebaseInitProvider"
+250-->[com.google.firebase:firebase-common:20.3.3] C:\Users\AN5\.gradle\caches\transforms-3\82f1e55ebc90e24a1a823bb0809aa68c\transformed\jetified-firebase-common-20.3.3\AndroidManifest.xml:26:13-77
+251            android:authorities="com.example.flutter_diabetes.firebaseinitprovider"
+251-->[com.google.firebase:firebase-common:20.3.3] C:\Users\AN5\.gradle\caches\transforms-3\82f1e55ebc90e24a1a823bb0809aa68c\transformed\jetified-firebase-common-20.3.3\AndroidManifest.xml:27:13-72
+252            android:directBootAware="true"
+252-->[com.google.firebase:firebase-common:20.3.3] C:\Users\AN5\.gradle\caches\transforms-3\82f1e55ebc90e24a1a823bb0809aa68c\transformed\jetified-firebase-common-20.3.3\AndroidManifest.xml:28:13-43
+253            android:exported="false"
+253-->[com.google.firebase:firebase-common:20.3.3] C:\Users\AN5\.gradle\caches\transforms-3\82f1e55ebc90e24a1a823bb0809aa68c\transformed\jetified-firebase-common-20.3.3\AndroidManifest.xml:29:13-37
+254            android:initOrder="100" />
+254-->[com.google.firebase:firebase-common:20.3.3] C:\Users\AN5\.gradle\caches\transforms-3\82f1e55ebc90e24a1a823bb0809aa68c\transformed\jetified-firebase-common-20.3.3\AndroidManifest.xml:30:13-36
+255
+256        <receiver
+256-->[com.google.android.gms:play-services-measurement:21.3.0] C:\Users\AN5\.gradle\caches\transforms-3\ea7c2d2f0c692b077dc376ded525a4e3\transformed\jetified-play-services-measurement-21.3.0\AndroidManifest.xml:29:9-33:20
+257            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+257-->[com.google.android.gms:play-services-measurement:21.3.0] C:\Users\AN5\.gradle\caches\transforms-3\ea7c2d2f0c692b077dc376ded525a4e3\transformed\jetified-play-services-measurement-21.3.0\AndroidManifest.xml:30:13-85
+258            android:enabled="true"
+258-->[com.google.android.gms:play-services-measurement:21.3.0] C:\Users\AN5\.gradle\caches\transforms-3\ea7c2d2f0c692b077dc376ded525a4e3\transformed\jetified-play-services-measurement-21.3.0\AndroidManifest.xml:31:13-35
+259            android:exported="false" >
+259-->[com.google.android.gms:play-services-measurement:21.3.0] C:\Users\AN5\.gradle\caches\transforms-3\ea7c2d2f0c692b077dc376ded525a4e3\transformed\jetified-play-services-measurement-21.3.0\AndroidManifest.xml:32:13-37
+260        </receiver>
+261
+262        <service
+262-->[com.google.android.gms:play-services-measurement:21.3.0] C:\Users\AN5\.gradle\caches\transforms-3\ea7c2d2f0c692b077dc376ded525a4e3\transformed\jetified-play-services-measurement-21.3.0\AndroidManifest.xml:35:9-38:40
+263            android:name="com.google.android.gms.measurement.AppMeasurementService"
+263-->[com.google.android.gms:play-services-measurement:21.3.0] C:\Users\AN5\.gradle\caches\transforms-3\ea7c2d2f0c692b077dc376ded525a4e3\transformed\jetified-play-services-measurement-21.3.0\AndroidManifest.xml:36:13-84
+264            android:enabled="true"
+264-->[com.google.android.gms:play-services-measurement:21.3.0] C:\Users\AN5\.gradle\caches\transforms-3\ea7c2d2f0c692b077dc376ded525a4e3\transformed\jetified-play-services-measurement-21.3.0\AndroidManifest.xml:37:13-35
+265            android:exported="false" />
+265-->[com.google.android.gms:play-services-measurement:21.3.0] C:\Users\AN5\.gradle\caches\transforms-3\ea7c2d2f0c692b077dc376ded525a4e3\transformed\jetified-play-services-measurement-21.3.0\AndroidManifest.xml:38:13-37
+266        <service
+266-->[com.google.android.gms:play-services-measurement:21.3.0] C:\Users\AN5\.gradle\caches\transforms-3\ea7c2d2f0c692b077dc376ded525a4e3\transformed\jetified-play-services-measurement-21.3.0\AndroidManifest.xml:39:9-43:72
+267            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
+267-->[com.google.android.gms:play-services-measurement:21.3.0] C:\Users\AN5\.gradle\caches\transforms-3\ea7c2d2f0c692b077dc376ded525a4e3\transformed\jetified-play-services-measurement-21.3.0\AndroidManifest.xml:40:13-87
+268            android:enabled="true"
+268-->[com.google.android.gms:play-services-measurement:21.3.0] C:\Users\AN5\.gradle\caches\transforms-3\ea7c2d2f0c692b077dc376ded525a4e3\transformed\jetified-play-services-measurement-21.3.0\AndroidManifest.xml:41:13-35
+269            android:exported="false"
+269-->[com.google.android.gms:play-services-measurement:21.3.0] C:\Users\AN5\.gradle\caches\transforms-3\ea7c2d2f0c692b077dc376ded525a4e3\transformed\jetified-play-services-measurement-21.3.0\AndroidManifest.xml:42:13-37
+270            android:permission="android.permission.BIND_JOB_SERVICE" />
+270-->[com.google.android.gms:play-services-measurement:21.3.0] C:\Users\AN5\.gradle\caches\transforms-3\ea7c2d2f0c692b077dc376ded525a4e3\transformed\jetified-play-services-measurement-21.3.0\AndroidManifest.xml:43:13-69
+271
+272        <activity
+272-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\AN5\.gradle\caches\transforms-3\5270e73459016f11d26f528f10d64eae\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:20:9-22:45
+273            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+273-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\AN5\.gradle\caches\transforms-3\5270e73459016f11d26f528f10d64eae\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:20:19-85
+274            android:exported="false"
+274-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\AN5\.gradle\caches\transforms-3\5270e73459016f11d26f528f10d64eae\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:22:19-43
+275            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+275-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\AN5\.gradle\caches\transforms-3\5270e73459016f11d26f528f10d64eae\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:21:19-78
+276
+277        <meta-data
+277-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\AN5\.gradle\caches\transforms-3\6d65d27954f43adfb4f203eee921460d\transformed\jetified-play-services-basement-18.1.0\AndroidManifest.xml:21:9-23:69
+278            android:name="com.google.android.gms.version"
+278-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\AN5\.gradle\caches\transforms-3\6d65d27954f43adfb4f203eee921460d\transformed\jetified-play-services-basement-18.1.0\AndroidManifest.xml:22:13-58
+279            android:value="@integer/google_play_services_version" />
+279-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\AN5\.gradle\caches\transforms-3\6d65d27954f43adfb4f203eee921460d\transformed\jetified-play-services-basement-18.1.0\AndroidManifest.xml:23:13-66
+280    </application>
+281
+282</manifest>

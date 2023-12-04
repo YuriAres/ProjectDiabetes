@@ -1,0 +1,13 @@
+com.dexterous.flutterlocalnotifications.flutter_local_notifications-media-1.1.0-0 C:\Users\AN5\.gradle\caches\transforms-3\1ceab95bc796c3b0c47a78ebdd2397dd\transformed\media-1.1.0\res
+com.dexterous.flutterlocalnotifications.flutter_local_notifications-core-1.6.0-1 C:\Users\AN5\.gradle\caches\transforms-3\791f0b4d1a029b6abf5f93fb4c62818b\transformed\core-1.6.0\res
+com.dexterous.flutterlocalnotifications.flutter_local_notifications-jetified-window-1.0.0-beta04-2 C:\Users\AN5\.gradle\caches\transforms-3\82bc019d4fb57611b6701e4aa6397281\transformed\jetified-window-1.0.0-beta04\res
+com.dexterous.flutterlocalnotifications.flutter_local_notifications-jetified-window-java-1.0.0-beta04-3 C:\Users\AN5\.gradle\caches\transforms-3\b10e9e7690980c8f67a40933106790db\transformed\jetified-window-java-1.0.0-beta04\res
+com.dexterous.flutterlocalnotifications.flutter_local_notifications-jetified-annotation-experimental-1.1.0-4 C:\Users\AN5\.gradle\caches\transforms-3\d04c6b892c56f167f7417995e52fc6f8\transformed\jetified-annotation-experimental-1.1.0\res
+com.dexterous.flutterlocalnotifications.flutter_local_notifications-main-5 C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_local_notifications-16.1.0\android\src\main\res
+com.dexterous.flutterlocalnotifications.flutter_local_notifications-release-6 C:\Users\AN5\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_local_notifications-16.1.0\android\src\release\res
+com.dexterous.flutterlocalnotifications.flutter_local_notifications-pngs-7 C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\flutter_local_notifications\generated\res\pngs\release
+com.dexterous.flutterlocalnotifications.flutter_local_notifications-resValues-8 C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\flutter_local_notifications\generated\res\resValues\release
+com.dexterous.flutterlocalnotifications.flutter_local_notifications-rs-9 C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\flutter_local_notifications\generated\res\rs\release
+com.dexterous.flutterlocalnotifications.flutter_local_notifications-mergeReleaseResources-10 C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\flutter_local_notifications\intermediates\incremental\release\mergeReleaseResources\merged.dir
+com.dexterous.flutterlocalnotifications.flutter_local_notifications-mergeReleaseResources-11 C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\flutter_local_notifications\intermediates\incremental\release\mergeReleaseResources\stripped.dir
+com.dexterous.flutterlocalnotifications.flutter_local_notifications-merged_res-12 C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\flutter_local_notifications\intermediates\merged_res\release

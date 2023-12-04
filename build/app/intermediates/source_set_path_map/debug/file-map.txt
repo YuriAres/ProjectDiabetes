@@ -1,0 +1,29 @@
+com.example.flutter_diabetes.app-media-1.1.0-0 C:\Users\AN5\.gradle\caches\transforms-3\1ceab95bc796c3b0c47a78ebdd2397dd\transformed\media-1.1.0\res
+com.example.flutter_diabetes.app-jetified-play-services-base-18.0.1-1 C:\Users\AN5\.gradle\caches\transforms-3\5270e73459016f11d26f528f10d64eae\transformed\jetified-play-services-base-18.0.1\res
+com.example.flutter_diabetes.app-jetified-play-services-basement-18.1.0-2 C:\Users\AN5\.gradle\caches\transforms-3\6d65d27954f43adfb4f203eee921460d\transformed\jetified-play-services-basement-18.1.0\res
+com.example.flutter_diabetes.app-localbroadcastmanager-1.1.0-3 C:\Users\AN5\.gradle\caches\transforms-3\6e00e902b2a7d156839fb5a9bff1c27a\transformed\localbroadcastmanager-1.1.0\res
+com.example.flutter_diabetes.app-jetified-window-1.0.0-beta04-4 C:\Users\AN5\.gradle\caches\transforms-3\82bc019d4fb57611b6701e4aa6397281\transformed\jetified-window-1.0.0-beta04\res
+com.example.flutter_diabetes.app-jetified-firebase-common-20.3.3-5 C:\Users\AN5\.gradle\caches\transforms-3\82f1e55ebc90e24a1a823bb0809aa68c\transformed\jetified-firebase-common-20.3.3\res
+com.example.flutter_diabetes.app-jetified-window-java-1.0.0-beta04-6 C:\Users\AN5\.gradle\caches\transforms-3\b10e9e7690980c8f67a40933106790db\transformed\jetified-window-java-1.0.0-beta04\res
+com.example.flutter_diabetes.app-browser-1.5.0-7 C:\Users\AN5\.gradle\caches\transforms-3\c228292df02ff27e3d4bcbbc7bb1a6bc\transformed\browser-1.5.0\res
+com.example.flutter_diabetes.app-jetified-firebase-messaging-23.2.1-8 C:\Users\AN5\.gradle\caches\transforms-3\c5195acd4aa75b96924d629c1f66acc7\transformed\jetified-firebase-messaging-23.2.1\res
+com.example.flutter_diabetes.app-core-1.10.1-9 C:\Users\AN5\.gradle\caches\transforms-3\eb83a016fb9588fd8d5a4058baf52b42\transformed\core-1.10.1\res
+com.example.flutter_diabetes.app-lifecycle-runtime-2.3.1-10 C:\Users\AN5\.gradle\caches\transforms-3\ec05da530c44859749db9421cf908c46\transformed\lifecycle-runtime-2.3.1\res
+com.example.flutter_diabetes.app-jetified-annotation-experimental-1.3.0-11 C:\Users\AN5\.gradle\caches\transforms-3\fc608a622f404dd2136b2ebe78980138\transformed\jetified-annotation-experimental-1.3.0\res
+com.example.flutter_diabetes.app-debug-12 C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\debug\res
+com.example.flutter_diabetes.app-main-13 C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\android\app\src\main\res
+com.example.flutter_diabetes.app-google-services-14 C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\app\generated\res\google-services\debug
+com.example.flutter_diabetes.app-pngs-15 C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\app\generated\res\pngs\debug
+com.example.flutter_diabetes.app-resValues-16 C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\app\generated\res\resValues\debug
+com.example.flutter_diabetes.app-rs-17 C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\app\generated\res\rs\debug
+com.example.flutter_diabetes.app-mergeDebugResources-18 C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\app\intermediates\incremental\debug\mergeDebugResources\merged.dir
+com.example.flutter_diabetes.app-mergeDebugResources-19 C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\app\intermediates\incremental\debug\mergeDebugResources\stripped.dir
+com.example.flutter_diabetes.app-merged_res-20 C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\app\intermediates\merged_res\debug
+com.example.flutter_diabetes.app-packaged_res-21 C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\cloud_firestore\intermediates\packaged_res\debug
+com.example.flutter_diabetes.app-packaged_res-22 C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\firebase_auth\intermediates\packaged_res\debug
+com.example.flutter_diabetes.app-packaged_res-23 C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\firebase_core\intermediates\packaged_res\debug
+com.example.flutter_diabetes.app-packaged_res-24 C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\firebase_messaging\intermediates\packaged_res\debug
+com.example.flutter_diabetes.app-packaged_res-25 C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\flutter_local_notifications\intermediates\packaged_res\debug
+com.example.flutter_diabetes.app-packaged_res-26 C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\flutter_native_timezone_updated_gradle\intermediates\packaged_res\debug
+com.example.flutter_diabetes.app-packaged_res-27 C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\path_provider_android\intermediates\packaged_res\debug
+com.example.flutter_diabetes.app-packaged_res-28 C:\Users\AN5\Desktop\Flutter Project\flutter_diabetes\build\url_launcher_android\intermediates\packaged_res\debug

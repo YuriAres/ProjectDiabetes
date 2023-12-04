@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "com.whelksoft.flutter_native_timezone.flutter_native_timezone_updated_gradle-merged_res-10:/layout-v21/notification_template_custom_big.xml",
+        "source": "com.whelksoft.flutter_native_timezone.flutter_native_timezone_updated_gradle-core-1.6.0-0:/layout-v21/notification_template_custom_big.xml"
+    },
+    {
+        "merged": "com.whelksoft.flutter_native_timezone.flutter_native_timezone_updated_gradle-merged_res-10:/layout-v21/notification_template_icon_group.xml",
+        "source": "com.whelksoft.flutter_native_timezone.flutter_native_timezone_updated_gradle-core-1.6.0-0:/layout-v21/notification_template_icon_group.xml"
+    },
+    {
+        "merged": "com.whelksoft.flutter_native_timezone.flutter_native_timezone_updated_gradle-merged_res-10:/layout-v21/notification_action_tombstone.xml",
+        "source": "com.whelksoft.flutter_native_timezone.flutter_native_timezone_updated_gradle-core-1.6.0-0:/layout-v21/notification_action_tombstone.xml"
+    },
+    {
+        "merged": "com.whelksoft.flutter_native_timezone.flutter_native_timezone_updated_gradle-merged_res-10:/layout-v21/notification_action.xml",
+        "source": "com.whelksoft.flutter_native_timezone.flutter_native_timezone_updated_gradle-core-1.6.0-0:/layout-v21/notification_action.xml"
+    }
+]
